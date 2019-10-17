@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: eval() considered useful: code generation in JavaScript</title>
+	<atom:link href="https://blog.berniesumption.com/software/eval-considered-useful/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.berniesumption.com/software/eval-considered-useful/</link>
+	<description>Various writings on software development and photography</description>
+	<lastBuildDate>Fri, 10 Aug 2018 08:19:11 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.11</generator>
+	<item>
+		<title>By: Apostrophe OCD</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-185</link>
+		<dc:creator><![CDATA[Apostrophe OCD]]></dc:creator>
+		<pubDate>Sun, 20 May 2012 03:19:19 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-185</guid>
+		<description><![CDATA[There you wrote about an old but classicle article introducing many useful optimixations though it is age is showing.  Even eval() could not parse it.]]></description>
+		<content:encoded><![CDATA[<p>There you wrote about an old but classicle article introducing many useful optimixations though it is age is showing.  Even eval() could not parse it.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Dave</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-184</link>
+		<dc:creator><![CDATA[Dave]]></dc:creator>
+		<pubDate>Fri, 17 Jun 2011 01:26:39 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-184</guid>
+		<description><![CDATA[I only jumped on it because it was covered in a class I took once upon a time, and because in interviews I have been asked things like &quot;what is the best way to debug....&quot;  I didn&#039;t know - never made that mistake!]]></description>
+		<content:encoded><![CDATA[<p>I only jumped on it because it was covered in a class I took once upon a time, and because in interviews I have been asked things like &#8220;what is the best way to debug&#8230;.&#8221;  I didn&#8217;t know &#8211; never made that mistake!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-183</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Thu, 16 Jun 2011 23:01:58 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-183</guid>
+		<description><![CDATA[Sure, I don&#039;t literally ask &quot;what is eval(), and why shouldn&#039;t you use it&quot;, the question is more likely to be &quot;what does eval do&quot;, followed by &quot;what is it useful for&quot;. Warning bells ring if I get an example that can be easily done without eval().]]></description>
+		<content:encoded><![CDATA[<p>Sure, I don&#8217;t literally ask &#8220;what is eval(), and why shouldn&#8217;t you use it&#8221;, the question is more likely to be &#8220;what does eval do&#8221;, followed by &#8220;what is it useful for&#8221;. Warning bells ring if I get an example that can be easily done without eval().</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Dave</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-182</link>
+		<dc:creator><![CDATA[Dave]]></dc:creator>
+		<pubDate>Thu, 16 Jun 2011 20:39:48 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-182</guid>
+		<description><![CDATA[&quot;what is eval(), and why shouldn&#039;t you use it&quot; is a terrible question for an interview - it is counter-indicative, ie, a candidate who has used it extensively is more likely to know the answer than an candidate who read once that it is evil, found alternative methods, and forgot all about eval().  The second candidate is the better choice, but is unlikely to know the answer because they have never encountered the problem.
+
+So, what is an example of a counter-indicative question, and why shouldn&#039;t you use it?]]></description>
+		<content:encoded><![CDATA[<p>&#8220;what is eval(), and why shouldn&#8217;t you use it&#8221; is a terrible question for an interview &#8211; it is counter-indicative, ie, a candidate who has used it extensively is more likely to know the answer than an candidate who read once that it is evil, found alternative methods, and forgot all about eval().  The second candidate is the better choice, but is unlikely to know the answer because they have never encountered the problem.</p>
+<p>So, what is an example of a counter-indicative question, and why shouldn&#8217;t you use it?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Rick Renfrow</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-181</link>
+		<dc:creator><![CDATA[Rick Renfrow]]></dc:creator>
+		<pubDate>Sat, 21 Jul 2007 07:05:26 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-181</guid>
+		<description><![CDATA[I&#039;ve written a very compact client-side HTML generation library (under 4k)... and it very heavily relies upon a single eval() statement to define hundreds of functions named after the HTML tag/attributes that they implement.  It is very fast, and in benchmark tests, it beats both DOM and innerHTML methods of creating large constructs.  In the website referenced, I&#039;ve provided an online HTML() Construction Kit tool that allows you see how clientlets get rendered.
+
+
+
+In the example, the 115 byte expression...
+
+
+
+[[o=&#039;O&#039;,x=&#039;X&#039;,o].TD(),[x,x,x].TD(STYLE(background_color(&#039;red&#039;))),[x,o,o].TD()].TR().TABLE(BORDER(1)+CELLPADDING(5))
+
+
+
+...renders 255 bytes of flawless HTML...
+
+
+
+&#060;table border=&#034;1&#034; cellpadding=&#034;5&#034;&#062;&#060;tr&#062;&#060;td&#062;O&#060;/td&#062;&#060;td&#062;X&#060;/td&#062;&#060;td&#062;O&#060;/td&#062;&#060;/tr&#062;&#060;tr&#062;&#060;td style=&#034; background-color: red;&#034;&#062;X&#060;/td&#062;&#060;td style=&#034; background-color: red;&#034;&#062;X&#060;/td&#062;&#060;td style=&#034; background-color: red;&#034;&#062;X&#060;/td&#062;&#060;/tr&#062;&#060;tr&#062;&#060;td&#062;X&#060;/td&#062;&#060;td&#062;O&#060;/td&#062;&#060;td&#062;O&#060;/td&#062;&#060;/tr&#062;&#060;/table&#062;
+
+
+
+In fact, this library is the basis of a pop-up calendar (a date selector) implemented in well under 5k.]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;ve written a very compact client-side HTML generation library (under 4k)&#8230; and it very heavily relies upon a single eval() statement to define hundreds of functions named after the HTML tag/attributes that they implement.  It is very fast, and in benchmark tests, it beats both DOM and innerHTML methods of creating large constructs.  In the website referenced, I&#8217;ve provided an online HTML() Construction Kit tool that allows you see how clientlets get rendered.</p>
+<p>In the example, the 115 byte expression&#8230;</p>
+<p>[[o=&#8217;O&#8217;,x=&#8217;X&#8217;,o].TD(),[x,x,x].TD(STYLE(background_color(&#8216;red&#8217;))),[x,o,o].TD()].TR().TABLE(BORDER(1)+CELLPADDING(5))</p>
+<p>&#8230;renders 255 bytes of flawless HTML&#8230;</p>
+<p>&lt;table border=&quot;1&quot; cellpadding=&quot;5&quot;&gt;&lt;tr&gt;&lt;td&gt;O&lt;/td&gt;&lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;td style=&quot; background-color: red;&quot;&gt;X&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;X&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;td&gt;O&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</p>
+<p>In fact, this library is the basis of a pop-up calendar (a date selector) implemented in well under 5k.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Tim</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-180</link>
+		<dc:creator><![CDATA[Tim]]></dc:creator>
+		<pubDate>Sat, 14 Apr 2007 14:20:08 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-180</guid>
+		<description><![CDATA[Awww go ahead and sneak the laptop into the luggage... you gotta have somewhere to download the digital pics, you know... ;)]]></description>
+		<content:encoded><![CDATA[<p>Awww go ahead and sneak the laptop into the luggage&#8230; you gotta have somewhere to download the digital pics, you know&#8230; ;)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-179</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Thu, 12 Apr 2007 12:16:03 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-179</guid>
+		<description><![CDATA[Indeed. If the data set is large enough, one could present standard deviations, or some more user friendly measure of variance, to indicate if an operation is generally fast but seems to really kill some browsers / configurations.
+
+
+
+I had another look at TWiki, it looks suitable for creating a site where people can submit code into a standard test suite, but not suitable for collecting the results from visitors. We&#039;d probably need a custom web app for that.
+
+
+
+I &lt;i&gt;am&lt;/i&gt; looking for an excuse to learn Ruby on Rails, but there&#039;s so little time...
+
+
+
+The next big block of time I have free is my Honeymoon in 3 months, and I&#039;d be dead for even suggesting that I bring the laptop ;o)]]></description>
+		<content:encoded><![CDATA[<p>Indeed. If the data set is large enough, one could present standard deviations, or some more user friendly measure of variance, to indicate if an operation is generally fast but seems to really kill some browsers / configurations.</p>
+<p>I had another look at TWiki, it looks suitable for creating a site where people can submit code into a standard test suite, but not suitable for collecting the results from visitors. We&#8217;d probably need a custom web app for that.</p>
+<p>I <i>am</i> looking for an excuse to learn Ruby on Rails, but there&#8217;s so little time&#8230;</p>
+<p>The next big block of time I have free is my Honeymoon in 3 months, and I&#8217;d be dead for even suggesting that I bring the laptop ;o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Tim</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-178</link>
+		<dc:creator><![CDATA[Tim]]></dc:creator>
+		<pubDate>Thu, 12 Apr 2007 11:43:07 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-178</guid>
+		<description><![CDATA[It would be challenging to account for the variables, like cpu speed, memory size, etc.  Easier to account for the browser being used... But if you got enough people to do it, in the end statistics would win out and you could derive a statistically valid cost of specific operations... in the end you wouldn&#039;t be able to say &quot;this is the cost to YOU for this operation,&quot; but you -would- be able to say &quot;this is the relative cost of these two operations, and if you use the faster of the two, on average your site will perform better for all visitors.&quot;  THAT would be cool, and in fact much more valuable...]]></description>
+		<content:encoded><![CDATA[<p>It would be challenging to account for the variables, like cpu speed, memory size, etc.  Easier to account for the browser being used&#8230; But if you got enough people to do it, in the end statistics would win out and you could derive a statistically valid cost of specific operations&#8230; in the end you wouldn&#8217;t be able to say &#8220;this is the cost to YOU for this operation,&#8221; but you -would- be able to say &#8220;this is the relative cost of these two operations, and if you use the faster of the two, on average your site will perform better for all visitors.&#8221;  THAT would be cool, and in fact much more valuable&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-177</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Mon, 09 Apr 2007 10:07:36 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-177</guid>
+		<description><![CDATA[That&#039;s perfect because the tests are posted as HTML, and run automatically.
+
+
+
+Now imagine anyone coming to that page, running the tests, and the results being posted back to the server for collating.
+
+
+
+You&#039;d run it on a domain with no cookies or login, so there&#039;s nothing for the scripts to steal if someone posts malicious code.]]></description>
+		<content:encoded><![CDATA[<p>That&#8217;s perfect because the tests are posted as HTML, and run automatically.</p>
+<p>Now imagine anyone coming to that page, running the tests, and the results being posted back to the server for collating.</p>
+<p>You&#8217;d run it on a domain with no cookies or login, so there&#8217;s nothing for the scripts to steal if someone posts malicious code.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Tim</title>
+		<link>https://blog.berniesumption.com/software/eval-considered-useful/#comment-176</link>
+		<dc:creator><![CDATA[Tim]]></dc:creator>
+		<pubDate>Sat, 07 Apr 2007 14:46:24 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-176</guid>
+		<description><![CDATA[Here&#039;s one attempt at benchmarking various Javascript primitives... www.jorendorff.com/articles/javascript/speed-test.html]]></description>
+		<content:encoded><![CDATA[<p>Here&#8217;s one attempt at benchmarking various Javascript primitives&#8230; <a href="http://www.jorendorff.com/articles/javascript/speed-test.html" rel="nofollow">http://www.jorendorff.com/articles/javascript/speed-test.html</a></p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

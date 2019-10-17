@@ -1,0 +1,3074 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" class="no-js">
+
+<!-- Mirrored from blog.berniesumption.com/software/wp-geo-big-map/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:35:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../../xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>A full page map for WordPress and WP Geo &#8211; Bernie Sumption&#039;s Blog</title>
+<link rel='dns-prefetch' href='http://vjs.zencdn.net/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Comments Feed" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; A full page map for WordPress and WP Geo Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../wp-content/plugins/jquery-collapse-o-matic/light_stylef24c.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-plugin-css'  href='../../wp-content/plugins/videojs-html5-video-player-for-wordpress/plugin-styles433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-css'  href='http://vjs.zencdn.net/4.5/video-js.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='../../wp-content/plugins/wp-syntax/css/wp-syntax4963.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='chld_thm_cfg_parent-css'  href='../../wp-content/themes/twentyfifteen/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='../../wp-content/themes/twentyfifteen/genericons/genericonscf1b.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='../../wp-content/themes/bernie-2015-blog-theme/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<style id='twentyfifteen-style-inline-css' type='text/css'>
+
+			.post-navigation .nav-previous { background-image: url(../../wp-content/uploads/2010/11/Vistagraphs-header-image-825x510.jpg); }
+			.post-navigation .nav-previous .post-title, .post-navigation .nav-previous a:hover .post-title, .post-navigation .nav-previous .meta-nav { color: #fff; }
+			.post-navigation .nav-previous a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+			.post-navigation .nav-next { background-image: url(../../wp-content/uploads/2011/05/ogre-header-image-825x251.png); border-top: 0; }
+			.post-navigation .nav-next .post-title, .post-navigation .nav-next a:hover .post-title, .post-navigation .nav-next .meta-nav { color: #fff; }
+			.post-navigation .nav-next a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+</style>
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='../../wp-content/plugins/swfobj/swfobjectdc8c.js?ver=2.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public6471.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel='prev' title='The making of &#8220;Vistagraphs&#8221;' href='../../photography/the-making-of-vistagraphs/index.html' />
+<link rel='next' title='Introducing OGRE' href='../introducing-ogre/index.html' />
+<meta name="generator" content="WordPress 4.9.11" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../../index9f0a.html?p=371' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed5da5.json?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fwp-geo-big-map%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embeda4b6?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fwp-geo-big-map%2F&amp;format=xml" />
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+				<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- BEGIN GADWP v5.1.2.5 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19810778-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:site_name" content="Bernie Sumption&#039;s Blog"/>
+  <meta property="og:title" content="A full page map for WordPress and WP Geo"/>
+  <meta property="og:url" content="https://blog.berniesumption.com/software/wp-geo-big-map/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="You might want to skip to the installation instructions or read this article in Serbo-Croatian care of Jovana Milutinovic, French from Kate Bondareva, or Kazakh by John Vorohovsky.
+
+When I started writing a travel blog almost half a year ago, I had a specific vision of how it would look. I wanted"/>
+  <meta property="og:image" content="/wp-content/uploads/2011/04/WP-Geo-Big-Map-Header.jpg"/>
+  <meta property="article:published_time" content="2011-04-12T09:34:09+00:00"/>
+  <meta property="article:modified_time" content="2019-10-17T08:06:37+00:00" />
+  <meta property="og:updated_time" content="2019-10-17T08:06:37+00:00" />
+  <meta property="article:section" content="Software"/>
+ <!-- Google+ / Schema.org -->
+  <meta itemprop="name" content="A full page map for WordPress and WP Geo"/>
+  <meta itemprop="description" content="You might want to skip to the installation instructions or read this article in Serbo-Croatian care of Jovana Milutinovic, French from Kate Bondareva, or Kazakh by John Vorohovsky.
+
+When I started writing a travel blog almost half a year ago, I had a specific vision of how it would look. I wanted"/>
+  <meta itemprop="image" content="/wp-content/uploads/2011/04/WP-Geo-Big-Map-Header.jpg"/>
+ <!-- Twitter Cards -->
+  <meta name="twitter:title" content="A full page map for WordPress and WP Geo"/>
+  <meta name="twitter:url" content="https://blog.berniesumption.com/software/wp-geo-big-map/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+ <!-- SEO -->
+  <meta name="description" content="You might want to skip to the installation instructions or read this article in Serbo-Croatian care of Jovana Milutinovic, French from Kate Bondareva, or Kazakh by John Vorohovsky.
+
+When I started writing a travel blog almost half a year ago, I had a specific vision of how it would look. I wanted"/>
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+	
+</head>
+
+<body class="post-template-default single single-post postid-371 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="../../index.html" rel="home">Bernie Sumption&#039;s Blog</a></p>
+											<p class="site-description">Various writings on software development and photography</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-7"><a href="../../category/photography/index.html" >Photography</a> (12)
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/software/index.html" >Software</a> (29)
+<ul class='children'>
+	<li class="cat-item cat-item-14"><a href="../../category/software/dnartwork/index.html" >DNArtwork</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/urandom/index.html" >urandom</a> (1)
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../building-reliable-user-interfaces/index.html">Strategies for building reliable user interfaces</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-generating-realistic-painted-shapes/index.html">Making DNArtwork #8: Generating realistic painted shapes on-demand</a>
+									</li>
+											<li>
+					<a href="../dnartwork/index.html">Project: DNArtwork</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-how-it-works/index.html">Making DNArtwork #7: how does it work?</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-first-art-print/index.html">Making DNArtwork #6: the first art print, hot off the press</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='../../2017/09/index.html'>September 2017</a></li>
+	<li><a href='../../2016/12/index.html'>December 2016</a></li>
+	<li><a href='../../2016/09/index.html'>September 2016</a></li>
+	<li><a href='../../2016/07/index.html'>July 2016</a></li>
+	<li><a href='../../2016/06/index.html'>June 2016</a></li>
+	<li><a href='../../2015/11/index.html'>November 2015</a></li>
+	<li><a href='../../2015/10/index.html'>October 2015</a></li>
+	<li><a href='../../2015/04/index.html'>April 2015</a></li>
+	<li><a href='../../2015/03/index.html'>March 2015</a></li>
+	<li><a href='../../2015/02/index.html'>February 2015</a></li>
+	<li><a href='../../2015/01/index.html'>January 2015</a></li>
+	<li><a href='../../2011/10/index.html'>October 2011</a></li>
+	<li><a href='../../2011/05/index.html'>May 2011</a></li>
+	<li><a href='../../2011/04/index.html'>April 2011</a></li>
+	<li><a href='../../2010/11/index.html'>November 2010</a></li>
+	<li><a href='../../2010/10/index.html'>October 2010</a></li>
+	<li><a href='../../2010/09/index.html'>September 2010</a></li>
+	<li><a href='../../2008/04/index.html'>April 2008</a></li>
+	<li><a href='../../2007/11/index.html'>November 2007</a></li>
+	<li><a href='../../2007/03/index.html'>March 2007</a></li>
+		</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24406">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">Nick Battle</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24404">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../on-abandoning-gulp/index.html#comment-23795">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link">NotAScriptKiddy</span> on <a href="../on-abandoning-gulp/index.html#comment-23794">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://www.flickr.com/photos/judeapollo' rel='external nofollow' class='url'>Rory Melough</a></span> on <a href="../../photography/depth-of-field-for-geeks/index.html#comment-21881">Bernie&#8217;s Better Guide to Depth of Field for Geeks Who Want to be Digital Artists</a></li></ul></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-371" class="post-371 post type-post status-publish format-standard has-post-thumbnail hentry category-software">
+	
+	<div class="post-thumbnail">
+		<img width="825" height="510" src="../../wp-content/uploads/2011/04/WP-Geo-Big-Map-Header-825x510.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="/wp-content/uploads/2011/04/WP-Geo-Big-Map-Header.jpg 825w, /wp-content/uploads/2011/04/WP-Geo-Big-Map-Header-300x185.jpg 300w" sizes="(max-width: 825px) 100vw, 825px" />	</div><!-- .post-thumbnail -->
+
+	
+	<header class="entry-header">
+		<h1 class="entry-title">A full page map for WordPress and WP Geo</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><i>You might want to skip to the <a href="#installation">installation instructions</a> or read this article in <a href="http://science.webhostinggeeks.com/potpuna-mapa">Serbo-Croatian</a> care of Jovana Milutinovic, <a href="http://www.autoteiledirekt.de/science/une-carte-pleine-page-pour-wordpress-et-wp-geo">French</a> from Kate Bondareva, or <a href="http://13motors.com/myblog/wpgeobigmap/">Kazakh</a> by John Vorohovsky</i>.</p>
+<p>When I started writing a <a href="http://bernieandju.de/">travel blog</a> almost half a year ago, I had a specific vision of how it would look. I wanted a big world map, onto which I would drop little pins. Each pin would be a single blog post, and clicking that pin would allow you to read the post in one of those little Google Maps speech bubble thingies.</p>
+<p><span id="more-371"></span></p>
+<p>There is a popular WordPress plugin called WP Geo that allows you to record the latitude and longitude of each post. WP Geo stores the necessary information in the database and has an excellent admin interface. Unfortunately the maps it provides are quite the wrong way round for my idea: WP Geo puts a little map onto your post, I wanted to put my little posts onto a big map!</p>
+<p>So I wrote a WordPress plugin to extend WP Geo and add a big sexy map. In order to use it, you need WP Geo installed. To see it in action, check out <a href="http://bernieandju.de/map/">my own travel map</a>. The plugin is called:</p>
+<h2>WP Geo Big Map</h2>
+<p>(Damn, I should have called it WP Geo Big Sexy Map, but it&#8217;s too late to change it now)</p>
+<p>After installing WP Geo and this plugin, create a new page with nothing except the shortcode <code>[big</code>_<code>map]</code>. This magic shortcode replaces the whole page with a huge map, and all your posts will show up as pins on the map.</p>
+<p>The shortcode has a number of customisation options which are detailed on the <a href="http://wordpress.org/extend/plugins/wp-geo-big-map/">plugin page on wordpress.org</a>.</p>
+<h3>Some screenshots:</h3>
+<figure id="attachment_378" style="width: 640px" class="wp-caption alignnone"><a href="../../wp-content/uploads/2011/04/big-map.jpg" target="_blank"><img class="size-large wp-image-378" src="../../wp-content/uploads/2011/04/big-map-1024x843.jpg" alt="Big Map Screenshot" width="640" height="526" srcset="/wp-content/uploads/2011/04/big-map-1024x843.jpg 1024w, /wp-content/uploads/2011/04/big-map-300x247.jpg 300w, /wp-content/uploads/2011/04/big-map.jpg 1218w" sizes="(max-width: 640px) 100vw, 640px" /></a><figcaption class="wp-caption-text">Posts appear as pins on a big map</figcaption></figure>
+<figure id="attachment_377" style="width: 640px" class="wp-caption alignnone"><a href="../../wp-content/uploads/2011/04/big-map-rollover.jpg" target="_blank"><img class="size-large wp-image-377" src="../../wp-content/uploads/2011/04/big-map-rollover-1024x843.jpg" alt="Big Map Screenshot" width="640" height="526" srcset="/wp-content/uploads/2011/04/big-map-rollover-1024x843.jpg 1024w, /wp-content/uploads/2011/04/big-map-rollover-300x247.jpg 300w, /wp-content/uploads/2011/04/big-map-rollover.jpg 1218w" sizes="(max-width: 640px) 100vw, 640px" /></a><figcaption class="wp-caption-text">Mousing over a pin brings up a summary of the post. The default badge shows the featured image and post excerpt, but you can customise this through your theme</figcaption></figure>
+<figure id="attachment_376" style="width: 640px" class="wp-caption alignnone"><a href="../../wp-content/uploads/2011/04/big-map-multiple-posts.jpg" target="_blank"><img class="size-large wp-image-376" src="../../wp-content/uploads/2011/04/big-map-multiple-posts-1024x843.jpg" alt="Big Map Screenshot" width="640" height="526" srcset="/wp-content/uploads/2011/04/big-map-multiple-posts-1024x843.jpg 1024w, /wp-content/uploads/2011/04/big-map-multiple-posts-300x247.jpg 300w, /wp-content/uploads/2011/04/big-map-multiple-posts.jpg 1218w" sizes="(max-width: 640px) 100vw, 640px" /></a><figcaption class="wp-caption-text">If you make multiple posts in one location, they appear as a pop-up menu on one pin</figcaption></figure>
+<figure id="attachment_375" style="width: 640px" class="wp-caption alignnone"><a href="../../wp-content/uploads/2011/04/big-map-iframe.jpg" target="_blank"><img class="size-large wp-image-375" src="../../wp-content/uploads/2011/04/big-map-iframe-1024x843.jpg" alt="Big Map Screenshot" width="640" height="526" srcset="/wp-content/uploads/2011/04/big-map-iframe-1024x843.jpg 1024w, /wp-content/uploads/2011/04/big-map-iframe-300x247.jpg 300w, /wp-content/uploads/2011/04/big-map-iframe.jpg 1218w" sizes="(max-width: 640px) 100vw, 640px" /></a><figcaption class="wp-caption-text">You can read posts in a pop-up iframe without leaving the map</figcaption></figure>
+<h2><a name="installation"></a>Installation</h2>
+<p><strong>NOTE:</strong> WP Geo Big Map is tuned to work with the Twenty Ten theme that is the default for WordPress 3.x. If you&#8217;re using a different theme that is not based on Twenty Ten, consult the plugin&#8217;s readme.txt for instructions.</p>
+<p>The easiest way to install the plugin is through the WordPress dashboard. Log in to your site, go to &#8220;Plugins &gt; Add New&#8221;, search for &#8220;big map&#8221; and install it.</p>
+<p>If you want to see the source code, or install the plugin manually, you can download it from my GitHub repository:</p>
+<p><a href="https://github.com/BernieSumption/wp-geo-big-map">View WP Geo Big Map on Github</a></p>
+<h2>Feedback</h2>
+<p>Any feedback is welcome, as always. I can be reached at bernie@berniecode.com.</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html" rel="bookmark"><time class="entry-date published" datetime="2011-04-12T09:34:09+00:00">12th April 2011</time><time class="updated" datetime="2019-10-17T08:06:37+00:00">17th October 2019</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="../../author/bernie/index.html">bernie</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="../../category/software/index.html" rel="category tag">Software</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			114 thoughts on &ldquo;A full page map for WordPress and WP Geo&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-569" class="comment even thread-even depth-1">
+			<article id="div-comment-569" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jens</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-569">
+							<time datetime="2011-06-12T06:18:34+00:00">
+								12th June 2011 at 6:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>I like WP-Geo and today I found your plugin! So I try to generate a map with all post of a categorie so I can show a travelroute. I do that with a hack in php, but isn´t so great! Look here (it´s a page): <a href="http://www.milchladen.de/weltkarte/map-cape-2-nairobi/" rel="nofollow">http://www.milchladen.de/weltkarte/map-cape-2-nairobi/</a></p>
+<p>Now I tryed it with your plugin an this short code: <strong>[big_map categorie=&#8221;cape-town-to-nairobi&#8221;]</strong> but it doesn´t work look here: <a href="http://www.milchladen.de/weltkarte/tes/" rel="nofollow">http://www.milchladen.de/weltkarte/tes/</a></p>
+<p>Can I generate a big_map also in a page???</p>
+<p>Thanks for your help and this plugin!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-570" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-570" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jens</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-570">
+							<time datetime="2011-06-12T06:40:51+00:00">
+								12th June 2011 at 6:40 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>now it works, I did a mistake the correct code is <strong>[big_map cat=&#8221;25&#8243;]</strong>!</p>
+<p>Thanks for this wonderful plugin!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-571" class="comment even thread-even depth-1">
+			<article id="div-comment-571" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jens</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-571">
+							<time datetime="2011-06-12T07:52:49+00:00">
+								12th June 2011 at 7:52 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>How I can say that if you click on a marker, that you come automaticli to the post url??? </p>
+<p>What I miss in your documentation is all &#8220;shortcode accepts arguments&#8221; of WP Geo Big Map. I think, that was helpful for anybody!</p>
+<p>Cheers Jens</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-572" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-572" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jens</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-572">
+							<time datetime="2011-06-12T12:45:54+00:00">
+								12th June 2011 at 12:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You´ve a shortcode to hide the polylines like&#8230;.</p>
+<p>[big_map numberposts=&#8221;-1&#8243; <strong>polylines=&#8221;N&#8221;</strong>] or</p>
+<p>[big_map numberposts=&#8221;-1&#8243; <strong>show_polylines=&#8221;N&#8221;</strong>]</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-573" class="comment byuser comment-author-bernie bypostauthor even thread-even depth-1">
+			<article id="div-comment-573" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-573">
+							<time datetime="2011-06-12T17:02:05+00:00">
+								12th June 2011 at 5:02 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the comments Jens. I&#8217;ve added a shortcode to hide polylines. Use <code>[big_map ... lines="0"]</code>. It should be available through wordpress update soon.</p>
+<p>I didn&#8217;t add an option to make the markers click through to the post directly, as it wasn&#8217;t easy and I haven&#8217;t had breakfast yet. Besides, the whole point of the plugin is to display the posts in iframes!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-574" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-574" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">trusktr</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-574">
+							<time datetime="2011-06-13T01:26:58+00:00">
+								13th June 2011 at 1:26 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Bernie, nice plugin!</p>
+<p>You should the the [big_map] attributes descriptions somewhere so people know. I found the &#8220;lines&#8221; attribute here but it wasn&#8217;t listed on the wordpress.org page. It&#8217;d be helpful to know! Perhaps you can include a &#8220;WP Geo Big Map&#8221; page in the wordpress admin with all these details.</p>
+<p>Thanks!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-575" class="comment even thread-even depth-1">
+			<article id="div-comment-575" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">trusktr</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-575">
+							<time datetime="2011-06-13T01:30:47+00:00">
+								13th June 2011 at 1:30 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey, another idea would be to add options to the &#8220;WP Geo Big Map&#8221; settings page that would allow user to choose whether clicking on the markers opens the post in a new page, or shows the bubble with iframe.</p>
+<p>Oh, and one more thing!!!! You should make the big map obey the rules set in the &#8220;WP Geo&#8221; settings page. Then, shortcode attributes can override those settings.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-576" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-576" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">trusktr</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-576">
+							<time datetime="2011-06-13T01:38:18+00:00">
+								13th June 2011 at 1:38 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Also, you should use the same API the WP Geo uses, so that the map is identical to other maps in post pages and sidebar. It seems that you are making a new map instead of using WP Geo&#8217;s functions.</p>
+<p>For example ( i might be wrong) but it seems as if WP Geo were to update to Google Maps API v3, your map would still be the old API. I was just guessing because the styling is different than WP Geo&#8217;s default maps. Instead of constructing a new map (if that&#8217;s the case) just use the WP Geo functions to create an actual WP Geo map.</p>
+<p>Just some constructive advice. :D I love the plugin though!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-577" class="comment byuser comment-author-bernie bypostauthor even thread-even depth-1">
+			<article id="div-comment-577" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-577">
+							<time datetime="2011-06-13T06:32:42+00:00">
+								13th June 2011 at 6:32 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi trusktr,</p>
+<p>Thans for the feedback, to answer your points:</p>
+<p>> I found the “lines” attribute here but it wasn’t listed on the wordpress.org page</p>
+<p>WordPress.org has now caught up &#8211; I only released that feature this morning.</p>
+<p>> Hey, another idea would be to add options to the “WP Geo Big Map” settings page that would allow user to choose whether clicking on the markers opens the post in a new page, or shows the bubble with iframe.</p>
+<p>I might add this feature later, you&#8217;re not the first person to request it</p>
+<p>> You should make the big map obey the rules set in the “WP Geo” settings page. Then, shortcode attributes can override those settings &#8230; Also, you should use the same API the WP Geo uses</p>
+<p>This will likely never happen. My first attempt at this plugin tried to re-use as much code as possible from WP-Geo, and it was a mess. The latest version is much nicer internally. WP-Geo doesn&#8217;t have an extension API, so any deep integration with WP-Geo would be hacky, and likely to break if WP-Geo makes internal changes in any update.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-578" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-578" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b4a474e150a81a4735acfcd2bcaa839d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b4a474e150a81a4735acfcd2bcaa839d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.ronandrachel.com/' rel='external nofollow' class='url'>Ron Yeaw</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-578">
+							<time datetime="2011-06-13T10:36:12+00:00">
+								13th June 2011 at 10:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great plug in. Tinkering with using it outside the TwentyTen Theme. If my Theme doens&#8217;t support thumbnails (Call to undefined function get_post_thumbnail_id) am I out of luck or would it be worth trying to work around the code? Thanks again!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-579" class="comment even depth-2">
+			<article id="div-comment-579" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b4a474e150a81a4735acfcd2bcaa839d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b4a474e150a81a4735acfcd2bcaa839d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.ronandrachel.com/' rel='external nofollow' class='url'>Ron Yeaw</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-579">
+							<time datetime="2011-06-13T10:51:56+00:00">
+								13th June 2011 at 10:51 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Scratch that, just added &#8220;add_theme_support(&#8216;post-thumbnails&#8217;);&#8221; to my functions.php file. </p>
+<p>Nothing like hitting enter on a post to trigger a moment of clarity ;)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-581" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-581" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-581">
+							<time datetime="2011-06-13T15:47:53+00:00">
+								13th June 2011 at 3:47 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Yes, that will work. Also, defining a new badge function in your functions.php will give you finer control, if you don&#8217;t want to maintain an image for each post. Like this:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="php" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">// super boring post badge</span>
+<span style="color: #000000; font-weight: bold;">function</span> get_big_map_post_badge<span style="color: #009900;">&#40;</span><span style="color: #000088;">$single</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000088;">$link</span> <span style="color: #339933;">=</span> get_permalink<span style="color: #009900;">&#40;</span><span style="color: #000088;">$single</span><span style="color: #339933;">-&gt;</span><span style="color: #004000;">ID</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    <span style="color: #b1b100;">return</span> <span style="color: #0000ff;">&quot;&lt;a href=&quot;</span><span style="color: #009900;">&#123;</span><span style="color: #000088;">$link</span><span style="color: #009900;">&#125;</span><span style="color: #0000ff;">&quot; rel=&quot;</span>nofollow<span style="color: #0000ff;">&quot;&gt;&quot;</span>
+        <span style="color: #339933;">.</span> <span style="color: #0000ff;">&quot;Post id <span style="color: #006699; font-weight: bold;">{$single-&gt;ID}</span>&lt;/a&gt;&quot;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// super boring post badge
+function get_big_map_post_badge($single) {
+    $link = get_permalink($single-&gt;ID);
+    return &quot;&lt;a href=&quot;{$link}&quot; rel=&quot;nofollow&quot;&gt;&quot;
+        . &quot;Post id {$single-&gt;ID}&lt;/a&gt;&quot;;
+}</p></div>
+
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-580" class="comment even thread-even depth-1">
+			<article id="div-comment-580" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d8238ae773f9d75e510abe305209189f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">trusktr</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-580">
+							<time datetime="2011-06-13T15:40:32+00:00">
+								13th June 2011 at 3:40 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hehe, nice. I see it has caught up. Anyways, about tight integration with WP Geo, that&#8217;s what I figured. Anyways, great work keep it up. :D I&#8217;ll try the updated plugin today. :)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-582" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-582" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">luka</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-582">
+							<time datetime="2011-06-30T06:37:09+00:00">
+								30th June 2011 at 6:37 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It would be great/necessary that you add no-iframe/go-to-post function because some of us have google ads on posts, and google ads in iframe is violation of TOS. Am I right?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-583" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-583" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">luka</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-583">
+							<time datetime="2011-06-30T06:37:49+00:00">
+								30th June 2011 at 6:37 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Edit:</p>
+<p>Or just hint us what to change in code to get rid of iframes</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-584" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-584" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-584">
+							<time datetime="2011-07-01T02:53:41+00:00">
+								1st July 2011 at 2:53 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>If you fancy hacking the plugin, try editing the function makeIframePopupCallback. That function is responsible for creating the iframe popups. Try replacing it with:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">function</span> makeIframePopupCallback<span style="color: #009900;">&#40;</span>marker<span style="color: #339933;">,</span> link<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>overlay<span style="color: #339933;">,</span> latlong<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        document.<span style="color: #660066;">location</span> <span style="color: #339933;">=</span> link<span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">function makeIframePopupCallback(marker, link) {
+    return function(overlay, latlong) {
+        document.location = link;
+    }
+}</p></div>
+
+<p>Though be aware that I haven&#8217;t tested that code.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-585" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-585" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f12787cfd9f8858ee7ec253f765b11b5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">luka</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-585">
+							<time datetime="2011-07-01T06:34:52+00:00">
+								1st July 2011 at 6:34 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It&#8217;s ok, I already hacked it!:)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-586" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-586" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ba0ba196f6bba077c83fecaa39a1ffd5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ba0ba196f6bba077c83fecaa39a1ffd5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Kevin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-586">
+							<time datetime="2011-07-03T13:24:05+00:00">
+								3rd July 2011 at 1:24 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie, beautiful plugin and just what I&#8217;ve been looking for to make a location-based map of all the posts on <a href="http://geocurrents.info/" rel="nofollow">http://GeoCurrents.info</a>. However, I&#8217;m having trouble getting the map to even appear with the shortcode. For example, the shortcode [big_map] is added to this live experimental page (<a href="http://geocurrents.info/posts-map" rel="nofollow">http://geocurrents.info/posts-map</a>) and I see nothing but a blank page with my normal navigation, third column, etc.</p>
+<p>I have WP Geo installed, and I&#8217;m using a different theme than twenty ten, but the shortcode should still trigger the map, no? </p>
+<p>Any advice you could give me at your leisure would be much appreciated man. Thanks again x1000 for your work. This will be awesome if I can pull it off.</p>
+<p>P.S. I&#8217;m relatively new to using WordPress for my CMS, so I apologize if I&#8217;m missing a ridiculously easy step. But I&#8217;ve thought about it and looked through the readme.txt file you include and no immediate fix is coming to me.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-587" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-587" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-587">
+							<time datetime="2011-07-03T15:42:36+00:00">
+								3rd July 2011 at 3:42 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Kevin,</p>
+<p>Looking at the source code of your page, it seems that the plugin is properly recognising the [big_map] shortcode (because it removes it from the page) but is not printing the code to generate the map.</p>
+<p>One possible reason for this is that your template doesn&#8217;t have a footer hook. Can you check your template contains a call to wp_footer() just before the  tag?</p>
+<p>If it doesn&#8217;t, add this before the  html tag:</p>
+<p>< ?php wp_footer(); ?></p>
+<p>And let me know if that works.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-588" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-588" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/6cb603fbe138ec59c3fdbb515a8cbcdc?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/6cb603fbe138ec59c3fdbb515a8cbcdc?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://lifeoutsidemackay.co.cc/' rel='external nofollow' class='url'>Thomas Parker</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-588">
+							<time datetime="2011-07-05T20:24:01+00:00">
+								5th July 2011 at 8:24 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey, </p>
+<p>I like the plugin &#8211; it&#8217;s superior to WP Geo itself. In WP Geo, if you have two posts at the same location, there&#8217;s no way to view both on a single map. Is there anyway you can incorporate your overlay feature into other WP Geo maps? (Perhaps you could just offer more parameters for your maps, like width &amp; height, and I could just replace my WP Geo maps with yours. ;-) )</p>
+<p>Also, I&#8217;d like your map to default to Satellite view. Is there already a way?</p>
+<p>Hope I&#8217;m not troubling you,</p>
+<p>Thomas.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-589" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-589" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-589">
+							<time datetime="2011-07-05T20:31:47+00:00">
+								5th July 2011 at 8:31 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You can make a smaller map by creating a big map as usual then putting it in an iframe on another page, either manually or using <a href="http://wordpress.org/extend/plugins/embed-iframe/" rel="nofollow">http://wordpress.org/extend/plugins/embed-iframe/</a></p>
+<p>It&#8217;s not perfect, but it works.</p>
+<p>Default map types are a good idea and should be pretty easy to do, I&#8217;ll remember that for the next update.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-590" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-590" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4b8d39e23421dd0c2be6f7e161131fe0?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4b8d39e23421dd0c2be6f7e161131fe0?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">zachary</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-590">
+							<time datetime="2011-08-12T17:09:50+00:00">
+								12th August 2011 at 5:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This looks awesome. I have been searching the net for something like this. I have a question: Is there any way to replace the image of the map and replace it with a custom image. it would be a beautiful image map splash screen. please let me know. thanks in advance</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-591" class="comment byuser comment-author-bernie bypostauthor even depth-2 parent">
+			<article id="div-comment-591" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-591">
+							<time datetime="2011-08-13T06:05:18+00:00">
+								13th August 2011 at 6:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Well in theory you can replace Google maps images with your own image, but it&#8217;s not easy. In google API terminology it&#8217;s called creating a &#8220;projection&#8221;. You&#8217;d need to be pretty confident with Javascript to even try, it&#8217;s an advanced feature pf the Google maps API.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-592" class="comment odd alt depth-3 parent">
+			<article id="div-comment-592" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4b8d39e23421dd0c2be6f7e161131fe0?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4b8d39e23421dd0c2be6f7e161131fe0?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">zachary chomyn</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-592">
+							<time datetime="2011-08-14T18:10:52+00:00">
+								14th August 2011 at 6:10 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>thanks for your quick response. it is good to know the terminology for what im looking for, thanks for that. </p>
+<p>do you know any theme where you could customize an image map to act as a navigation for the website? for example, using this image: <a href="http://orkposters.com/chicago.html" rel="nofollow">http://orkposters.com/chicago.html</a> </p>
+<p>and applying an effect like this to it: <a href="http://tympanus.net/Tutorials/AnimatedTextIconMenu/example1.html" rel="nofollow">http://tympanus.net/Tutorials/AnimatedTextIconMenu/example1.html</a></p>
+<p>if you can explain how this works it would be very helpful!! thank you so much.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-593" class="comment byuser comment-author-bernie bypostauthor even depth-4">
+			<article id="div-comment-593" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-593">
+							<time datetime="2011-08-14T22:20:35+00:00">
+								14th August 2011 at 10:20 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>If I understand you correctly, you want a pre-built theme rather than writing something from scratch.</p>
+<p>If that&#8217;s the case, here are my two cents:</p>
+<p>If you have something specific in mind, you usually have to code it yourself. If you want to avoid having to write code, it&#8217;s best not to have any preconceived ideas of what you want your site to look like.</p>
+<p>If you browse the wordpress themes and plugins sites you&#8217;ll see a lot of different and interesting kinds of navigation. Perhaps one of them will work on your site.</p>
+<p>Start here: <a href="http://wordpress.org/extend/plugins/tags/navigation" rel="nofollow">http://wordpress.org/extend/plugins/tags/navigation</a></p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-594" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-594" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bc4ae52b7526e9581eec201cd58be1c4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bc4ae52b7526e9581eec201cd58be1c4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Isamenton</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-594">
+							<time datetime="2011-08-18T08:27:04+00:00">
+								18th August 2011 at 8:27 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This is really a wonderful &#8220;sexy&#8221; map. However, I seem to have a few problems :<br />
+1) after saving my wp geo settings, none of my changes are reflected on the page where my big map is. Why ?</p>
+<p>2)  Do you have a tutorial ? I am still unsure how to insert points on the maps&#8230;<br />
+Sorry but I&#8217;m new to all this ! </p>
+<p>Thanks !</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-595" class="comment even thread-even depth-1">
+			<article id="div-comment-595" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bc4ae52b7526e9581eec201cd58be1c4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bc4ae52b7526e9581eec201cd58be1c4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Isamenton</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-595">
+							<time datetime="2011-08-18T10:17:03+00:00">
+								18th August 2011 at 10:17 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Disregard my earlier comments. I just realized that the WP Geo settings do not apply to the Big Map, which is too bad. Is there an easy way to change the zoom level and center of the big map ?</p>
+<p>I also figured out how to insert markers on the map. Would you know how to customize them ? I need 3 different markers and I am no good at coding !<br />
+Thanks !</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-596" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-596" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/306ef1d7fc5fc5aecb3e68ec6821b01e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/306ef1d7fc5fc5aecb3e68ec6821b01e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Niels</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-596">
+							<time datetime="2011-08-21T06:49:39+00:00">
+								21st August 2011 at 6:49 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie, nice plugin! have it working now!</p>
+<p>I only have two questions:</p>
+<p>1: Can change the marker image on the map to a small red circle (the one from wp-geo)</p>
+<p>2: I have found a way to cluster markers on the <a href="http://googlegeodevelopers.blogspot.com/2009/04/markerclusterer-solution-to-too-many.html" rel="nofollow">Google developes blog</a>. Can i use this code in combination with your plugin?</p>
+<p>Thank you in advance!</p>
+<p>Niels</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-597" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-597" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/93897f480036aa5523c2618cc28307f5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/93897f480036aa5523c2618cc28307f5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.travelaroundindonesia.com/' rel='external nofollow' class='url'>Rudy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-597">
+							<time datetime="2011-08-24T02:22:43+00:00">
+								24th August 2011 at 2:22 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>i love this plugin very muchh<br />
+but i got a problem when installing it T_T </p>
+<p>when i click the post where i put [big_map]&#8230;. it shows a pop up.<br />
+it said &#8221; Can&#8217;t display big map because Google Maps is not available. Is the WP Geo plugin installed?&#8221; yet i installed WP Geo Map  already </p>
+<p>then the post  said &#8220;Big Map can&#8217;t be displayed, possibly because JavaScript is turned off.&#8221; but my javascript in firefox is enable</p>
+<p>any suggestion so i can apply this plugin in my wordpress?</p>
+<p>thank&#8217;s before</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-598" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-598" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-598">
+							<time datetime="2011-08-24T15:01:25+00:00">
+								24th August 2011 at 3:01 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This happens because the Google maps javascript isn&#8217;t present on your page, so it&#8217;s not possible to draw maps. Normally, WP-Geo loads these scripts. Is it possible that WP-Geo is installed, but not activated?</p>
+<p>Does your site have WP-Geo working elsewhere? For example, can you put a latitude and longitude on your posts when you edit them?</p>
+<p>If not, then you need to get WP-Geo working first. If yes, then can you send me a link to the broken page so I can have a peek? I&#8217;ll also need to know your wordpress version, and the name of your theme.</p>
+<p>Thanks,</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-599" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-599" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/cdae0b555a24f2e929ffc59187abe1d5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/cdae0b555a24f2e929ffc59187abe1d5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://cambridgevisitor.co.uk/' rel='external nofollow' class='url'>Patrick</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-599">
+							<time datetime="2011-08-25T05:31:22+00:00">
+								25th August 2011 at 5:31 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi,<br />
+Great plugin.<br />
+I have your map located at <a href="http://cambridgevisitor.co.uk/places" rel="nofollow">http://cambridgevisitor.co.uk/places</a> &#8211; but I would like to show custom post types &#8220;places&#8221; rather than normal posts&#8230;is this possible? At the moment there are no locations showing as I can&#8217;t link to &#8220;Places&#8221; custom post type</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-601" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-601" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-601">
+							<time datetime="2011-08-25T21:50:36+00:00">
+								25th August 2011 at 9:50 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;m not familiar with that post type, is it built into wordpress or provided by a plugin?</p>
+<p>In any case, the most important question is: when you edit these &#8220;place&#8221; posts in the wordpress admin section, go you get a WP-Geo editing interface that allows you to place a pin on a map, manually enter a latitude and longitude and search for a location?</p>
+<p>If not, there&#8217;s no chance of my plugin working.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-600" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-600" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/93897f480036aa5523c2618cc28307f5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/93897f480036aa5523c2618cc28307f5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.travelaroundindonesia.com/' rel='external nofollow' class='url'>Rudy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-600">
+							<time datetime="2011-08-25T07:50:58+00:00">
+								25th August 2011 at 7:50 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>no, i installed it and activated it<br />
+and yes after i put the latitude and longitude, the pop-up is gone now<br />
+(sorry that i missed this very first step &gt;.&lt;)<br />
+but the post still shows &quot;Big Map can&#039;t be displayed, possibly because JavaScript is turned off. &quot;</p>
+<p>i&#039;m using aggregate 1.4 from elegant theme but currently i try it with twenty ten theme and my wp version is 3.2.1<br />
+take a peek at <a href="http://www.travelaroundindonesia.com/" rel="nofollow">http://www.travelaroundindonesia.com</a></p>
+<p>i put the shortcode in a page and a post..<br />
+i put [big_map lat=&quot;-6.894304&quot; long=&quot;107.605623&quot; author_name=&quot;admin&quot; numberposts=&quot;10&quot; tag=&quot;kintamani&quot;]<br />
+(did i correctly write the shortcode?)</p>
+<p>thanks alot before bernie, really :D</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-602" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-602" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-602">
+							<time datetime="2011-08-25T22:00:16+00:00">
+								25th August 2011 at 10:00 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There&#8217;s something wrong with your install of WP-Geo &#8211; it&#8217;s not providing any scripts.</p>
+<p>Try putting a WP-Geo map widget on your posts pages. That might fix the issue itself, but more importantly will tell you if the WP-Geo plugin is working correctly.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-603" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-603" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bb893eb264b260a55401d4600e51a79a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bb893eb264b260a55401d4600e51a79a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://wwwfindonelife.com/' rel='external nofollow' class='url'>Pete</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-603">
+							<time datetime="2011-09-15T03:30:31+00:00">
+								15th September 2011 at 3:30 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie nice nice job you did !!<br />
+I have one question maybe you have the solution or somebody else.</p>
+<p>When the page with the big map code is opened that the map is nice centralized, when you click in a marker and the popup is open the big map moves down.  Closing the popup the big map dos not centralize so it stays more at the bottem of the screen and the user has to move the big map screen up to see all the markers again.</p>
+<p>Is it possible that by closing the popup automatically the big map centralizes to the screen again ?<br />
+thanx Pete</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-604" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-604" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-604">
+							<time datetime="2011-09-16T14:25:55+00:00">
+								16th September 2011 at 2:25 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I might add that feature in a later version, but right now there&#8217;s no way to do that other than modifying the plugin yourself.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-605" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-605" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b14c65c531a4bbabdf7f95a942a74244?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b14c65c531a4bbabdf7f95a942a74244?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Markus</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-605">
+							<time datetime="2011-10-05T01:29:45+00:00">
+								5th October 2011 at 1:29 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi,<br />
+is there an easy way to avoid the popup, but instead link to the actual blog entry? due to some sidebars the actual texts is currently hard to read in the popup</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-606" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2 parent">
+			<article id="div-comment-606" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-606">
+							<time datetime="2011-10-05T13:56:29+00:00">
+								5th October 2011 at 1:56 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There&#8217;s no way of doing it without coding, but it&#8217;s some simple code. This should work, but I haven&#8217;t tested it. Open the plugin folder, find the script file, and find the function &#8216;makeIframePopupCallback&#8217;. Change it to:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #000066; font-weight: bold;">function</span> makeIframePopupCallback<span style="color: #009900;">&#40;</span>marker<span style="color: #339933;">,</span> link<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #000066; font-weight: bold;">return</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>overlay<span style="color: #339933;">,</span> latlong<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+        document.<span style="color: #660066;">location</span>.<span style="color: #660066;">href</span> <span style="color: #339933;">=</span> link<span style="color: #339933;">;</span>
+    <span style="color: #009900;">&#125;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">function makeIframePopupCallback(marker, link) {
+    return function(overlay, latlong) {
+        document.location.href = link;
+    }
+}</p></div>
+
+<p>If that doesn&#8217;t work, post it online and send me a link.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-607" class="comment even depth-3">
+			<article id="div-comment-607" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b14c65c531a4bbabdf7f95a942a74244?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b14c65c531a4bbabdf7f95a942a74244?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Markus</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-607">
+							<time datetime="2011-10-06T00:29:33+00:00">
+								6th October 2011 at 12:29 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,<br />
+thanks for the prompt reply!<br />
+The changed function works perfectly! Result is exactly what I had in mind. Thank you very much!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-647" class="comment odd alt depth-3 parent">
+			<article id="div-comment-647" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-647">
+							<time datetime="2012-01-26T16:43:55+00:00">
+								26th January 2012 at 4:43 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,</p>
+<p>Taking this same approach. Is there a way to be able to input a specific link per geotagged location so it does not redirected to the blog but else where? </p>
+<p>Im trying to link the geotags on:<br />
+<a href="http://www.pinedandres.com/location/" rel="nofollow">http://www.pinedandres.com/location/</a></p>
+<p>to each specific project on<br />
+<a href="http://www.pinedandres.com/portfolio/" rel="nofollow">http://www.pinedandres.com/portfolio/</a></p>
+<p>Is this possible?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-648" class="comment byuser comment-author-bernie bypostauthor even depth-4">
+			<article id="div-comment-648" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-648">
+							<time datetime="2012-01-26T16:50:21+00:00">
+								26th January 2012 at 4:50 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>No &#8211; because my plugin builds on Wp-Geo, it is a fixed requirement that every pin corresponds to a post. I suppose I could add a hack to allow you to specify an override URL for a post that is used instead of the post URL, but you&#8217;d still need to create a post to get the pin on the map, and this would clutter up your blog with useless posts that only exist to put a pin on the map.</p>
+<p>The best solution is to create a blog post for each project, &#8220;announcing&#8221; it, having a 1-sentence introduction, and linking to the project URL. If you don&#8217;t want these posts to show up in your blog&#8217;s RSS feed, the Stealth Publish plugin can help you.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-608" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-608" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/60a92e1b1d48dbebc52a1f66927547a0?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/60a92e1b1d48dbebc52a1f66927547a0?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.discretepicture.com/' rel='external nofollow' class='url'>francoisinjapan</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-608">
+							<time datetime="2011-10-27T02:35:31+00:00">
+								27th October 2011 at 2:35 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>thanks Bernie for this great plugin, the map is super fast, really a pleasure.<br />
+I am using it here: <a href="http://www.discretepicture.com/?page_id=4222&amp;lang=en" rel="nofollow">http://www.discretepicture.com/?page_id=4222&#038;lang=en</a> (it was working until now, hope it will get back to normal soon).</p>
+<p>Crazy ideas to make it even better ?<br />
+&#8211; When the post is open on the map a &#8220;open the post full page&#8221; button ? (especially for photo blogs, to be able to see the photo full page).<br />
+other ideas are probably too big of a challenge and not that important:<br />
+&#8211; Compatibilty with titles from qtranslate ? (beware of new bugs with encoding!)<br />
+&#8211; Automatic grouping of posts depending on the zoom ? (certainly very challenging).<br />
+&#8211; Possibility to have 2 type of points on the map (by color etc&#8230;) defined by a tag or category (blue for &#8220;Bigposts&#8221;, red for &#8220;1 photo Posts&#8221; and any variations)</p>
+<p>And to show your flickr photos on your blog, I tried different plugins and I can confidently suggest &#8220;Awesome Flickr gallery&#8221;.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-609" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-609" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-609">
+							<time datetime="2011-10-27T15:09:39+00:00">
+								27th October 2011 at 3:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8211; I tend to put my photos in a flickr slideshow that itself has a full screen button. This way when people close the slideshow, they get back to the map.<br />
+&#8211; Compatibility with qTranspate won&#8217;t happen unless someone contributes it. Since I don&#8217;t use it myself, I wouldn&#8217;t know how to support it.<br />
+&#8211; Automatic grouping of posts by zoom is on my &#8220;that would be nice&#8221; list. it&#8217;s not particularly hard.<br />
+&#8211; Not a bad idea, I&#8217;ll look into it in the next upgrade.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-610" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-610" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://targetedservices.com/' rel='external nofollow' class='url'>Clay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-610">
+							<time datetime="2011-11-02T16:17:16+00:00">
+								2nd November 2011 at 4:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Bernie and thanks for all you have done to give us this awesome plugin! WP-GEO gives us the ability to define a specific marker type out of the box, _wp_geo_marker, I think the options are large, small, and dot, however it appears Big Map doesn&#8217;t display them as such. Any idea if this would be a difficult customization?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-611" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-611" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-611">
+							<time datetime="2011-11-02T16:33:41+00:00">
+								2nd November 2011 at 4:33 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That&#8217;s on my todo list, a lot of people asked for it and it would be useful for my own blog. That, and automatic grouping of nearby map pointers. That said, I can&#8217;t see another release happening for a month at least, I&#8217;m flat out at the moment.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-612" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-612" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5133f8c2a217fa46d1f2804c3380edac?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5133f8c2a217fa46d1f2804c3380edac?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ben</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-612">
+							<time datetime="2011-11-05T05:34:14+00:00">
+								5th November 2011 at 5:34 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great plugin Bernie. I&#8217;m in the process of building a social travellers blogging site using buddypress. Obviously this means there will be multiple users. Do you know how I can get your map to display the posts of the user that is logged in rather than all user posts? That way it will only display the users own travel route with all their own posts?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-613" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-613" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-613">
+							<time datetime="2011-11-05T20:59:45+00:00">
+								5th November 2011 at 8:59 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I felt like coding, so added a current_user_only attribute for you. Add current_user_only=&#8221;1&#8243; to restrict posts to the currently logged in user.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-614" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-614" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-614">
+							<time datetime="2011-11-07T03:05:09+00:00">
+								7th November 2011 at 3:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi man!<br />
+Very nice plugin! But on my website don&#8217;t work the function: ?postonly=true</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-615" class="comment byuser comment-author-bernie bypostauthor even depth-2 parent">
+			<article id="div-comment-615" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-615">
+							<time datetime="2011-11-07T03:36:22+00:00">
+								7th November 2011 at 3:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I suspect you&#8217;re using a theme other than twenty-ten. If so, you need to implement the style yourself. Send me a link to your map and I&#8217;ll help you out.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-616" class="comment odd alt depth-3 parent">
+			<article id="div-comment-616" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-616">
+							<time datetime="2011-11-07T03:45:52+00:00">
+								7th November 2011 at 3:45 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Yes, I use a wp-zoom theme.<br />
+I can import this function from Twentyten themes? mmh but I don&#8217;t find it into function.php</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-617" class="comment byuser comment-author-bernie bypostauthor even depth-4">
+			<article id="div-comment-617" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-617">
+							<time datetime="2011-11-07T03:56:36+00:00">
+								7th November 2011 at 3:56 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It&#8217;s not a function, it&#8217;s CSS. postonly=true adds the &#8220;postonly&#8221; class to the body tag. See the bottom of the plugin&#8217;s CSS for the rules that hide the non-post elements in twenty-ten: <a href="http://berniesumption.com/travel/wp-content/plugins/wp-geo-big-map/style.css?ver=3.2.1" rel="nofollow">http://berniesumption.com/travel/wp-content/plugins/wp-geo-big-map/style.css?ver=3.2.1</a></p>
+<p>If you use a theme other then twenty-ten, you&#8217;ll have to make your own rules with the appropriate IDs for your HTML structure.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-618" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-618" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-618">
+							<time datetime="2011-11-07T03:59:25+00:00">
+								7th November 2011 at 3:59 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ahhhh ok! I&#8217;ll try! Thanks</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-619" class="comment even thread-even depth-1">
+			<article id="div-comment-619" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-619">
+							<time datetime="2011-11-07T04:18:49+00:00">
+								7th November 2011 at 4:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I have added in header.php</p>
+<p><code>&lt;body class="post-only" class="normal"&gt;</code></p>
+<p>It works!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-620" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-620" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-620">
+							<time datetime="2011-11-07T04:19:56+00:00">
+								7th November 2011 at 4:19 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I have added in header.php</p>
+<blockquote><p>&lt;body class=&#8221;post-only&#8221; class=&#8221;normal&#8221;&gt;</p></blockquote>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-621" class="comment even depth-2">
+			<article id="div-comment-621" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-621">
+							<time datetime="2011-11-07T04:20:29+00:00">
+								7th November 2011 at 4:20 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>-.-&#8216; I can&#8217;t write php code.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-622" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-622" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dd73c7934a9e8e99512ca1392d18c027?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.langiulli.com/' rel='external nofollow' class='url'>Langy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-622">
+							<time datetime="2011-11-07T06:36:55+00:00">
+								7th November 2011 at 6:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi again :D</p>
+<p>Today I have upgraded your plugin. </p>
+<p>Now on big map page I read on top of page &#8220;int(1)&#8221;. What&#8217;s append?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-623" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-623" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://targetedservices.com/' rel='external nofollow' class='url'>Clay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-623">
+							<time datetime="2011-11-07T10:11:19+00:00">
+								7th November 2011 at 10:11 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Upgraded also have int(0) or int(1) depending on if Im logged or not.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-624" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-624" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5133f8c2a217fa46d1f2804c3380edac?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5133f8c2a217fa46d1f2804c3380edac?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ben Mak</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-624">
+							<time datetime="2011-11-08T00:31:56+00:00">
+								8th November 2011 at 12:31 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the user only posts update Bernie, excellent! Is there a way I can show other user posts when your click on a link to their map from the profile page, so not only do you see your map when your logged in but you can view other users, which only displays routes and posts from them? Sounds like you&#8217;ve got quiet a few questions at the moment, but if you get chance to respond that would be great.</p>
+<p>Thanks Again!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-625" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-625" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-625">
+							<time datetime="2011-11-08T14:42:22+00:00">
+								8th November 2011 at 2:42 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You can&#8217;t change the content of the map based on whose profile page you came from, but you can create one map page for each user, and use the author_name=&#8221;username&#8221; attribute to make that map display only posts from a specific user.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-626" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-626" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Andres Pineda</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-626">
+							<time datetime="2011-11-14T17:11:13+00:00">
+								14th November 2011 at 5:11 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This is brilliant and and just what i was looking for, only problem is that im really new to this and dont know much about html, etc. I have tried looking all over google for a possible solution before posting here but no luck. Im trying to figure out how to add the markers to the map? I am really lost and confused.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-627" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-627" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-627">
+							<time datetime="2011-11-14T20:17:38+00:00">
+								14th November 2011 at 8:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Andres,</p>
+<p>My plugin builds on top of WP-Geo. First you should install WP-Geo on your wordpress blog and be happy using that. They have a website with documentation and a help forum. When you&#8217;re happy with WP-Geo, install my plugin to get a sexy full-screen  map. Once you have WP-Geo running, if you need help with my plugin I&#8217;ll be happy to lend a hand.</p>
+<p>Good luck,</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-628" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-628" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9b97b81eaca74246093ce62423221de5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/9b97b81eaca74246093ce62423221de5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">jcvakeo</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-628">
+							<time datetime="2011-11-15T14:42:32+00:00">
+								15th November 2011 at 2:42 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi, I can not run the plugin (which I seem to be exactly what I&#8217;m looking for a very long time).<br />
+I have this message on the page: &#8220;Big Map can not be displayed, Possibly Because JavaScript is turned off.&#8221;<br />
+Yet JavaScript is enabled &#8230;<br />
+However, I understand the need to add the Google Maps API key but where?<br />
+In my admin panel, I have no options for this plugin &#8230;</p>
+<p>In advance thank you!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-629" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-629" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/academia/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-629">
+							<time datetime="2011-11-16T13:55:48+00:00">
+								16th November 2011 at 1:55 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,<br />
+Thank you for your response. I was finally able to figure out how to work the plug-in and is working quite well, although i have ran into a couple of conflicts.</p>
+<p>1.  The map continues showing the loading icon and never disappears once its showing all the marker. Is this normal, part of the option categories or there is a glitch some where?<br />
+<a href="http://www.pinedandres.com/academia/" rel="nofollow">http://www.pinedandres.com/academia/</a><br />
+<a href="http://www.pinedandres.com/professional/" rel="nofollow">http://www.pinedandres.com/professional/</a></p>
+<p>2. when you click on the markers, my blog pages do not show correctly. Maybe it might be conflicting maybe with the theme? is there any way to correct this issue?</p>
+<p>Thank you for your help and time.<br />
+Greatly appreciate it.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-630" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-630" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-630">
+							<time datetime="2011-11-16T16:44:05+00:00">
+								16th November 2011 at 4:44 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Andres,</p>
+<p>1. That loading icon is not coming from my plugin, so I can&#8217;t help here.</p>
+<p>2. My plugin puts the &#8220;post-only&#8221; style on your body tag when your post is viewed in an iframe. Because you use a custom theme, you must add CSS rules to your theme to hide all navigation and borders when inside body.post-only. See the bottom of this file for an example that works with the twenty-ten theme: <a href="http://berniesumption.com/travel/wp-content/plugins/wp-geo-big-map/style.css?ver=3.2.1" rel="nofollow">http://berniesumption.com/travel/wp-content/plugins/wp-geo-big-map/style.css?ver=3.2.1</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-631" class="comment even thread-even depth-1">
+			<article id="div-comment-631" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/academia/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-631">
+							<time datetime="2011-11-16T18:01:43+00:00">
+								16th November 2011 at 6:01 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,<br />
+Seems like the theme continues to override the code. Is there any possible way to maybe link the post tag with a link, so when the tag is clicked it redirects you to the page?</p>
+<p>In addition, is there a way to remove the posted date?</p>
+<p>Andres Pineda</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-632" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-632" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/fb6f6495fa63733fc2f9fd1cd060f8b5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/fb6f6495fa63733fc2f9fd1cd060f8b5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.bigsunphotography.com/' rel='external nofollow' class='url'>Gene Tewksbury</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-632">
+							<time datetime="2011-11-19T22:02:00+00:00">
+								19th November 2011 at 10:02 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>from an SEO standpoint how does this work.<br />
+It seems that no matter what posts you bring up you stay on the same url&#8230;<br />
+So I am wondering if all the content held within each post is &#8220;seen&#8221; by Google as all residing on that same single page&#8230;  OR can the spiders even read those posts at all?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-633" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-633" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-633">
+							<time datetime="2011-11-21T02:13:47+00:00">
+								21st November 2011 at 2:13 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good question. From the point of view of SEO, it&#8217;s an empty page. All the posts are added by JavaScript.</p>
+<p>The idea is that all the posts still have their own URL, but that the big map view is an alternative way of viewing the posts. I don&#8217;t recommend replacing the whole wordpress UI with my plugin, because you&#8217;d lose those features like search and monthly archives.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-634" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-634" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5dedea9dd533e1a67f99a201c5c6d48a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5dedea9dd533e1a67f99a201c5c6d48a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://empregosnoestrangeiro.com/' rel='external nofollow' class='url'>Pedro Barata</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-634">
+							<time datetime="2011-11-24T04:57:48+00:00">
+								24th November 2011 at 4:57 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>i installed your plugin and follow all the &#8220;simple&#8221; instructions, but isn&#8217;t work.</p>
+<p>You can see the error on the page did i put de code [big_map] here: <a href="http://empregosnoestrangeiro.com/new-map" rel="nofollow">http://empregosnoestrangeiro.com/new-map</a></p>
+<p>I have de Js active in all browser.</p>
+<p>Can you help me, please.</p>
+<p>All the best<br />
+Pedro</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-635" class="comment byuser comment-author-bernie bypostauthor even depth-2 parent">
+			<article id="div-comment-635" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-635">
+							<time datetime="2011-11-24T05:17:58+00:00">
+								24th November 2011 at 5:17 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I had a look at your site. Although I can&#8217;t immediately see why it isn&#8217;t working, here are some ideas:</p>
+<p>1. Do you have WP-Geo working? Have you made some posts, and put them on a map using the WP-Geo admin interface?</p>
+<p>2. My plugin works only with posts, not pages. Are you creating posts or pages?</p>
+<p>3. Looking at the source code, my plugin isn&#8217;t trying to display anything at all. Are you just using the code [big_map] or are you passing any parameters, e.g. [big_map author_name=&#8221;bernie&#8221;]</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-644" class="comment odd alt depth-3 parent">
+			<article id="div-comment-644" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0d4159631caaa1baebe8621080a1e282?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0d4159631caaa1baebe8621080a1e282?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.aguaplano.org/' rel='external nofollow' class='url'>Sigfrido</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-644">
+							<time datetime="2012-01-23T15:26:01+00:00">
+								23rd January 2012 at 3:26 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie, your plugin is great!<br />
+I&#8217;ve read that it works using posts and not pages, is it a choice or a technical limitations? any chance of getting it to work with pages too?<br />
+thanks again for this great plugin<br />
+ciao</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-645" class="comment byuser comment-author-bernie bypostauthor even depth-4 parent">
+			<article id="div-comment-645" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-645">
+							<time datetime="2012-01-23T15:41:10+00:00">
+								23rd January 2012 at 3:41 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>My plugin builds on Wp-Geo, which only allows you to show posts. If you think you can make a case for pages being supported, you could head over to the Wp-Geo forums and ask there.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-646" class="comment odd alt depth-5">
+			<article id="div-comment-646" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0d4159631caaa1baebe8621080a1e282?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0d4159631caaa1baebe8621080a1e282?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.aguaplano.org/' rel='external nofollow' class='url'>Sigfrido</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-646">
+							<time datetime="2012-01-23T15:55:40+00:00">
+								23rd January 2012 at 3:55 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Ugh.. this is going to be tough. My goal was to use wp geo big map to show the pages of the places i&#8217;ve been. Maybe i can create some posts instead, it&#8217;s going to be faster for sure ;-)<br />
+Anyway , thanks again and keep the good work<br />
+sigfrido</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-636" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-636" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4841c4e065754ede809b7e4a2ebcecbf?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4841c4e065754ede809b7e4a2ebcecbf?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.earthcircuit.org/' rel='external nofollow' class='url'>Andyeverywhere</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-636">
+							<time datetime="2011-12-07T10:06:09+00:00">
+								7th December 2011 at 10:06 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Is it possible to specify category and have a seperate map for each category&#8217;s posts?<br />
+Great stuff.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-637" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-637" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-637">
+							<time datetime="2011-12-07T14:48:29+00:00">
+								7th December 2011 at 2:48 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It should be, because the underlying WordPress search feature supports it. Let me know if this works:</p>
+<p>[big_map category_name=&#8221;your-category&#8221;]</p>
+<p>The &#8220;your-category&#8221; part should be replaced with the category &#8220;slug&#8221; This is the short bit of text without spaces that appears in the URL, not the full name.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-638" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-638" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-638">
+							<time datetime="2011-12-08T16:11:14+00:00">
+								8th December 2011 at 4:11 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I was wondering if something like is possible with the plug in.  <a href="http://campusmaps.fiu.edu/" rel="nofollow">http://campusmaps.fiu.edu/</a><br />
+I am mostly interested in being able to highlight certain area like they have highlighted the buildings; and well the bouncy Placemark  could be kind of interesting. In addition when you click on the outlines building similarly to yours it opens up a pop up that shows a description.<br />
+Do you have any suggestion in how I can achieve something similarly or its recreating something completely different?</p>
+<p>Thanks</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-639" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-639" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-639">
+							<time datetime="2011-12-15T15:46:36+00:00">
+								15th December 2011 at 3:46 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It&#8217;s possible with the Google maps API, but my plugin won&#8217;t help you with it &#8211; you&#8217;d need to write your own code to draw the overlays. In theory, your code and my plugin can coexist on the same map.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-640" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-640" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://targetedservices.com/' rel='external nofollow' class='url'>Clay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-640">
+							<time datetime="2012-01-10T15:12:13+00:00">
+								10th January 2012 at 3:12 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello and Happy New Year! Any update on capability of big-map to display the correct markers(dot, small, large, or custom) for individual posts, as in wp-geo?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-641" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-641" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-641">
+							<time datetime="2012-01-15T02:36:52+00:00">
+								15th January 2012 at 2:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Yes &#8211; I&#8217;m working on this feature for a client, and when I&#8217;ve finished it will be added to the standard distribution of the plugin. Expect an update Late Jan or Early Feb.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-642" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-642" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e13c7d8eac89ea594dbf1e6c18c9015a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e13c7d8eac89ea594dbf1e6c18c9015a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.xpointe.net/' rel='external nofollow' class='url'>Desiree</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-642">
+							<time datetime="2012-01-16T12:36:35+00:00">
+								16th January 2012 at 12:36 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Is it possible to use this on a Weebly based site instead of WordPress?  I&#8217;m not familiary with Weebly &amp; we&#8217;re trying to plug this in for a missionary feature page.<br />
+Thanks for your help!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-643" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-643" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-643">
+							<time datetime="2012-01-16T13:31:34+00:00">
+								16th January 2012 at 1:31 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Sorry &#8211; because this is a WordPress plugin , it won&#8217;t work on any other kind of blog. You&#8217;d have to install WordPress on the same site as Weebly, and use WordPress for the blog and Weebly for the rest of the website.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-649" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-649" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-649">
+							<time datetime="2012-01-26T17:12:00+00:00">
+								26th January 2012 at 5:12 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,<br />
+Overwriting the URL for a post that is used instead of the post URL would actually work for me. As it would create a straight forward approach to the problem<br />
+<a href="http://www.pinedandres.com/location/" rel="nofollow">http://www.pinedandres.com/location/</a> &gt; <a href="http://www.pinedandres.com/portfolio/item/simbiosis/" rel="nofollow">http://www.pinedandres.com/portfolio/item/simbiosis/</a><br />
+Rather than making the user go to through:<br />
+<a href="http://www.pinedandres.com/location/" rel="nofollow">http://www.pinedandres.com/location/</a> &gt; Click on geo tag &gt;to reroute them to a blank post so they can finally click a link that will take them to the actual project. I would guess that if the user has to go through this process per project they would rather not use the <a href="http://www.pinedandres.com/location/" rel="nofollow">http://www.pinedandres.com/location/</a> feature.<br />
+As far as having useless blogs, I wouldn’t have any blogs as I am not looking into this any time soon. </p>
+<p>But yet again im not sure how easy this can or cannot be.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-650" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2 parent">
+			<article id="div-comment-650" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-650">
+							<time datetime="2012-01-26T17:41:15+00:00">
+								26th January 2012 at 5:41 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I can see how it would work in your situation, but it&#8217;s not the kind of feature I want to add to my plugin (and them maintain) because it&#8217;s a hack &#8211; it&#8217;s not really using the plugin for what it was designed for.</p>
+<p>If you want to modify the plugin to support this (this will require some PHP knowledge, and will mean that if you upgrade to a future version you&#8217;ll have to re-apply the modification) then let me know and I&#8217;ll give you some pointers about what files and lines will need modification and how.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-651" class="comment even depth-3 parent">
+			<article id="div-comment-651" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c26187a679341971b4d5753fe4048e3f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.pinedandres.com/' rel='external nofollow' class='url'>Andres Pineda</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-651">
+							<time datetime="2012-01-27T09:33:28+00:00">
+								27th January 2012 at 9:33 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,</p>
+<p>Thank for the response.</p>
+<p>Last attempt before having to go with the previous solution.</p>
+<p>How about being able to click on the geo tag but rather than the pop up showing up the Post with in it, it just simply shows text (the link).</p>
+<p>So for example:<br />
+click geo tag &gt; pop up only has the link that the user would click and nothing else that would direct them to the correct page of the porfolio.</p>
+<p>Similar looking to when you go to: <a href="http://maps.google.com/" rel="nofollow">http://maps.google.com/</a> and do a search the geo tags pop up and for some you simply get a pop up with very basic info.<br />
+Ex:<br />
+Towers Elite Services‎<br />
+2910 West Cedar Street<br />
+Beaumont, TX 77702-2526<br />
+(409) 832-2444</p>
+<p>in this case it would prob just be:<br />
+Title: Simbiosis (with embedded link if possible)<br />
+The Wildlife Learning Center [WLC]<br />
+<a href="http://www.pinedandres.com/portfolio/item/simbiosis/" rel="nofollow">http://www.pinedandres.com/portfolio/item/simbiosis/</a></p>
+<p>Let me know your thoughts<br />
+Than you for your time by the way, I greatly appreciate the response and help.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-652" class="comment byuser comment-author-bernie bypostauthor odd alt depth-4">
+			<article id="div-comment-652" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-652">
+							<time datetime="2012-01-27T16:56:28+00:00">
+								27th January 2012 at 4:56 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I don&#8217;t understand why you&#8217;d want to use WordPress, or my plugin, for this. Basically, my plugin is designed to take a WordPress blog, where the content exists in posts which are positioned at certain locations, and display them on a Google map. However it seems that what you want is &#8220;my plugin, but without any of that wordpress stuff&#8221;. This already exists, it&#8217;s called Google Maps!</p>
+<p>Google allows you to create a map, then place markers on it, put HTML content on the markers, change the marker image, all that jazz. It&#8217;s called &#8220;My Maps&#8221;.</p>
+<ul>
+<li><a href="http://support.google.com/maps/bin/answer.py?hl=en&amp;answer=62843" rel="nofollow">Some instructions from Google</a></li>
+<li><a href="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=107510149953809711175.0004944e6e785ecbec099&amp;ll=42.512602,-4.998779&amp;spn=5.668465,10.316162&amp;z=7&amp;output=embed" rel="nofollow">Here is a map I made using Google Maps</a></li>
+<li><a href="http://berniesumption.com/photography/camino-de-santiago/" rel="nofollow">That map, embedded in a page on my blog</a></li>
+</ul>
+<ul>
+<p>Is that what you&#8217;re looking for?</ul>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-653" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-653" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/97ac40a15c1e3d80d91e2de6484b7615?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/97ac40a15c1e3d80d91e2de6484b7615?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.maxshifman.com/' rel='external nofollow' class='url'>Max</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-653">
+							<time datetime="2012-02-01T02:05:20+00:00">
+								1st February 2012 at 2:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>I&#8217;m having some trouble with the latest version 1.3.2 on WordPress 3.3.1 and WP-Geo 3.2.6.2. </p>
+<p>When loading the page with [big_map] on it I receive the popup error saying that Google Maps can&#8217;t be accessed, is WP-Geo installed.</p>
+<p>Any ideas?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-656" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-656" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-656">
+							<time datetime="2012-02-01T13:41:44+00:00">
+								1st February 2012 at 1:41 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Can you send me a link to the page online illustrating the problem?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-658" class="comment even depth-2">
+			<article id="div-comment-658" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://rtw.gs/' rel='external nofollow' class='url'>Andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-658">
+							<time datetime="2012-03-03T22:04:55+00:00">
+								3rd March 2012 at 10:04 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Had the same problem when i used HTTPS  to my site.</p>
+<p>Might be the same might not.  (I havn&#8217;t found the solution to this yet)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-654" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-654" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/58564d9922a4f2c0766574cee5b067e4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/58564d9922a4f2c0766574cee5b067e4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Niels</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-654">
+							<time datetime="2012-02-01T12:45:34+00:00">
+								1st February 2012 at 12:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi bernie!</p>
+<p>Great plugin! I was wondering if i could integrate the map in all my tag pages by integrating it into my theme. for example adding the shortcode  to the tag page template. </p>
+<p>in short: get a map with all the posts with a specific tag on the tag page</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-655" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-655" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-655">
+							<time datetime="2012-02-01T13:40:26+00:00">
+								1st February 2012 at 1:40 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>The easiest way is to set up the map you want, then put it in an iframe. This is the currently only way you an have multiple maps on a single page. Use the &#8220;tag&#8221; attribute to filter on a single tag.</p>
+<p>If you ant to write PHP code to control the map that is displayed, upgrade to version 1.4.0, and directly call this function from your template:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="php" style="font-family:monospace;">shortcode_wp_geo_big_map<span style="color: #009900;">&#40;</span><span style="color: #990000;">array</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">&quot;full_window&quot;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #0000ff;">&quot;0&quot;</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">&quot;tag&quot;</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$theTagToDisplay</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span></pre></td></tr></table><p class="theCode" style="display:none;">shortcode_wp_geo_big_map(array(&quot;full_window&quot; =&gt; &quot;0&quot;, &quot;tag&quot; =&gt; $theTagToDisplay))</p></div>
+
+<p>(Warning: I&#8217;ve never tried this, but can&#8217;t see why it wouldn&#8217;t work)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-657" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-657" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://rtw.gs/' rel='external nofollow' class='url'>Andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-657">
+							<time datetime="2012-03-03T22:02:57+00:00">
+								3rd March 2012 at 10:02 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;m not sure how people use the icon override function for wp-geo.<br />
+But to add the functionality here i add a little if statement  wp-geo-big-map.php</p>
+<p><code><br />
+$marker = get_post_meta($post-&gt;ID, WPGEO_MARKER_META, true);<br />
+		if ($marker == "") {  echo "Empty Marker ";</p>
+<p>		$marker = apply_filters( 'wpgeo_marker_icon',$marker, $post-&gt;ID,array());<br />
+		}<br />
+		if ($marker == "") {<br />
+			$marker = "big_map_default_icon";</p>
+<p>		} else {<br />
+			$marker = "wpgeo_icon_$marker";<br />
+		}<br />
+</code>	</p>
+<p>Thank&#8217;s for the plugin, awsome</p>
+<p>Andy</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-659" class="comment even depth-2">
+			<article id="div-comment-659" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dcb4e99a7d78417ee532a86f5a022dbb?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://rtw.gs/' rel='external nofollow' class='url'>Andrew</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-659">
+							<time datetime="2012-03-03T22:34:55+00:00">
+								3rd March 2012 at 10:34 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Oopps forgot  Remove this but of the line&#8230;  :-</p>
+<p>echo &#8220;Empty Marker &#8220;;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-660" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-660" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d58f479d43be0a9d37afc29d9bdc3195?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d58f479d43be0a9d37afc29d9bdc3195?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://eastldn.co.uk/' rel='external nofollow' class='url'>Benjamin</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-660">
+							<time datetime="2012-03-26T02:06:52+00:00">
+								26th March 2012 at 2:06 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Any idea how to alter the pop-up iframe size? its appearing a little too big.</p>
+<p>Found some code relating to iframe in wp-geo-big-map/scripts.js but this won&#8217;t allow me to change it.</p>
+<p>Best wishes,</p>
+<p>B.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-661" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-661" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-661">
+							<time datetime="2012-03-28T00:30:47+00:00">
+								28th March 2012 at 12:30 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Find the text &#8220;550px&#8221; in scripts.js and change it to another height.</p>
+<p>Alternatively, if you want to change the width, change the line containing &#8220;660px&#8221; and then also change the content width in hide-contents.js.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-662" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-662" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://targetedservices.com/' rel='external nofollow' class='url'>Clay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-662">
+							<time datetime="2012-04-18T13:17:53+00:00">
+								18th April 2012 at 1:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I see you have done quite a lot of work on this plugin! Wow. Congrats and thanks for all your efforts. At the moment I can&#8217;t upgrade because when I do I&#8217;m receiving a message that I can&#8217;t run two instances of the big map on a single page. However I am only attempting to run a single instance. Any thoughts? I reverted to the previous version for now.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-664" class="comment even depth-2">
+			<article id="div-comment-664" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a7501565b9c960d4b3ef717fedfa79db?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://targetedservices.com/' rel='external nofollow' class='url'>Clay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-664">
+							<time datetime="2012-05-14T13:11:48+00:00">
+								14th May 2012 at 1:11 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Updated to latest version and works great now! TY!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-663" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-663" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/306ef1d7fc5fc5aecb3e68ec6821b01e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/306ef1d7fc5fc5aecb3e68ec6821b01e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Niels</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-663">
+							<time datetime="2012-05-10T05:01:39+00:00">
+								10th May 2012 at 5:01 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie</p>
+<p>ShareThis has a hovering share button to add to any page. It requires you to add a piece of java code to the head of the html and a piece to the body of the html. Have tried to add it to the html file in the plugin but that didn&#8217;t work. Was wondering if and how I could add this button to the plugin.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-665" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-665" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.overlandtour.de/weltkarte/' rel='external nofollow' class='url'>Jens</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-665">
+							<time datetime="2012-06-07T09:48:55+00:00">
+								7th June 2012 at 9:48 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>I would like change the makers. In wp-geo wasn´t a problem, but you get the markers from google. Can you change this to the wp-geo folder???<br />
+Thanks<br />
+Jens</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-668" class="comment odd alt depth-2">
+			<article id="div-comment-668" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.overlandtour.de/weltkarte/' rel='external nofollow' class='url'>Jens</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-668">
+							<time datetime="2012-07-23T01:09:19+00:00">
+								23rd July 2012 at 1:09 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie,</p>
+<p>you did an update, but I can´t read anywhere the changelog? So how is it white the coustomer-markers???</p>
+<p>Cheers Jens</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-666" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-666" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/caa83cbba043fe54dd6cda6050b8e037?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/caa83cbba043fe54dd6cda6050b8e037?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.thinkdifferentdesigns.com/' rel='external nofollow' class='url'>Larry Bradshaw</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-666">
+							<time datetime="2012-06-29T13:33:33+00:00">
+								29th June 2012 at 1:33 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Is there anyway to include a custom post type? I&#8217;m using a theme that has a special Project post type and only regular posts show up on the map. Is there a parameter I could add to get these to show up? I wanted to do a project map.</p>
+<p>I&#8217;ve got the map to show up on the post themselves when viewed individually, just not showing up on your Big Map.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-667" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-667" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/caa83cbba043fe54dd6cda6050b8e037?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/caa83cbba043fe54dd6cda6050b8e037?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Larry Bradshaw</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-667">
+							<time datetime="2012-07-12T06:43:05+00:00">
+								12th July 2012 at 6:43 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Loving your plug in!</p>
+<p>Quick question? If a lot of posts come up on a particular pin, it says &#8220;x posts &#8211; click to view&#8221; is there anyway instead of showing them on in a long row (sometimes outside the bubble) can it just send the user to an archive/search page that has those posts instead of expanding inside the frame?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-669" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-669" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/85361fe534c0f7fce12bd738c8358745?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/85361fe534c0f7fce12bd738c8358745?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://cmoreira.net/' rel='external nofollow' class='url'>Carlos Moreira</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-669">
+							<time datetime="2012-09-26T01:55:18+00:00">
+								26th September 2012 at 1:55 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Bernie!<br />
+Great work you&#8217;ve done here.<br />
+I experimented the plugin and it works great. I&#8217;m a lot into maps/wordpress integration.<br />
+Recently I developed a premium plugin with the geochart api, that returns diferent kinds of maps. Could be cool for you blog, for example, for a representation of the countries you already visited in the world! Check it out:<br />
+<a href="http://cmoreira.net/interactive-world-maps-demo/" rel="nofollow">http://cmoreira.net/interactive-world-maps-demo/</a><br />
+Cheers<br />
+Carlos</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-670" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-670" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/6d57c488f08d78cec1c9ad2dee519b25?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/6d57c488f08d78cec1c9ad2dee519b25?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.achinesenomad.co.uk/' rel='external nofollow' class='url'>John</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-670">
+							<time datetime="2012-10-01T12:50:45+00:00">
+								1st October 2012 at 12:50 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie</p>
+<p>Thanks for the plug in, works really well. I&#8217;ve just implemented on my girlfriends blog to show the post on our round the world holiday. </p>
+<p><a href="http://www.achinesenomad.co.uk/posts-on-a-map/" rel="nofollow">http://www.achinesenomad.co.uk/posts-on-a-map</a>.</p>
+<p>Really happy that with 100 items on the page it&#8217;s not slow. In about 8 months time there will be 365 posts on there, hopefully it still with render quickly!</p>
+<p>Thanks,</p>
+<p>John</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-671" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-671" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://kingstakh.by/' rel='external nofollow' class='url'>kingstakh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-671">
+							<time datetime="2013-04-02T11:56:30+00:00">
+								2nd April 2013 at 11:56 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi! Very nice sexy ))) plugin! Tanx! Great work, but have 2 questions:<br />
+&#8211; This plugin support Google Api Ver.3? If not, you have a plan make this?<br />
+&#8211; How can I add to your fullscreen view my blog header?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-674" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2 parent">
+			<article id="div-comment-674" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-674">
+							<time datetime="2013-04-04T01:14:52+00:00">
+								4th April 2013 at 1:14 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>The underlying WP Geo plugin doesn&#8217;t yet support V3. If and when it does, I can update my plugin.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-675" class="comment even depth-3">
+			<article id="div-comment-675" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://kingstakh.by/' rel='external nofollow' class='url'>kingstakh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-675">
+							<time datetime="2013-04-04T01:34:58+00:00">
+								4th April 2013 at 1:34 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>But Ben Hunson wrote in future version of WP Geo will <a>support API V3</a>. Because v2 API will expire on May 19, 2013.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-672" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-672" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f9679e37e277b22294d0e9edb2facd70?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f9679e37e277b22294d0e9edb2facd70?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.cbcmcalester.com/' rel='external nofollow' class='url'>Anthony Master</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-672">
+							<time datetime="2013-04-03T19:48:52+00:00">
+								3rd April 2013 at 7:48 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>First of all, thanks for the great plugin! We are using it on our site at <a href="http://www.cbcmcalester.com/blog/2013/03/missions/" rel="nofollow">http://www.CBCMcAlester.com</a>. The problem that I am having is that we are using the option <code>full_window="0"</code> to embed the map into a post. This works great and the featured image for the post displays perfectly. However, when you click on the link to the mapped post it tries to open in an iframe as this is the default behavior. Is there any way to make the links link to the post directly instead of an iframe that loads with the post and doesnt function correctly when viewed non full page. Thanks in advance. I have not looked into the code much at all yet, but I am a web application developer and work with php all the time. If it is possible, I can help with the code. I just didn&#8217;t know if this has even been addresses or thought of yet.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-673" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-673" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-673">
+							<time datetime="2013-04-04T01:03:12+00:00">
+								4th April 2013 at 1:03 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There sure is:</p>
+<ul>
+<li>post_link_target: by default, clicking on a marker opens a post in an iframe without leaving the map. If this attribute is set, clicking a marker will link directly to a regular post. The value can be anything accepted by an HTML link&#8217;s &#8216;target&#8217; arrtibute. Useful values include &#8220;_self&#8221; (the current frame), &#8220;_blank&#8221; (a new window), &#8220;_top&#8221; (the topmost frame, useful if you are displaying a map in an iframe) or the name of a specific window.</li>
+</ul>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-677" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-677" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.overlandtour.de/' rel='external nofollow' class='url'>Jens</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-677">
+							<time datetime="2013-05-12T01:02:19+00:00">
+								12th May 2013 at 1:02 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie,</p>
+<p>after the update from WP-Geo to use v3 google key your plugin doesn´t work! </p>
+<p>Cheers Jens</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-679" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-679" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-679">
+							<time datetime="2013-05-13T04:00:16+00:00">
+								13th May 2013 at 4:00 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I hope to get an update out this week, before the v2 Api is turned off, as I&#8217;m aware that many sites (mine included) will break if I don&#8217;t. If nothing unexpected messes things up, it should be out by Friday. Fingers crossed&#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-682" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-682" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/29980358f18fcfc188f245a4796f0256?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/29980358f18fcfc188f245a4796f0256?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://cooperation.globalhealthforum.net/carte-interactive/' rel='external nofollow' class='url'>Evren Kiefer</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-682">
+							<time datetime="2013-07-15T04:22:50+00:00">
+								15th July 2013 at 4:22 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello,</p>
+<p>Nice bath robe! And very useful plugin :) What would be cooler still would be to find a way to display an element (in our case, a menu) over the fullscreen map. However, your fine javascript strips the page bare and I am having difficulties to change this behaviour. Would you be so kind as to point me in the right direction? Many thanks!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-683" class="comment byuser comment-author-bernie bypostauthor even depth-2">
+			<article id="div-comment-683" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-683">
+							<time datetime="2013-07-15T08:18:38+00:00">
+								15th July 2013 at 8:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You have two options. Either put the map in an iframe and have the menu outside the iframe, or modify the JavaScript to not remove your menu, or to insert the menu into the page after my script has removed all the page contents.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-684" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-684" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.overlandtour.de/' rel='external nofollow' class='url'>Jens</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-684">
+							<time datetime="2013-08-22T02:29:10+00:00">
+								22nd August 2013 at 2:29 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie,</p>
+<p>since wp 3.6 my big maps doesn´t work&#8230;&#8230; I don´t know what is happend! See here <a href="http://www.overlandtour.de/weltkarte/map-worldtrip-2012/" rel="nofollow">http://www.overlandtour.de/weltkarte/map-worldtrip-2012/</a></p>
+<p>Cheers Jens</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-685" class="comment even depth-2">
+			<article id="div-comment-685" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ad786253cb8283dfb2d2df01d2d3ec27?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.overlandtour.de/' rel='external nofollow' class='url'>Jens</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-685">
+							<time datetime="2013-08-22T14:31:17+00:00">
+								22nd August 2013 at 2:31 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie,</p>
+<p>I found an other plugin, that makes trouble and deactivated this, so that youer plugin works!!</p>
+<p>Thanks for your help!! :-)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-686" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-686" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e318de351589e70a2ca5f3498763ff54?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://1871.by/' rel='external nofollow' class='url'>kingstakh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-686">
+							<time datetime="2013-09-02T11:08:31+00:00">
+								2nd September 2013 at 11:08 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Bernie, maybe you can help? How use post thumb like marker?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="../../photography/the-making-of-vistagraphs/index.html" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">The making of &#8220;Vistagraphs&#8221;</span></a></div><div class="nav-next"><a href="../introducing-ogre/index.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Introducing OGRE</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><script type='text/javascript' src='../../wp-content/plugins/jquery-collapse-o-matic/js/collapse7514.js?ver=1.6.6'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-syntax/js/wp-syntax4963.js?ver=1.1'></script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/skip-link-focus-fixd01e.js?ver=20141010'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/functions8337.js?ver=20150330'></script>
+
+</body>
+
+<!-- Mirrored from blog.berniesumption.com/software/wp-geo-big-map/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:36:04 GMT -->
+</html>
+
+<!-- Dynamic page generated in 1.550 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-10-17 12:33:11 -->
+
+<!-- super cache -->

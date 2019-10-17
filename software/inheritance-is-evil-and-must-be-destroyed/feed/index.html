@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Inheritance is evil, and must be destroyed</title>
+	<atom:link href="https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/</link>
+	<description>Various writings on software development and photography</description>
+	<lastBuildDate>Fri, 10 Aug 2018 08:19:11 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.11</generator>
+	<item>
+		<title>By: charly brown</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-343</link>
+		<dc:creator><![CDATA[charly brown]]></dc:creator>
+		<pubDate>Wed, 22 Oct 2014 18:05:14 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-343</guid>
+		<description><![CDATA[dont know if some1 pointed it before, but this topic is a &quot;inheritance versus composition&quot; dilema.
+
+Inheritance isnt evil neither is composition, they just are tools/techniques and you have to use them wisely in your design. (thats why you have to think about your design instead of start writting code and doing iterations in a backstracking (test and error way)
+
+&quot;is-a&quot;: inheritance
+&quot;has-a&quot;: composition
+
+lets imagine this 2 classes:
+public abstract class Horse extends BaseLifeForm.
+public abstract class Truck extends BaseMachine.
+
+this is making an asumption: machines will never be a life form, so you have 2 hierarchies: lifeforms and machines. ¿but what if some day artificial intelligence makes possible that machines became a form of life? UPS!
+anyways: horses will never have a &quot;turn on&quot; method.... ¿or not?
+
+at the end, its all about making a design based in some scenario.
+
+disclaimer: english is not my native language so dont blame my mistakes :)]]></description>
+		<content:encoded><![CDATA[<p>dont know if some1 pointed it before, but this topic is a &#8220;inheritance versus composition&#8221; dilema.</p>
+<p>Inheritance isnt evil neither is composition, they just are tools/techniques and you have to use them wisely in your design. (thats why you have to think about your design instead of start writting code and doing iterations in a backstracking (test and error way)</p>
+<p>&#8220;is-a&#8221;: inheritance<br />
+&#8220;has-a&#8221;: composition</p>
+<p>lets imagine this 2 classes:<br />
+public abstract class Horse extends BaseLifeForm.<br />
+public abstract class Truck extends BaseMachine.</p>
+<p>this is making an asumption: machines will never be a life form, so you have 2 hierarchies: lifeforms and machines. ¿but what if some day artificial intelligence makes possible that machines became a form of life? UPS!<br />
+anyways: horses will never have a &#8220;turn on&#8221; method&#8230;. ¿or not?</p>
+<p>at the end, its all about making a design based in some scenario.</p>
+<p>disclaimer: english is not my native language so dont blame my mistakes :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-329</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Thu, 03 Oct 2013 10:23:45 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-329</guid>
+		<description><![CDATA[I disagree. #FF0080 (DEEP PINK, FUCHSIA) is the greatest of all the colours. Your eyes only bleed if they aren&#039;t awesome enough to handle all that pink!]]></description>
+		<content:encoded><![CDATA[<p>I disagree. #FF0080 (DEEP PINK, FUCHSIA) is the greatest of all the colours. Your eyes only bleed if they aren&#8217;t awesome enough to handle all that pink!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: felis leo</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-328</link>
+		<dc:creator><![CDATA[felis leo]]></dc:creator>
+		<pubDate>Wed, 25 Sep 2013 14:52:20 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-328</guid>
+		<description><![CDATA[Google GWT has an hybrid approch :
+&lt;code&gt;
+     interface IsXxx {
+        Xxx asXxx();
+     }
+&lt;/code&gt;
+
+Yes, you have to copy/paste the Xxx field declaration and this declared getter, but that&#039;s all.
+You are free to respect this IsXxx contract by either inheritance or aggregation.
+(Even you are no more concerned by method name collision)
+
+Meanwhile, C++ multi-inheritance provides two facilities:
+ - you don not have to { cast as Xxx / use xxx field / use asXxx getter }
+ - child classes have access to parent&#039;s protected members
+
+Actually i think the mostly used of inherintance is to simplify a composition.
+By exemple, if to make a X you need a common B and custom C
+with inheritence: X/B are base, C extends X/B
+with agregation: X is interface, B and C classes, C&#039; assemble B and C to become a X
+  and you need extra interfaces to define communication between B and C, and the rest of the world...
+
+Finally I agree: inheritence is bad, but a shortcut.]]></description>
+		<content:encoded><![CDATA[<p>Google GWT has an hybrid approch :<br />
+<code><br />
+     interface IsXxx {<br />
+        Xxx asXxx();<br />
+     }<br />
+</code></p>
+<p>Yes, you have to copy/paste the Xxx field declaration and this declared getter, but that&#8217;s all.<br />
+You are free to respect this IsXxx contract by either inheritance or aggregation.<br />
+(Even you are no more concerned by method name collision)</p>
+<p>Meanwhile, C++ multi-inheritance provides two facilities:<br />
+ &#8211; you don not have to { cast as Xxx / use xxx field / use asXxx getter }<br />
+ &#8211; child classes have access to parent&#8217;s protected members</p>
+<p>Actually i think the mostly used of inherintance is to simplify a composition.<br />
+By exemple, if to make a X you need a common B and custom C<br />
+with inheritence: X/B are base, C extends X/B<br />
+with agregation: X is interface, B and C classes, C&#8217; assemble B and C to become a X<br />
+  and you need extra interfaces to define communication between B and C, and the rest of the world&#8230;</p>
+<p>Finally I agree: inheritence is bad, but a shortcut.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: anonymous</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-327</link>
+		<dc:creator><![CDATA[anonymous]]></dc:creator>
+		<pubDate>Mon, 01 Jul 2013 00:59:53 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-327</guid>
+		<description><![CDATA[Pink at the top of the page template is eye bleeding (#ff0080). The bottom color of the gradient (#b3002d) goes nice with the textured grey.]]></description>
+		<content:encoded><![CDATA[<p>Pink at the top of the page template is eye bleeding (#ff0080). The bottom color of the gradient (#b3002d) goes nice with the textured grey.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Nick</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-326</link>
+		<dc:creator><![CDATA[Nick]]></dc:creator>
+		<pubDate>Sun, 02 Jun 2013 06:38:40 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-326</guid>
+		<description><![CDATA[C++ multiple inheritance works great!  The classic diamond problem is solved by the compiler mentioning the ambiguity of your code.  I have bent over backwards trying to find a work around to not having multiple inheritance in C# (or same thing with Java, AS3).  The best I can do is create an interface of the second class I want to derive from and, eeeeeeeeewwwwww, copy and paste the implementations of its methods.  Such a shame.  I blame Java for this.  Correct me if im wrong but they are the bastards that started the whole interface thing.]]></description>
+		<content:encoded><![CDATA[<p>C++ multiple inheritance works great!  The classic diamond problem is solved by the compiler mentioning the ambiguity of your code.  I have bent over backwards trying to find a work around to not having multiple inheritance in C# (or same thing with Java, AS3).  The best I can do is create an interface of the second class I want to derive from and, eeeeeeeeewwwwww, copy and paste the implementations of its methods.  Such a shame.  I blame Java for this.  Correct me if im wrong but they are the bastards that started the whole interface thing.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: NoQuarter</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-325</link>
+		<dc:creator><![CDATA[NoQuarter]]></dc:creator>
+		<pubDate>Thu, 23 May 2013 22:44:26 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-325</guid>
+		<description><![CDATA[----------------------------------------------------------------------
+To:  thpigdog 
+----------------------------------------------------------------------
+Now say we have a rule “all dogs chase cats”.
+dog.See(cat) implies dog.Chase(cat)
+
+This could be written as a method,
+
+void Dog.See(Cat cat)
+{
+Chase(cat);
+}
+
+Now suppose we have a class CatLovingDog that inherits from Dog.
+
+void CatLovingDog.See(Cat cat)
+{
+Greet(cat);
+}
+----------------------------------------------------------------------
+
+No, rather than creating &quot;some other kind of dog&quot;, (the same fundamental inheritance problem discussed in the article), instead the thing to do is to modify the existing dog definition by adding a &quot;CatAffinity&quot; property.
+
+void Dog.See(Cat cat)
+{
+  if (this.CatAffinity &#062; 0)
+    Greet(cat);
+  else
+    Chase(cat);
+}
+
+Chase or greet is not an &quot;is-a&quot;, nor is it a &quot;has-a&quot;.  Instead it&#039;s an attribute of a specific instance.]]></description>
+		<content:encoded><![CDATA[<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-<br />
+To:  thpigdog<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-<br />
+Now say we have a rule “all dogs chase cats”.<br />
+dog.See(cat) implies dog.Chase(cat)</p>
+<p>This could be written as a method,</p>
+<p>void Dog.See(Cat cat)<br />
+{<br />
+Chase(cat);<br />
+}</p>
+<p>Now suppose we have a class CatLovingDog that inherits from Dog.</p>
+<p>void CatLovingDog.See(Cat cat)<br />
+{<br />
+Greet(cat);<br />
+}<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p>No, rather than creating &#8220;some other kind of dog&#8221;, (the same fundamental inheritance problem discussed in the article), instead the thing to do is to modify the existing dog definition by adding a &#8220;CatAffinity&#8221; property.</p>
+<p>void Dog.See(Cat cat)<br />
+{<br />
+  if (this.CatAffinity &gt; 0)<br />
+    Greet(cat);<br />
+  else<br />
+    Chase(cat);<br />
+}</p>
+<p>Chase or greet is not an &#8220;is-a&#8221;, nor is it a &#8220;has-a&#8221;.  Instead it&#8217;s an attribute of a specific instance.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Peter</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-324</link>
+		<dc:creator><![CDATA[Peter]]></dc:creator>
+		<pubDate>Mon, 07 Jan 2013 09:55:08 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-324</guid>
+		<description><![CDATA[I&#039;m relieved that I&#039;m not alone with my view of disliking inheritance.
+And yes my main problem with it is that it&#039;s against encapsulation as sy already wrote (I just couldn&#039;t name the feeling).]]></description>
+		<content:encoded><![CDATA[<p>I&#8217;m relieved that I&#8217;m not alone with my view of disliking inheritance.<br />
+And yes my main problem with it is that it&#8217;s against encapsulation as sy already wrote (I just couldn&#8217;t name the feeling).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: DevlinB</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-323</link>
+		<dc:creator><![CDATA[DevlinB]]></dc:creator>
+		<pubDate>Sat, 22 Dec 2012 02:47:22 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-323</guid>
+		<description><![CDATA[Sounds like the problem is a lack of Interfaces. DarkJediPowers should be an interface that anyone can implement.
+
+Your Ball example actually works equally well with this!
+
+Interfaces when all implementations are best represented using multiple inheritance of course. Then again in my experience it is rare that a DarkHippo is going to crush villagers in the same way a DarkJedi will. :)]]></description>
+		<content:encoded><![CDATA[<p>Sounds like the problem is a lack of Interfaces. DarkJediPowers should be an interface that anyone can implement.</p>
+<p>Your Ball example actually works equally well with this!</p>
+<p>Interfaces when all implementations are best represented using multiple inheritance of course. Then again in my experience it is rare that a DarkHippo is going to crush villagers in the same way a DarkJedi will. :)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Jimshell</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-322</link>
+		<dc:creator><![CDATA[Jimshell]]></dc:creator>
+		<pubDate>Mon, 03 Dec 2012 08:41:40 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-322</guid>
+		<description><![CDATA[Hi Bernie,
+I feel a bit like a spammer right now ^^
+Speak so much that I forgot to mention something interesting (and important) as of patterns and inheritance: the Deocorator pattern.
+Basically, it is sort of a substitute for sub-classing, but it should be used in some specific occasions only (as always with patterns).
+Say: if the (modified) behavior has to to be added/removed at run time, or if you need to combine the functionalities from multiple decorators (where multiple inheritance is not possible, like in PHP, or not suitable nor wishable)]]></description>
+		<content:encoded><![CDATA[<p>Hi Bernie,<br />
+I feel a bit like a spammer right now ^^<br />
+Speak so much that I forgot to mention something interesting (and important) as of patterns and inheritance: the Deocorator pattern.<br />
+Basically, it is sort of a substitute for sub-classing, but it should be used in some specific occasions only (as always with patterns).<br />
+Say: if the (modified) behavior has to to be added/removed at run time, or if you need to combine the functionalities from multiple decorators (where multiple inheritance is not possible, like in PHP, or not suitable nor wishable)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Jimshell</title>
+		<link>https://blog.berniesumption.com/software/inheritance-is-evil-and-must-be-destroyed/#comment-321</link>
+		<dc:creator><![CDATA[Jimshell]]></dc:creator>
+		<pubDate>Mon, 03 Dec 2012 03:49:42 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-321</guid>
+		<description><![CDATA[Sorry for all the typos in my answer (made a lot)
+Hope it&#039;s still clear enough ^^]]></description>
+		<content:encoded><![CDATA[<p>Sorry for all the typos in my answer (made a lot)<br />
+Hope it&#8217;s still clear enough ^^</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

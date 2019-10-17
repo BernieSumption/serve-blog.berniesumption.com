@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" class="no-js">
+
+<!-- Mirrored from blog.berniesumption.com/software/graphics-programming-environments-2-actionscript/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:35:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../../xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Graphics Programming Environment Shootout Episode 2: ActionScript &#8211; Bernie Sumption&#039;s Blog</title>
+<link rel='dns-prefetch' href='http://vjs.zencdn.net/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Comments Feed" href="../../comments/feed/index.html" />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../wp-content/plugins/jquery-collapse-o-matic/light_stylef24c.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-plugin-css'  href='../../wp-content/plugins/videojs-html5-video-player-for-wordpress/plugin-styles433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-css'  href='http://vjs.zencdn.net/4.5/video-js.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='../../wp-content/plugins/wp-syntax/css/wp-syntax4963.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='chld_thm_cfg_parent-css'  href='../../wp-content/themes/twentyfifteen/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='../../wp-content/themes/twentyfifteen/genericons/genericonscf1b.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='../../wp-content/themes/bernie-2015-blog-theme/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<style id='twentyfifteen-style-inline-css' type='text/css'>
+
+			.post-navigation .nav-previous { background-image: url(../../wp-content/uploads/2011/10/sparks-header-image-825x510.jpg); }
+			.post-navigation .nav-previous .post-title, .post-navigation .nav-previous a:hover .post-title, .post-navigation .nav-previous .meta-nav { color: #fff; }
+			.post-navigation .nav-previous a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+			.post-navigation .nav-next { background-image: url(../../wp-content/uploads/2011/10/sparks-header-image-825x510.jpg); border-top: 0; }
+			.post-navigation .nav-next .post-title, .post-navigation .nav-next a:hover .post-title, .post-navigation .nav-next .meta-nav { color: #fff; }
+			.post-navigation .nav-next a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+</style>
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='../../wp-content/plugins/swfobj/swfobjectdc8c.js?ver=2.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public6471.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel='prev' title='Graphics Programming Environment Shootout Episode 1: Processing' href='../graphics-programming-environments-1-processing/index.html' />
+<link rel='next' title='Graphics Programming Environment Shootout Episode 3: JavaScript &#038; Canvas' href='../graphics-programming-environments-3-javascript-canvas/index.html' />
+<meta name="generator" content="WordPress 4.9.11" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../../index7ab1.html?p=467' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embedfeca.json?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fgraphics-programming-environments-2-actionscript%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embede5bd?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fgraphics-programming-environments-2-actionscript%2F&amp;format=xml" />
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+				<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- BEGIN GADWP v5.1.2.5 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19810778-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:site_name" content="Bernie Sumption&#039;s Blog"/>
+  <meta property="og:title" content="Graphics Programming Environment Shootout Episode 2: ActionScript"/>
+  <meta property="og:url" content="https://blog.berniesumption.com/software/graphics-programming-environments-2-actionscript/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="This article is the second in a series in which I implement the same app in several different graphical programming environments. Coming up this round: ActionScript.
+
+
+
+ActionScript is the scripting language that comes with Flash. As such, it&#039;s attached to one of the most popular environments fo"/>
+  <meta property="og:image" content="/wp-content/uploads/2011/10/sparks-header-image.jpg"/>
+  <meta property="article:published_time" content="2011-10-26T15:42:26+00:00"/>
+  <meta property="article:modified_time" content="2019-10-17T08:06:36+00:00" />
+  <meta property="og:updated_time" content="2019-10-17T08:06:36+00:00" />
+  <meta property="article:section" content="Software"/>
+ <!-- Google+ / Schema.org -->
+  <meta itemprop="name" content="Graphics Programming Environment Shootout Episode 2: ActionScript"/>
+  <meta itemprop="description" content="This article is the second in a series in which I implement the same app in several different graphical programming environments. Coming up this round: ActionScript.
+
+
+
+ActionScript is the scripting language that comes with Flash. As such, it&#039;s attached to one of the most popular environments fo"/>
+  <meta itemprop="image" content="/wp-content/uploads/2011/10/sparks-header-image.jpg"/>
+ <!-- Twitter Cards -->
+  <meta name="twitter:title" content="Graphics Programming Environment Shootout Episode 2: ActionScript"/>
+  <meta name="twitter:url" content="https://blog.berniesumption.com/software/graphics-programming-environments-2-actionscript/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+ <!-- SEO -->
+  <meta name="description" content="This article is the second in a series in which I implement the same app in several different graphical programming environments. Coming up this round: ActionScript.
+
+
+
+ActionScript is the scripting language that comes with Flash. As such, it&#039;s attached to one of the most popular environments fo"/>
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+	
+</head>
+
+<body class="post-template-default single single-post postid-467 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="../../index.html" rel="home">Bernie Sumption&#039;s Blog</a></p>
+											<p class="site-description">Various writings on software development and photography</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-7"><a href="../../category/photography/index.html" >Photography</a> (12)
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/software/index.html" >Software</a> (29)
+<ul class='children'>
+	<li class="cat-item cat-item-14"><a href="../../category/software/dnartwork/index.html" >DNArtwork</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/urandom/index.html" >urandom</a> (1)
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../building-reliable-user-interfaces/index.html">Strategies for building reliable user interfaces</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-generating-realistic-painted-shapes/index.html">Making DNArtwork #8: Generating realistic painted shapes on-demand</a>
+									</li>
+											<li>
+					<a href="../dnartwork/index.html">Project: DNArtwork</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-how-it-works/index.html">Making DNArtwork #7: how does it work?</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-first-art-print/index.html">Making DNArtwork #6: the first art print, hot off the press</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='../../2017/09/index.html'>September 2017</a></li>
+	<li><a href='../../2016/12/index.html'>December 2016</a></li>
+	<li><a href='../../2016/09/index.html'>September 2016</a></li>
+	<li><a href='../../2016/07/index.html'>July 2016</a></li>
+	<li><a href='../../2016/06/index.html'>June 2016</a></li>
+	<li><a href='../../2015/11/index.html'>November 2015</a></li>
+	<li><a href='../../2015/10/index.html'>October 2015</a></li>
+	<li><a href='../../2015/04/index.html'>April 2015</a></li>
+	<li><a href='../../2015/03/index.html'>March 2015</a></li>
+	<li><a href='../../2015/02/index.html'>February 2015</a></li>
+	<li><a href='../../2015/01/index.html'>January 2015</a></li>
+	<li><a href='../../2011/10/index.html'>October 2011</a></li>
+	<li><a href='../../2011/05/index.html'>May 2011</a></li>
+	<li><a href='../../2011/04/index.html'>April 2011</a></li>
+	<li><a href='../../2010/11/index.html'>November 2010</a></li>
+	<li><a href='../../2010/10/index.html'>October 2010</a></li>
+	<li><a href='../../2010/09/index.html'>September 2010</a></li>
+	<li><a href='../../2008/04/index.html'>April 2008</a></li>
+	<li><a href='../../2007/11/index.html'>November 2007</a></li>
+	<li><a href='../../2007/03/index.html'>March 2007</a></li>
+		</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24406">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">Nick Battle</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24404">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../on-abandoning-gulp/index.html#comment-23795">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link">NotAScriptKiddy</span> on <a href="../on-abandoning-gulp/index.html#comment-23794">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://www.flickr.com/photos/judeapollo' rel='external nofollow' class='url'>Rory Melough</a></span> on <a href="../../photography/depth-of-field-for-geeks/index.html#comment-21881">Bernie&#8217;s Better Guide to Depth of Field for Geeks Who Want to be Digital Artists</a></li></ul></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-467" class="post-467 post type-post status-publish format-standard has-post-thumbnail hentry category-software">
+	
+	<div class="post-thumbnail">
+		<img width="825" height="510" src="../../wp-content/uploads/2011/10/sparks-header-image-825x510.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" srcset="/wp-content/uploads/2011/10/sparks-header-image-825x510.jpg 825w, /wp-content/uploads/2011/10/sparks-header-image-300x186.jpg 300w" sizes="(max-width: 825px) 100vw, 825px" />	</div><!-- .post-thumbnail -->
+
+	
+	<header class="entry-header">
+		<h1 class="entry-title">Graphics Programming Environment Shootout Episode 2: ActionScript</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>This article is the second in a <a href="../graphics-programming-environments/index.html">series</a> in which I implement the same app in several different graphical programming environments. Coming up this round: ActionScript.</p>
+<p><span id="more-467"></span></p>
+<p>ActionScript is the scripting language that comes with Flash. As such, it&#8217;s attached to one of the most popular environments for high-performance 2D graphics rendering in existence. Flash is much more feature-rich than Processing, and I was expecting that its general purpose nature would cost it in terms of performance. I was wrong.</p>
+<h3>&#8220;imagine&#8221; in ActionScript</h3>
+<p>You can view the implementation of <a href="http://cdn.rawgit.com/BernieSumption/color-sparks/master/other-languages/actionscript/index.html" target="_blank">&#8220;imagine&#8221; in ActionScript</a>, or check out <a href="https://cdn.rawgit.com/BernieSumption/color-sparks/master/other-languages/actionscript/srcview/index.html" target="_blank">the source code</a>.</p>
+<p><em>Performance:</em> On my Intel Core i7 MacBook, this app runs at 13.3 frames per second with 8000 sparks on screen &#8211; about 25% faster than the Processing version. Of course this doesn&#8217;t mean that Flash is generally faster than Processing, only that Flash is faster at drawing circles on an Intel Mac. However the result is surprising to me, because of the nature of Flash.</p>
+<h3>The Flash environment</h3>
+<p>Whereas Processing provides a raster canvas for your code to draw on, Flash provides a <em>scene graph</em>. This means that you add objects to the stage, and these objects can contain child objects, which themselves have children, forming a tree structure. Moving or rotating an object will also move and rotate its children. In processing when you draw one object on top of another one, the original object is gone forever. In Flash when you add one object on top of another, the new object can be removed to reveal the original object again. Scene graphs are intrinsically more memory and processor intensive than raster canvases.</p>
+<p>Flash&#8217;s scene graph is extremely useful for animating, because it reflects the way that objects in the real world are made up of component parts. Say you want to animate a moving car with spinning wheels. The wheels must be separate objects to the car, because you want them to rotate independently of the car. But when you move the car you expect the wheels to move with the car. Scene graphs make it easier to construct realistic and nuanced interactive animations like this one:</p>
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="swfobj_0" width="640" height="300">
+      <param name="movie" value="http://blog.berniesumption.com/wp-content/uploads/2011/10/car-actionscript-demo.swf" />
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="../../wp-content/uploads/2011/10/car-actionscript-demo.swf" width="640" height="300">
+      <!--<![endif]-->
+        
+      <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+
+<p>However, this ability comes at a cost. In a flash app, you can&#8217;t draw pixels directly to the display, you must set up an object in the scene graph to handle bitmap drawing. In the <a href="../graphics-programming-environments-1-processing/index.html">last episode</a> I gave a 20 line code sample for making a very simple Processing app. The equivalent in ActionScript is twice as long:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="actionscript" style="font-family:monospace;">package
+<span style="color: #66cc66;">&#123;</span>
+  <span style="color: #0066CC;">import</span> flash.<span style="color: #006600;">display</span>.<span style="color: #66cc66;">*</span>;
+  <span style="color: #0066CC;">import</span> flash.<span style="color: #006600;">events</span>.<span style="color: #66cc66;">*</span>;
+  <span style="color: #0066CC;">import</span> flash.<span style="color: #006600;">geom</span>.<span style="color: #66cc66;">*</span>;
+&nbsp;
+  <span style="color: #66cc66;">&#91;</span>SWF<span style="color: #66cc66;">&#40;</span><span style="color: #0066CC;">width</span>=<span style="color: #ff0000;">&quot;400&quot;</span>, <span style="color: #0066CC;">height</span>=<span style="color: #ff0000;">&quot;400&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#93;</span>
+&nbsp;
+  <span style="color: #0066CC;">public</span> <span style="color: #000000; font-weight: bold;">class</span> Main <span style="color: #0066CC;">extends</span> Sprite  
+  <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #0066CC;">private</span> const bg:uint = 0xFFFF0088;
+&nbsp;
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">var</span> buffer:BitmapData;
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">var</span> canvas:Shape;
+&nbsp;
+    <span style="color: #0066CC;">public</span> <span style="color: #000000; font-weight: bold;">function</span> Main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+      canvas = <span style="color: #000000; font-weight: bold;">new</span> Shape<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+      buffer = <span style="color: #000000; font-weight: bold;">new</span> BitmapData<span style="color: #66cc66;">&#40;</span><span style="color: #0066CC;">stage</span>.<span style="color: #006600;">stageWidth</span>,
+                      <span style="color: #0066CC;">stage</span>.<span style="color: #006600;">stageHeight</span>, <span style="color: #000000; font-weight: bold;">false</span>, bg<span style="color: #66cc66;">&#41;</span>;
+      addChild<span style="color: #66cc66;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> Bitmap<span style="color: #66cc66;">&#40;</span>buffer<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+      <span style="color: #0066CC;">stage</span>.<span style="color: #006600;">addEventListener</span><span style="color: #66cc66;">&#40;</span>Event.<span style="color: #006600;">ENTER_FRAME</span>, draw<span style="color: #66cc66;">&#41;</span>;
+      <span style="color: #0066CC;">stage</span>.<span style="color: #006600;">addEventListener</span><span style="color: #66cc66;">&#40;</span>MouseEvent.<span style="color: #006600;">CLICK</span>, reset<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">function</span> draw<span style="color: #66cc66;">&#40;</span><span style="color: #0066CC;">e</span>:Event<span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span> <span style="color: #66cc66;">&#123;</span>
+      canvas.<span style="color: #006600;">graphics</span>.<span style="color: #0066CC;">clear</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+      canvas.<span style="color: #006600;">graphics</span>.<span style="color: #0066CC;">lineStyle</span><span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">1</span>, <span style="color: #cc66cc;">0</span><span style="color: #66cc66;">&#41;</span>;
+      canvas.<span style="color: #006600;">graphics</span>.<span style="color: #0066CC;">beginFill</span><span style="color: #66cc66;">&#40;</span>0xFFFFFF<span style="color: #66cc66;">&#41;</span>;
+      canvas.<span style="color: #006600;">graphics</span>.<span style="color: #006600;">drawCircle</span><span style="color: #66cc66;">&#40;</span><span style="color: #0066CC;">random</span><span style="color: #66cc66;">&#40;</span>-<span style="color: #cc66cc;">100</span>, <span style="color: #cc66cc;">500</span><span style="color: #66cc66;">&#41;</span>,
+                      <span style="color: #0066CC;">random</span><span style="color: #66cc66;">&#40;</span>-<span style="color: #cc66cc;">100</span>, <span style="color: #cc66cc;">500</span><span style="color: #66cc66;">&#41;</span>, <span style="color: #0066CC;">random</span><span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">10</span>, <span style="color: #cc66cc;">100</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+      buffer.<span style="color: #006600;">draw</span><span style="color: #66cc66;">&#40;</span>canvas<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">function</span> reset<span style="color: #66cc66;">&#40;</span><span style="color: #0066CC;">e</span>:Event<span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">void</span> <span style="color: #66cc66;">&#123;</span>
+      buffer.<span style="color: #006600;">fillRect</span><span style="color: #66cc66;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> Rectangle<span style="color: #66cc66;">&#40;</span><span style="color: #cc66cc;">0</span>, <span style="color: #cc66cc;">0</span>, <span style="color: #0066CC;">stage</span>.<span style="color: #006600;">stageWidth</span>,
+                      <span style="color: #0066CC;">stage</span>.<span style="color: #006600;">stageHeight</span><span style="color: #66cc66;">&#41;</span>, bg<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #0066CC;">private</span> <span style="color: #000000; font-weight: bold;">function</span> <span style="color: #0066CC;">random</span><span style="color: #66cc66;">&#40;</span>from:<span style="color: #0066CC;">Number</span>, to:<span style="color: #0066CC;">Number</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #0066CC;">Number</span> <span style="color: #66cc66;">&#123;</span>
+      <span style="color: #b1b100;">return</span> from + <span style="color: #0066CC;">Math</span>.<span style="color: #0066CC;">random</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">*</span> <span style="color: #66cc66;">&#40;</span>to - from<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+  <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">package
+{
+  import flash.display.*;
+  import flash.events.*;
+  import flash.geom.*;
+  
+  [SWF(width=&quot;400&quot;, height=&quot;400&quot;)]
+  
+  public class Main extends Sprite  
+  {
+    private const bg:uint = 0xFFFF0088;
+    
+    private var buffer:BitmapData;
+    private var canvas:Shape;
+    
+    public function Main()
+    {
+      canvas = new Shape();
+      buffer = new BitmapData(stage.stageWidth,
+                      stage.stageHeight, false, bg);
+      addChild(new Bitmap(buffer));
+      stage.addEventListener(Event.ENTER_FRAME, draw);
+      stage.addEventListener(MouseEvent.CLICK, reset);
+    }
+    
+    private function draw(e:Event):void {
+      canvas.graphics.clear();
+      canvas.graphics.lineStyle(1, 0);
+      canvas.graphics.beginFill(0xFFFFFF);
+      canvas.graphics.drawCircle(random(-100, 500),
+                      random(-100, 500), random(10, 100));
+      buffer.draw(canvas);
+    }
+    
+    private function reset(e:Event):void {
+      buffer.fillRect(new Rectangle(0, 0, stage.stageWidth,
+                      stage.stageHeight), bg);
+    }
+    
+    private function random(from:Number, to:Number):Number {
+      return from + Math.random() * (to - from);
+    }
+  }
+}</p></div>
+
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="swfobj_1" width="400" height="400">
+      <param name="movie" value="../../wp-content/uploads/2011/10/bubbles.swf" />
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="../../wp-content/uploads/2011/10/bubbles.swf" width="400" height="400">
+      <!--<![endif]-->
+        
+      <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+
+<p>Not only is this source code long, but it has some gotchas that didn&#8217;t exist in the processing version. The &#8220;<code>stage.</code>&#8221; in &#8220;<code>stage.addEventListener(MouseEvent.CLICK, reset);</code>&#8221; on line 23 is an unusual pattern that is required in this case because Bitmap objects (unlike most other display objects) don&#8217;t respond to MouseEvents. If you omit the step of clearing the graphics canvas at the start of <code>draw()</code> then the animation will appear to work as normal, but will slow down over time as the canvas fills up with vector data that takes longer and longer to render. Good luck figuring those things out if you&#8217;re on your first ActionScript project.</p>
+<p>This is the price of flexibility. Flash&#8217;s object-oriented scene graph approach makes it suitable for building complex interactive programs like inamo and UI frameworks like Flex, but for the kind of light graphical experiment that Processing excels at, ActionScript feels clunky.</p>
+<p>The good news is that apparently performance doesn&#8217;t suffer as a result. Even with the overhead of interpreting the scene graph, the Flash port of imagine is faster than the Processing version, presumably because Flash&#8217;s rendering engine is more heavily optimised than the Java2D implementation on a mac.</p>
+<h3>Conclusion</h3>
+<p>Flash is a very flexible graphical environment, but getting it to do exactly what you want takes some expertise.</p>
+<p>Next up: <a href="../graphics-programming-environments-3-javascript-canvas/index.html">JavaScript &amp; Canvas</a></p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html" rel="bookmark"><time class="entry-date published" datetime="2011-10-26T15:42:26+00:00">26th October 2011</time><time class="updated" datetime="2019-10-17T08:06:36+00:00">17th October 2019</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="../../author/bernie/index.html">bernie</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="../../category/software/index.html" rel="category tag">Software</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="../graphics-programming-environments-1-processing/index.html" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">Graphics Programming Environment Shootout Episode 1: Processing</span></a></div><div class="nav-next"><a href="../graphics-programming-environments-3-javascript-canvas/index.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Graphics Programming Environment Shootout Episode 3: JavaScript &#038; Canvas</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><script type='text/javascript' src='../../wp-content/plugins/jquery-collapse-o-matic/js/collapse7514.js?ver=1.6.6'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-syntax/js/wp-syntax4963.js?ver=1.1'></script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/skip-link-focus-fixd01e.js?ver=20141010'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/functions8337.js?ver=20150330'></script>
+
+			<!-- SwfObj: Register SWFs on this page. -->
+			<script type="text/javascript">
+					swfobject.registerObject("swfobj_0", "8.0.0", "../../wp-content/plugins/swfobj/expressInstall.swf");
+					swfobject.registerObject("swfobj_1", "8.0.0", "../../wp-content/plugins/swfobj/expressInstall.swf");
+			</script>
+
+</body>
+
+<!-- Mirrored from blog.berniesumption.com/software/graphics-programming-environments-2-actionscript/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:35:36 GMT -->
+</html>
+
+<!-- Dynamic page generated in 1.017 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-10-17 12:33:07 -->
+
+<!-- super cache -->

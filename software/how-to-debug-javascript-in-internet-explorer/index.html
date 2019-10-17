@@ -1,0 +1,3033 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" class="no-js">
+
+<!-- Mirrored from blog.berniesumption.com/software/how-to-debug-javascript-in-internet-explorer/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:37:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../../xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>How to debug JavaScript in Internet Explorer &#8211; Bernie Sumption&#039;s Blog</title>
+<link rel='dns-prefetch' href='http://vjs.zencdn.net/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Comments Feed" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; How to debug JavaScript in Internet Explorer Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../wp-content/plugins/jquery-collapse-o-matic/light_stylef24c.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-plugin-css'  href='../../wp-content/plugins/videojs-html5-video-player-for-wordpress/plugin-styles433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-css'  href='http://vjs.zencdn.net/4.5/video-js.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='../../wp-content/plugins/wp-syntax/css/wp-syntax4963.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='chld_thm_cfg_parent-css'  href='../../wp-content/themes/twentyfifteen/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='../../wp-content/themes/twentyfifteen/genericons/genericonscf1b.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='../../wp-content/themes/bernie-2015-blog-theme/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='../../wp-content/plugins/swfobj/swfobjectdc8c.js?ver=2.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public6471.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel='next' title='Proper private constructors for ActionScript 3.0' href='../private-constructors-for-actionscript/index.html' />
+<meta name="generator" content="WordPress 4.9.11" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../../index4e6a.html?p=209' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed5654.json?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fhow-to-debug-javascript-in-internet-explorer%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embeda1a6?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Fhow-to-debug-javascript-in-internet-explorer%2F&amp;format=xml" />
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+				<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- BEGIN GADWP v5.1.2.5 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19810778-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:site_name" content="Bernie Sumption&#039;s Blog"/>
+  <meta property="og:title" content="How to debug JavaScript in Internet Explorer"/>
+  <meta property="og:url" content="https://blog.berniesumption.com/software/how-to-debug-javascript-in-internet-explorer/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="I want to share with you a trick for getting a world-class debugger for free in IE.
+
+
+
+Some background: users of Visual Studio have long known that it comes with an awesome debugger, probably the best JavaScript debugger there is (though Firebug is catching up fast). Whenever you get a JavaScrip"/>
+  <meta property="article:published_time" content="2007-03-08T12:01:22+00:00"/>
+  <meta property="article:modified_time" content="2019-10-17T08:06:41+00:00" />
+  <meta property="og:updated_time" content="2019-10-17T08:06:41+00:00" />
+  <meta property="article:section" content="Software"/>
+ <!-- Google+ / Schema.org -->
+  <meta itemprop="name" content="How to debug JavaScript in Internet Explorer"/>
+  <meta itemprop="description" content="I want to share with you a trick for getting a world-class debugger for free in IE.
+
+
+
+Some background: users of Visual Studio have long known that it comes with an awesome debugger, probably the best JavaScript debugger there is (though Firebug is catching up fast). Whenever you get a JavaScrip"/>
+ <!-- Twitter Cards -->
+  <meta name="twitter:title" content="How to debug JavaScript in Internet Explorer"/>
+  <meta name="twitter:url" content="https://blog.berniesumption.com/software/how-to-debug-javascript-in-internet-explorer/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+ <!-- SEO -->
+  <meta name="description" content="I want to share with you a trick for getting a world-class debugger for free in IE.
+
+
+
+Some background: users of Visual Studio have long known that it comes with an awesome debugger, probably the best JavaScript debugger there is (though Firebug is catching up fast). Whenever you get a JavaScrip"/>
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+	
+</head>
+
+<body class="post-template-default single single-post postid-209 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="../../index.html" rel="home">Bernie Sumption&#039;s Blog</a></p>
+											<p class="site-description">Various writings on software development and photography</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-7"><a href="../../category/photography/index.html" >Photography</a> (12)
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/software/index.html" >Software</a> (29)
+<ul class='children'>
+	<li class="cat-item cat-item-14"><a href="../../category/software/dnartwork/index.html" >DNArtwork</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/urandom/index.html" >urandom</a> (1)
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../building-reliable-user-interfaces/index.html">Strategies for building reliable user interfaces</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-generating-realistic-painted-shapes/index.html">Making DNArtwork #8: Generating realistic painted shapes on-demand</a>
+									</li>
+											<li>
+					<a href="../dnartwork/index.html">Project: DNArtwork</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-how-it-works/index.html">Making DNArtwork #7: how does it work?</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-first-art-print/index.html">Making DNArtwork #6: the first art print, hot off the press</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='../../2017/09/index.html'>September 2017</a></li>
+	<li><a href='../../2016/12/index.html'>December 2016</a></li>
+	<li><a href='../../2016/09/index.html'>September 2016</a></li>
+	<li><a href='../../2016/07/index.html'>July 2016</a></li>
+	<li><a href='../../2016/06/index.html'>June 2016</a></li>
+	<li><a href='../../2015/11/index.html'>November 2015</a></li>
+	<li><a href='../../2015/10/index.html'>October 2015</a></li>
+	<li><a href='../../2015/04/index.html'>April 2015</a></li>
+	<li><a href='../../2015/03/index.html'>March 2015</a></li>
+	<li><a href='../../2015/02/index.html'>February 2015</a></li>
+	<li><a href='../../2015/01/index.html'>January 2015</a></li>
+	<li><a href='../../2011/10/index.html'>October 2011</a></li>
+	<li><a href='../../2011/05/index.html'>May 2011</a></li>
+	<li><a href='../../2011/04/index.html'>April 2011</a></li>
+	<li><a href='../../2010/11/index.html'>November 2010</a></li>
+	<li><a href='../../2010/10/index.html'>October 2010</a></li>
+	<li><a href='../../2010/09/index.html'>September 2010</a></li>
+	<li><a href='../../2008/04/index.html'>April 2008</a></li>
+	<li><a href='../../2007/11/index.html'>November 2007</a></li>
+	<li><a href='../../2007/03/index.html'>March 2007</a></li>
+		</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24406">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">Nick Battle</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24404">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../on-abandoning-gulp/index.html#comment-23795">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link">NotAScriptKiddy</span> on <a href="../on-abandoning-gulp/index.html#comment-23794">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://www.flickr.com/photos/judeapollo' rel='external nofollow' class='url'>Rory Melough</a></span> on <a href="../../photography/depth-of-field-for-geeks/index.html#comment-21881">Bernie&#8217;s Better Guide to Depth of Field for Geeks Who Want to be Digital Artists</a></li></ul></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-209" class="post-209 post type-post status-publish format-standard hentry category-software">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">How to debug JavaScript in Internet Explorer</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>I want to share with you a trick for getting a world-class debugger for free in IE.</p>
+<figure id="attachment_212" style="width: 300px" class="wp-caption alignleft"><a href="../../wp-content/uploads/2007/03/visual-studio-javascript-debugging.png" target="_blank"><img class="size-medium wp-image-212" title="visual-studio-javascript-debugging" src="../../wp-content/uploads/2007/03/visual-studio-javascript-debugging.png" alt="" width="300" height="208" srcset="/wp-content/uploads/2007/03/visual-studio-javascript-debugging.png 989w, /wp-content/uploads/2007/03/visual-studio-javascript-debugging-300x208.png 300w" sizes="(max-width: 300px) 100vw, 300px" /></a><figcaption class="wp-caption-text">JavaScript debugging in Visual Web Developer Express</figcaption></figure>
+<p>Some background: users of Visual Studio have long known that it comes with an awesome debugger, probably the best JavaScript debugger there is (though <a href="http://www.getfirebug.com/">Firebug</a> is catching up fast). Whenever you get a JavaScript error, Visual Studio can connect to the Internet Explorer process and start debugging. You can pause the execution of the code, rewind and fast-forward execution, modify data held in variables and get notified when specific variables change in value. Once you&#8217;re used to it, coding without a debugger makes you feel like a blind man in a dark room looking for a black cat that isn&#8217;t there*.</p>
+<p><span id="more-209"></span></p>
+<p>The only problem is that it costs upwards of £500. Microsoft have released an excellent free edition of Visual Studio for web development called <a href="http://www.microsoft.com/express/">Visual Studio Express</a>, but among the features reserved for the professional edition is the ability to connect to a process. Hence when you get a JavaScript error in a web page, VSE won&#8217;t appear in the list of possible debuggers.</p>
+<p>The work-around is to get VSE to launch IE for you, so that it owns the process and doesn&#8217;t have to explicitly connect to it.</p>
+<p><strong>This article was originally written for an older version of Visual Studio Express called Visual Web Developer Express. The instructions should still work, let me know if you have any issues with them.</strong></p>
+<h2>Step 1</h2>
+<figure id="attachment_214" style="width: 265px" class="wp-caption alignleft"><a href="../../wp-content/uploads/2007/03/internet-explorer-options.png"><img class="size-medium wp-image-214" title="internet-explorer-options" src="../../wp-content/uploads/2007/03/internet-explorer-options.png" alt="" width="265" height="300" srcset="/wp-content/uploads/2007/03/internet-explorer-options.png 406w, /wp-content/uploads/2007/03/internet-explorer-options-265x300.png 265w" sizes="(max-width: 265px) 100vw, 265px" /></a><figcaption class="wp-caption-text">Internet Explorer Options</figcaption></figure>
+<p>First enable debugging in IE: go to Tools &gt; Internet Options &gt; Advanced, and make sure &#8220;Disable Script Debugging (Internet Explorer)&#8221; is <span style="text-decoration: underline;">unchecked</span> and &#8220;Display a notification about every script error&#8221; is <span style="text-decoration: underline;">checked</span>.</p>
+<h2>Step 2</h2>
+<p>Then <a href="http://www.microsoft.com/express/">Download</a> and install VSE</p>
+<h2>Step 3</h2>
+<figure id="attachment_215" style="width: 300px" class="wp-caption alignleft"><a href="../../wp-content/uploads/2007/03/new-empty-website.png"><img class="size-medium wp-image-215" title="new-empty-website" src="../../wp-content/uploads/2007/03/new-empty-website.png" alt="" width="300" height="246" srcset="/wp-content/uploads/2007/03/new-empty-website.png 547w, /wp-content/uploads/2007/03/new-empty-website-300x247.png 300w" sizes="(max-width: 300px) 100vw, 300px" /></a><figcaption class="wp-caption-text">Creating a new empty website in VWD express</figcaption></figure>
+<p>Create a new empty website</p>
+<h2>Step 4</h2>
+<p><img class="alignleft size-full wp-image-216" title="start-debugging" src="../../wp-content/uploads/2007/03/start-debugging.png" alt="" width="105" height="58" /></p>
+<p>Click the &#8220;Start Debugging&#8221; button. You will be prompted to enable debugging for this website &#8211; do so. VSE will then launch IE in debugging mode.Since your website is empty you will see a 404; ignore it and navigate to the actual page or website you want to debug.</p>
+<h2>Debugging tips</h2>
+<p>Any script errors will cause IE to pause execution and transfer control to VSE. The screenshot to the left shows me changing the value of a variable as the script is paused.</p>
+<p>If any Firefox users have problems getting VSE to launch IE, see James Wiltshire&#8217;s comment below.</p>
+<p>A few debugging tips:</p>
+<ul>
+<li>Learn these shortcuts: Step Over (F10) executes the current line of code and moves to the next one. If the current line of code contains a function call, Step Into (F11) moves the debugger into that function call. Step Out (Shift+F11) executes the rest of the current function and pauses again after it returns. Continue (F5) resumes the script until the next error or breakpoint.</li>
+<li>Debugging is easier if you write code with one function call per line, so that the debugger knows which function you want to step in to.</li>
+<li>You can type any expression in the Watch window, and when its value changes it will turn red.</li>
+<li>If you want to open the debugger when there is no error, click in the left-hand margin to set a break point or place the &#8216;debugger&#8217; keyword in your code (this works in Firebug too).</li>
+<li>The Script Explorer window is an extremely useful list of open JavaScript and HTML files that you can use to find code in order to set a breakpoint. It is not shown by default but you can enable it in Debug &gt; Windows &gt; Script Explorer.</li>
+<li>A tip from Fraser in the comments below: If you like, you can create a home page for the new site, and add this code to the head section: &lt;meta http-equiv=”refresh” content=”0;url=http://yoursite.com”&gt;. This will redirect you automatically to your chosen site.</li>
+</ul>
+<p>Happy coding!</p>
+<p>* joke stolen from Rowan Atkinson</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html" rel="bookmark"><time class="entry-date published" datetime="2007-03-08T12:01:22+00:00">8th March 2007</time><time class="updated" datetime="2019-10-17T08:06:41+00:00">17th October 2019</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="../../author/bernie/index.html">bernie</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="../../category/software/index.html" rel="category tag">Software</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			146 thoughts on &ldquo;How to debug JavaScript in Internet Explorer&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-362" class="comment even thread-even depth-1">
+			<article id="div-comment-362" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1f39f0ab324623219ed150ad898cab74?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1f39f0ab324623219ed150ad898cab74?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://blog.wioota.com/' rel='external nofollow' class='url'>wioota</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-362">
+							<time datetime="2007-03-11T00:58:39+00:00">
+								11th March 2007 at 12:58 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Well this is something I didn&#8217;t know. I&#8217;ve been using the MS Script Debugger and the MS Script Editor (Both of which are pretty old). I&#8217;ll try this out &#8211; anything that can make the process simpler and quicker&#8230;</p>
+<p>Where did you come across the Atkinson quote? I first heard it on a cassette tape with excerpts from his original stage show.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-363" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-363" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f221e7065d22964dc415429205cd9676?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f221e7065d22964dc415429205cd9676?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">James Wiltshire</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-363">
+							<time datetime="2007-03-14T18:16:06+00:00">
+								14th March 2007 at 6:16 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great writeup &#8211; thanks a lot! I&#8217;ve been trying to get MSVWDE script debugging working like this for ages but could never figure out how to get it to attach to IE.</p>
+<p>I ran into one problem whilst trying to get this to work which may be of interest to others.</p>
+<p>I use Firefox as my main browser, and initially MSVWDE was opening it instead of IE when I clicked the &#8216;Start Debugging&#8217; button. Setting IE as my default browser made no difference either. It turns out you have to right click on your empty website project in the &#8216;Solution Explorer&#8217;. There&#8217;s an option in there &#8216;Browse With&#8230;&#8217; that allows you to choose IE/Firefox/Internal browser&#8217;.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-364" class="comment even thread-even depth-1">
+			<article id="div-comment-364" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-364">
+							<time datetime="2007-03-17T21:59:28+00:00">
+								17th March 2007 at 9:59 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Glad it helped &#8211; MS Script Debugger and MS Script Editor suck don&#8217;t they?</p>
+<p>I got the quote from the same casette I think &#8211; some kind of radio show.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-365" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-365" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ef104096f0a3275e6801c548296f94ab?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.timsworlds.com/' rel='external nofollow' class='url'>Tim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-365">
+							<time datetime="2007-03-18T03:44:29+00:00">
+								18th March 2007 at 3:44 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It&#8217;s just a bit twitchy with IE7, but basically works fine.  I ran across the problem with it trying to open the debugging session in Firefox as well&#8230; strange.  IE is now FINALLY a usable development environment!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-366" class="comment even thread-even depth-1">
+			<article id="div-comment-366" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3d76d776dde53657d43f0c59338387ac?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3d76d776dde53657d43f0c59338387ac?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Philippe</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-366">
+							<time datetime="2007-03-19T03:51:26+00:00">
+								19th March 2007 at 3:51 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi! Could you please tell me how can i outline .js files in new VS, like i could in VS2003 by clicking document outline? It whould then open a window on the right (by def) where all my functions in .js file were outlined. Like</p>
+<p>Jfun1</p>
+<p>Jfun2</p>
+<p>Jfun3</p>
+<p>etc.</p>
+<p>I am writing 15000 line page so REALLY REALLY need to know, and google didn&#8217;t help this time :( If you know PLEASE tell me!</p>
+<p>P.S.Awesome article, learned something i didn&#8217;t know</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-367" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-367" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-367">
+							<time datetime="2007-03-19T20:48:56+00:00">
+								19th March 2007 at 8:48 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I can&#8217;t seeem to find it, perhaps it&#8217;s a Professional Edition feature?</p>
+<p><em>[Edit &#8211; 20 March] I&#8217;ve checked VS2003, and document outline isn&#8217;t showing me a list of JavaScript functions. Are you sure you&#8217;re not confusing it with the class outline you get when you&#8217;re coding C# or C++?</em></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-368" class="comment even thread-even depth-1">
+			<article id="div-comment-368" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/fdcbf3f11f5fa157a735bae52f3b2de4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/fdcbf3f11f5fa157a735bae52f3b2de4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://noneyet/' rel='external nofollow' class='url'>Joseph</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-368">
+							<time datetime="2007-03-28T05:10:42+00:00">
+								28th March 2007 at 5:10 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I was wondering if it is possible to use vwd express to debug vista sidebar gadgets. These gadgets are simply just a webpage except I can&#8217;t quite figure out how I&#8217;m going to get vwd express to &#8216;own&#8217; the sidebar process. Any ideas?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-369" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-369" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-369">
+							<time datetime="2007-03-28T07:58:54+00:00">
+								28th March 2007 at 7:58 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I haven&#8217;t worked on sidebar gadgets before so this is an educated guess, but:</p>
+<p>Vista-specific features will be released in Visual Studio 2007 (coming this Spring/Summer), and I assume they will include the ability to launch a sidebar gadget in a sub-process, so that you can debug it.</p>
+<p>With the current (2005) VS versions, I&#8217;d recommend debugging them in a standalone browser.</p>
+<p>Unless of course the Vista SDK has something &#8211; have you downloaded and installed it?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-370" class="comment even thread-even depth-1">
+			<article id="div-comment-370" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/fdcbf3f11f5fa157a735bae52f3b2de4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/fdcbf3f11f5fa157a735bae52f3b2de4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://noneyet/' rel='external nofollow' class='url'>Joseph</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-370">
+							<time datetime="2007-03-29T04:24:17+00:00">
+								29th March 2007 at 4:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Right now I use my browser and firebug to test my gadgets. However, when I start using sidebar specific functions, like System.Gadget.Settings, it becomes really hard to debug in a browser.</p>
+<p>I have yet to check out the Vista SDK, I&#8217;ll go pick it up and see if it helps.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-371" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-371" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/27dcfabaf38d4b87c036252767a4aa92?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/27dcfabaf38d4b87c036252767a4aa92?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.redinnovation.com/' rel='external nofollow' class='url'>Mikko Ohtamaa</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-371">
+							<time datetime="2007-03-30T01:57:54+00:00">
+								30th March 2007 at 1:57 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi,</p>
+<p>I had great struggle to get VWD attach itself to IE. The problem was that I had Microsoft Script Debugger (the crappy one) installed beforehand. Looks like VWD installer didn&#8217;t overwrite Script Debugger hooks and Script Debugger kept launching instead of VWD debugging working.</p>
+<p>Solution: Uninstall Script Debugger. Reinstall VWD. No other magic tricks helped me.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-372" class="comment even thread-even depth-1">
+			<article id="div-comment-372" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-372">
+							<time datetime="2007-03-30T08:36:07+00:00">
+								30th March 2007 at 8:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Mikko &#8211; now that you have done that, does VWD show up in the list of debuggers available when you open a debugger from within any IE process?</p>
+<p>Or do you still have to lauch IE from within VWD?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-373" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-373" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bea5dab764a7a4945d874b9fecfc1802?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bea5dab764a7a4945d874b9fecfc1802?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://anjanb.wordpress.com/' rel='external nofollow' class='url'>Anjan Bacchu</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-373">
+							<time datetime="2007-04-25T02:44:10+00:00">
+								25th April 2007 at 2:44 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>hi bernie,</p>
+<p>  Thanks much for sharing this with us.</p>
+<p>I hope that I will be able to share it with many others around me after I dig it.</p>
+<p>BR,</p>
+<p>~A</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-374" class="comment even thread-even depth-1">
+			<article id="div-comment-374" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/aa1e8277c672507d6a38fa6e60e6ec37?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/aa1e8277c672507d6a38fa6e60e6ec37?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.lazycoder.com/' rel='external nofollow' class='url'>Scott</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-374">
+							<time datetime="2007-05-02T18:25:44+00:00">
+								2nd May 2007 at 6:25 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Can&#8217;t you use &#8220;Tools -&gt; Attach to process&#8221; in VWD? That&#8217;s how I normally attach to IE processes when I need to debug Javascript.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-375" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-375" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-375">
+							<time datetime="2007-05-02T18:34:45+00:00">
+								2nd May 2007 at 6:34 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Nope &#8211; that&#8217;s an option only available in Visual Studio, not the free Visual Web Developer.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-376" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://cephas.net/blog/2007/05/03/links-5-2-2007/' rel='external nofollow' class='url'>Aaron Johnson &raquo; Blog Archive &raquo; Links: 5-2-2007</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-377" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-377" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/79734018bd547af25a54ff7d8e57ea34?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/79734018bd547af25a54ff7d8e57ea34?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.tweako.com/' rel='external nofollow' class='url'>Mike</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-377">
+							<time datetime="2007-05-03T17:04:56+00:00">
+								3rd May 2007 at 5:04 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Interesting tip.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-378" class="comment even thread-even depth-1">
+			<article id="div-comment-378" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f6a2c52186aab6bbcf642a565a5f5616?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f6a2c52186aab6bbcf642a565a5f5616?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Richard</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-378">
+							<time datetime="2007-05-03T18:03:52+00:00">
+								3rd May 2007 at 6:03 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Philippe,</p>
+<p>I can&#8217;t answer your question but I&#8217;d advise not writing a 15000 line file. If you need it to be a single document you can run a build script across a nicely-organised source tree. I use ANT, as well as Javascript compression code. My compiled source is only 13000 lines and there&#8217;s no way I&#8217;d use a single file.</p>
+<p>Good luck,</p>
+<p>Rich</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-379" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-379" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e1080049e373fcddf47d28ddcfc39188?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e1080049e373fcddf47d28ddcfc39188?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://nullisnull.blogspot.com/' rel='external nofollow' class='url'>Francisco Brito</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-379">
+							<time datetime="2007-05-03T18:24:41+00:00">
+								3rd May 2007 at 6:24 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ve used a newer version of the Script Editor that comes bundled with Office. While it&#8217;s not free, it&#8217;s not uncommon for people (and companies) to have it. I still make it my debugger of choice over firebug.</p>
+<p>I haven&#8217;t used VWD except for trying it out and stopped as soon as I saw I needed to pay to get it hooked into IE. As far as I could tell, it&#8217;s exactly the same as MSE (not to confuse it with the Script Debugger which is offered for free!)</p>
+<p>While it is true that &#8220;Debugging is easier if you write code with one function call per line&#8221;, you can also change a dropdown in your debug toolbar so it says [step by] &#8220;Statement&#8221; instead of &#8220;Line&#8221;.</p>
+<p>For those that do have Office, I strongly recommend that you try the Script Editor in it. To enable it:</p>
+<p>1. Control Panel &gt; Add or Remove Programs &gt; Microsoft Office* &gt; Change</p>
+<p>2. Go into Add or Remove Features</p>
+<p>3. Select &#8220;Choose advanced customization of applications&#8221; if you have Office 2003</p>
+<p>4. Go into Office Tools and enable &#8220;HTML Source Editing&#8221;</p>
+<p>5. Hit &#8220;Update&#8221; or OK or whatever until you&#8217;re done.</p>
+<p>Keep in mind that you need to enable scripting in IE (see first step in this post).</p>
+<p>*mileage will vary depending on your version</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-380" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.barelyfitz.com/blog/archives/2007/05/03/575/' rel='external nofollow' class='url'>BarelyBlogging &raquo; Blog Archive &raquo; links for 2007-05-04</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-381" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-381" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-381">
+							<time datetime="2007-05-04T10:23:23+00:00">
+								4th May 2007 at 10:23 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Francisco &#8211; Microsoft Script Editor is handy because it can connect to a process that it didn&#8217;t start, but you should try the latest version of Visual Web Developer. The feature that I can&#8217;t live without is the ability to mouse over a variable and see its value. The mouseover even lets you navigate around inside objects.</p>
+<p>Besides, MSE is discontinued in Office 2007, whereas VWD has a new version in beta now. <a href="http://msdn.microsoft.com/vstudio/express/future/vwd/default.aspx" rel="nofollow">check it out here</a> (that link works at the time of posting, but will stop working when the beta becomes a release)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-382" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://blog.tijs.org/archives/2007/05/06/links-for-2007-05-06/' rel='external nofollow' class='url'>tijs.org &raquo; Blog Archive &raquo; links for 2007-05-06</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-383" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-383" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/62a23be230c7b0e0e196e1e995c45b75?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/62a23be230c7b0e0e196e1e995c45b75?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jaime</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-383">
+							<time datetime="2007-05-11T07:24:51+00:00">
+								11th May 2007 at 7:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the informative posting. I further found the following screencast that shows the same process, plus some helpful functions:</p>
+<p><a href="http://channel9.msdn.com/Screencasts/301814_jscriptDebuggingInVWD.wmv" rel="nofollow">http://channel9.msdn.com/Screencasts/301814_jscriptDebuggingInVWD.wmv</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-384" class="comment even thread-even depth-1">
+			<article id="div-comment-384" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/41cd566b3214fc901d5232bf554830c2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/41cd566b3214fc901d5232bf554830c2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">veer</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-384">
+							<time datetime="2007-05-14T15:03:21+00:00">
+								14th May 2007 at 3:03 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I have an error popping up, which says:</p>
+<p>Microsoft JScript runtime error: Permission denied.</p>
+<p>Any ideas?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-385" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-385" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-385">
+							<time datetime="2007-05-14T15:07:59+00:00">
+								14th May 2007 at 3:07 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This is an error in the JavaScript code itself, which happens when you try to do something that the IE security model doesn&#8217;t allow, like reading the location of a frame from a different site.</p>
+<p>You can use VWD to find out what is happening on the line that causes the error, or look up the line number from the error message.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-386" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://hknetug.com/blogs/dotnet_hacks_and_tips/archive/2007/05/17/how-to-debug-javascript-with-visual-web-developer-express.aspx' rel='external nofollow' class='url'>.NET Hacks and Tips (beta) : How to debug JavaScript with Visual Web Developer Express</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-387" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-387" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/41833a0a166b293bac81db71e1fe4c53?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/41833a0a166b293bac81db71e1fe4c53?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">ff user</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-387">
+							<time datetime="2007-05-22T10:06:49+00:00">
+								22nd May 2007 at 10:06 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8220;though Firebug is catching up fast&#8221;</p>
+<p>lalala, firebug is much more intuitive and don&#8217;t crash every third time. it&#8217;s much better than nothing, but still, I&#8217;m happy that i can use firebug daily, and this only for IE specific bugs.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-388" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://adamplatti.net/blog/2007/05/30/free-javascript-debugger-for-ie/' rel='external nofollow' class='url'>Adam Platti&#8217;s Blog &raquo; Blog Archive &raquo; FREE JavaScript Debugger for IE</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-389" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://runion.cc/?p=11' rel='external nofollow' class='url'>runion.cc/ &raquo; BernieCode » How to debug JavaScript with Visual Web Developer Express</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-390" class="comment even thread-even depth-1">
+			<article id="div-comment-390" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1056a38ecd323c658a8c9e93bb41b18d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1056a38ecd323c658a8c9e93bb41b18d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">maxtoroq</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-390">
+							<time datetime="2007-06-29T04:24:59+00:00">
+								29th June 2007 at 4:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I can&#8217;t believe it was that easy to setup. Thanks!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-391" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-391" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4fdf2520d7816474025ac23736ad4bd4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4fdf2520d7816474025ac23736ad4bd4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://bobby100myahoo.ca/' rel='external nofollow' class='url'>bob</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-391">
+							<time datetime="2007-07-24T18:14:29+00:00">
+								24th July 2007 at 6:14 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Dear Bernie,</p>
+<p>we recently installed the sourceforge forum system on our server (MS SQL 2005) and were excited how well it worked.</p>
+<p>However, after the most recent MS update, and using the compiler Visual Webdeveloper Express, we are suddenly receiving the error message:</p>
+<p>&#8220;An attempt was made to load a program with an incorrect format. (Exception from HRESULT: 0x8007000B)&#8221;</p>
+<p>Can you help us?</p>
+<p>Many thanks,</p>
+<p>Robert &#8220;Bobby&#8221;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-392" class="comment even thread-even depth-1">
+			<article id="div-comment-392" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0b1b1c3a746a2e346d8cae668b109b6e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0b1b1c3a746a2e346d8cae668b109b6e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Chris McGrath</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-392">
+							<time datetime="2007-07-31T18:06:22+00:00">
+								31st July 2007 at 6:06 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Many thanks for this, I was starting to tear what&#8217;s left of my hair out trying to get the debugger to fire up the way it used to last time I had to debug IE JS.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-393" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-393" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-393">
+							<time datetime="2007-08-01T23:05:47+00:00">
+								1st August 2007 at 11:05 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Sorry bobby, that sounds like a windows glitch and out of my field of expertise. When things like this happen to me, as they tend to after 18 months or 2 years of using a PC, I wipe the hard drive and re-install windows.</p>
+<p>maxtoroq and Chris, thanks!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-394" class="comment even thread-even depth-1">
+			<article id="div-comment-394" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/09904a0cba823e0e956b859e0a0beaf2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/09904a0cba823e0e956b859e0a0beaf2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">ms_sucks</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-394">
+							<time datetime="2007-09-08T18:30:29+00:00">
+								8th September 2007 at 6:30 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks Bernie, this is by far the best debugging setup for IE that I&#8217;ve seen.</p>
+<p>Seriously, though!? What&#8217;s up with VWDE crashing every five seconds. I&#8217;m using a brand new Windblows XP Intel Centrino Duo, clean and dedicated to dev. Most of the time what happens is whenever I leave VWDE to use another program like IE and then come back to VWDE it shows up with an all white window that&#8217;s completely empty, and then eventually become unresponsive.</p>
+<p>Otherwise thanks for the workaround on the debugging.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-395" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-395" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-395">
+							<time datetime="2007-09-10T23:39:50+00:00">
+								10th September 2007 at 11:39 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ve never had VWDE crash on me, so I&#8217;m guessing that your system has another bit of software or configuration that really disagrees with it.</p>
+<p>Welcome to the world of the future!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-396" class="comment even thread-even depth-1">
+			<article id="div-comment-396" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3a1c355e1d6ac0014250358ddda77bca?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3a1c355e1d6ac0014250358ddda77bca?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://blogs.msdn.com/kaevans' rel='external nofollow' class='url'>Kirk Allen Evans</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-396">
+							<time datetime="2007-09-11T15:23:12+00:00">
+								11th September 2007 at 3:23 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>The experience in Visual Studio 2008 is even better.  The level of information you get is much better, and the debugging much more reliable.</p>
+<p><a href="http://blogs.msdn.com/kaevans/archive/2007/08/10/javascript-debugging-in-visual-studio-2008.aspx" rel="nofollow">http://blogs.msdn.com/kaevans/archive/2007/08/10/javascript-debugging-in-visual-studio-2008.aspx</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-397" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-397" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/521b9753049dab4a31fc1b117bf4ccf3?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/521b9753049dab4a31fc1b117bf4ccf3?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Andrew King</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-397">
+							<time datetime="2007-09-27T08:05:33+00:00">
+								27th September 2007 at 8:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That Rowan Atkinson clip is on &#8220;Live in Belfast&#8221;.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-398" class="comment even thread-even depth-1">
+			<article id="div-comment-398" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e0d8b3b5571c1565fd3ef29cf82b457c?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e0d8b3b5571c1565fd3ef29cf82b457c?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">nick</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-398">
+							<time datetime="2007-10-15T19:35:30+00:00">
+								15th October 2007 at 7:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>you == the winner</p>
+<p>thanks.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-399" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-399" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/18b9d8ff1fa7501b435a33308f6abd73?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/18b9d8ff1fa7501b435a33308f6abd73?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Mike O'Connor</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-399">
+							<time datetime="2007-10-17T00:18:24+00:00">
+								17th October 2007 at 12:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks heaps for this..</p>
+<p>I&#8217;m customising an interactive map client (à la Google Maps) using Firefox with Firebug as my front-end development platform.  The only problem is that we have to support bloody Internet Explorer, so every time I develop something new that works fine in Firefox, I have to find out why IE can&#8217;t handle it.</p>
+<p>Until I read your post I was stabbing in the dark.  Just for amusement value, I&#8217;ll share my last two IE bugs:</p>
+<p>1) I had a function &#8220;onload&#8221; which I set to be the page onload function with:</p>
+<p>window.onload=onload;</p>
+<p>Fine in Firefox &#8211; MSIE silently fails.  Rename the &#8220;onload&#8221; function to (for example) &#8220;i_hate_internet_explorer&#8221; and it works fine.</p>
+<p>2) Somewhere buried deep in the map client javascript was this line:</p>
+<p>point = objRef.mouseHandler.model.extent.getXY(targetNode.evpl);</p>
+<p>Fine in Firefox. MSIE complained about an &#8220;Object doesn&#8217;t support this property or method&#8221; (gee thanks..): Thanks to Visual Web Developer I nailed it down to the fact that I can&#8217;t reassign the &#8216;point&#8217; variable (it already had a value, and the new value evaluates fine).</p>
+<p>Even a &#8216;point = null&#8217; throws an error in MSIE. If I declare a new variable however (e.g. MSIE_SUXX_point = &#8230;.), MSIE starts playing ball again.</p>
+<p>As to why I can&#8217;t reassign a variable (as far as I knew this was always possible), only Bill Gates knows &#8211; but probably not hey.. ;o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-400" class="comment even thread-even depth-1">
+			<article id="div-comment-400" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-400">
+							<time datetime="2007-10-17T08:10:20+00:00">
+								17th October 2007 at 8:10 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Glad to have helped.</p>
+<p>&gt; The only problem is that we have to support bloody Internet Explorer</p>
+<p>Oh that pesky substantial majority!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-401" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://vegdave.wordpress.com/2007/10/29/debugging-javascript-with-ie-7/' rel='external nofollow' class='url'>Debugging JavaScript with IE 7 &laquo; Dave&#8217;s Blogs</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-402" class="comment even thread-even depth-1">
+			<article id="div-comment-402" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f2a9f81e20e63a196e9d12f4f6b3813e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/f2a9f81e20e63a196e9d12f4f6b3813e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Stan</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-402">
+							<time datetime="2007-11-12T21:44:27+00:00">
+								12th November 2007 at 9:44 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>So cool.  I have VS2005 but sometimes need to debug on a computer that I have installed VWD. In VS just placing &#8220;debugger&#8221; before any scripts run will get you into the debugger.  Note this is when you have no confidence in your code yet. I did this same trick using your technique and wolla. Thanks again.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-403" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-403" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4adcca49b3b1e5a08ac202f5d5a9e688?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4adcca49b3b1e5a08ac202f5d5a9e688?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Brian Shaver</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-403">
+							<time datetime="2007-11-22T15:24:41+00:00">
+								22nd November 2007 at 3:24 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Useful instructions thanks!</p>
+<p>As for Firefox users, I found that following James&#8217; tip did not actually leave the IE and VWD processes connected for script debugging; however, changing my Default web browser to be IE, then restarting VWD allowed me to use the regular &#8220;Start Debugging&#8221; option successfully.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-404" class="comment even thread-even depth-1">
+			<article id="div-comment-404" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a0b2178d2882c901d6931b380ee15dea?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a0b2178d2882c901d6931b380ee15dea?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://craftyspace.com/' rel='external nofollow' class='url'>Sid</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-404">
+							<time datetime="2007-11-27T04:18:11+00:00">
+								27th November 2007 at 4:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for a very helpful article.</p>
+<p>One cool additional feature is that the window that opens when you choose Browse With allows you to set IE as your default browser. Contrary to what you would think, this does not change the default for your OS, but does make it so clicking the Start Debugging button will now correctly work with IE.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-405" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-405" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8b16b4e20fcaaf3df3b1a1d640412b01?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/8b16b4e20fcaaf3df3b1a1d640412b01?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Arn</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-405">
+							<time datetime="2008-01-18T12:50:28+00:00">
+								18th January 2008 at 12:50 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the info in getting a decent debugger for ie.</p>
+<p>Your direcions are spot on.</p>
+<p>I loaded my page into the ie widow opend by VWD and my code loads into VWD debugger just great, but the page in ie is blanked out&#8230; yikes!</p>
+<p>Is there a way to see the effect of your script executing in the ie window?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-406" class="comment even thread-even depth-1">
+			<article id="div-comment-406" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-406">
+							<time datetime="2008-01-19T12:51:42+00:00">
+								19th January 2008 at 12:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Arn: I&#8217;m afraid not, as long as VWD has control of the IE process, no rendering can happen. This is the same problem that causes the interface to freeze if you&#8217;re running a calculation that takes some time in JavaScript: the UI can&#8217;t update until the script finishes.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-407" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-407" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8b16b4e20fcaaf3df3b1a1d640412b01?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/8b16b4e20fcaaf3df3b1a1d640412b01?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Arn</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-407">
+							<time datetime="2008-01-21T07:38:17+00:00">
+								21st January 2008 at 7:38 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Seems that Microsoft has catching up to do &#8211; Firebug does render the effect of your script in Firefox as you debug.</p>
+<p>Thanks once again thank you for all your useful information and prompt response. Keep up the good work.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-408" class="comment even thread-even depth-1">
+			<article id="div-comment-408" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c975a7365071e2cc9c30019a8745d684?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c975a7365071e2cc9c30019a8745d684?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">George Cook</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-408">
+							<time datetime="2008-01-28T15:15:23+00:00">
+								28th January 2008 at 3:15 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You&#8217;ve got to be fucking Joking?</p>
+<p>Firebug takes a few seconds to install. this is crap. honestly, why do Microsoft insist on being so retarded?! Install 1.4gb of app just so I can debug js in IE?</p>
+<p>Sledgehammer to crack a nut, or what!?</p>
+<p>ridiculous.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-409" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-409" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-409">
+							<time datetime="2008-01-28T17:08:16+00:00">
+								28th January 2008 at 5:08 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>In other complaints, why do they insist on making me install 15GB of Windows just to use minesweeper? Absurd :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-410" class="comment even thread-even depth-1">
+			<article id="div-comment-410" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4904728d6056674ae585772700b12943?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4904728d6056674ae585772700b12943?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.yahoo.com/' rel='external nofollow' class='url'>Steven</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-410">
+							<time datetime="2008-02-03T10:23:50+00:00">
+								3rd February 2008 at 10:23 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8220;I haven’t used VWD except for trying it out and stopped as soon as I saw I needed to pay to get it hooked into IE. As far as I could tell, it’s exactly the same as MSE (not to confuse it with the Script Debugger which is offered for free!)&#8221;</p>
+<p>Please give more information about the hooking into IE that cause money and where to look for the source of information, thanks.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-411" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-411" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9e7554e703cd83128e3153d7367e3721?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/9e7554e703cd83128e3153d7367e3721?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Sai</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-411">
+							<time datetime="2008-02-08T19:05:45+00:00">
+								8th February 2008 at 7:05 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You are GOD! This works great.</p>
+<p>Some of the comments talk of Firebug. But, as a developer I have to ensure that my app works in IE as well. And MSXML is a big thing going for IE, so Firefox centric development is nonsense. Not to say, Firebug is great too. But, here&#8217;s something that atleast pretends to be equivalent to it for IE.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-412" class="comment even thread-even depth-1">
+			<article id="div-comment-412" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-412">
+							<time datetime="2008-02-08T19:07:04+00:00">
+								8th February 2008 at 7:07 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Erm&#8230; Thanks!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-413" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.klauskomenda.com/archives/2008/02/16/collection-of-web-developer-tools-per-browser/' rel='external nofollow' class='url'>klauskomenda.com &raquo; Collection of Web Developer Tools, per Browser</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-414" class="comment even thread-even depth-1">
+			<article id="div-comment-414" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0a68e214289d737b1c4555b10572b94e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0a68e214289d737b1c4555b10572b94e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Tony</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-414">
+							<time datetime="2008-02-26T13:25:36+00:00">
+								26th February 2008 at 1:25 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Invaluable tip. Thanks very much!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-415" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-415" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1c0608da417c7492857df93ba4fdde31?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1c0608da417c7492857df93ba4fdde31?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.worthey.com/' rel='external nofollow' class='url'>Greg Worthey</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-415">
+							<time datetime="2008-02-28T04:14:44+00:00">
+								28th February 2008 at 4:14 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Rowan Atkinson was repeating something attributed to Charles Darwin:</p>
+<p>&#8220;A mathematician is a blind man in a dark room looking for a black cat which isn&#8217;t there.&#8221;</p>
+<p><a href="http://en.wikiquote.org/wiki/Charles_Darwin" rel="nofollow">http://en.wikiquote.org/wiki/Charles_Darwin</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-416" class="comment even thread-even depth-1">
+			<article id="div-comment-416" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c1661f3bc7ee839614f97442fe71810b?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c1661f3bc7ee839614f97442fe71810b?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ramani</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-416">
+							<time datetime="2008-02-28T19:18:27+00:00">
+								28th February 2008 at 7:18 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Nice and useful article. Thank you!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-417" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://occident.us/2008/03/17/links-for-2008-03-18/' rel='external nofollow' class='url'>occident.us &raquo; Blog Archive &raquo; links for 2008-03-18</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-418" class="comment even thread-even depth-1">
+			<article id="div-comment-418" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3371b955d4f71e805bbf92b82fcaabd1?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3371b955d4f71e805bbf92b82fcaabd1?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://polyesterhat.com/' rel='external nofollow' class='url'>Daniel</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-418">
+							<time datetime="2008-03-20T19:43:59+00:00">
+								20th March 2008 at 7:43 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>smart&#8230; thanks</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-419" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-419" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0acc955d17e462aee8b1fe23aad2b6fa?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0acc955d17e462aee8b1fe23aad2b6fa?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Gayle</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-419">
+							<time datetime="2008-03-22T03:19:51+00:00">
+								22nd March 2008 at 3:19 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Awesome write-up, Indispensable.</p>
+<p>Well with Visual Web Developer Express and IE your not blind any more and the cat is definitely still in the room because you have the bite and scratch marks to prove it. (I know firebug and your no firebug)</p>
+<p>Tips:</p>
+<p>  Set the new site to use your server and not start a hooky Microsoft web server</p>
+<p>Website -&gt; Start Options &#8230;</p>
+<p>  Change startup to load last open solution</p>
+<p>Website -&gt; Start Options &#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-420" class="comment even thread-even depth-1">
+			<article id="div-comment-420" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-420">
+							<time datetime="2008-03-22T17:58:01+00:00">
+								22nd March 2008 at 5:58 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p><i> Well with Visual Web Developer Express and IE your not blind any more and the cat is definitely still in the room because you have the bite and scratch marks to prove it. (I know firebug and your no firebug)</i></p>
+<p>I&#8217;m no MicroSoft fanboy, but you need a pair of Open Source beer goggles akin to Eric S. Raymond&#8217;s to think that Firebug is better than VWD. VWD does everything that firebug does, plus allows you to view and edit deep structures by mouseing over a variable in the source code, and rewind / fast forward execution by dragging the instruction pointer.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-421" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-421" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ddada0d198d7a05d8d37914e0d0df28a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ddada0d198d7a05d8d37914e0d0df28a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Benjamin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-421">
+							<time datetime="2008-03-26T01:16:02+00:00">
+								26th March 2008 at 1:16 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Jea &#8211; the deep look into variales is great! .. someone put a lot of work into this thing. I havent seen such a nice debugging feature bevore &#8211; if gave me a good hint where the error was!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-422" class="comment even thread-even depth-1">
+			<article id="div-comment-422" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ddada0d198d7a05d8d37914e0d0df28a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ddada0d198d7a05d8d37914e0d0df28a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Benjamin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-422">
+							<time datetime="2008-03-26T01:20:12+00:00">
+								26th March 2008 at 1:20 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8230; the error has been! (..speaking of errors)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-423" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-423" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/535ad4b1937b9b1843971d32251c6a63?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/535ad4b1937b9b1843971d32251c6a63?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">marioro</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-423">
+							<time datetime="2008-03-27T08:12:59+00:00">
+								27th March 2008 at 8:12 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>is there a way to use VWD Express Edition to debug javascript in opera and/or safari?? or can you point me to any good opera and safari debuggers?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-424" class="comment even thread-even depth-1">
+			<article id="div-comment-424" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-424">
+							<time datetime="2008-03-27T09:28:00+00:00">
+								27th March 2008 at 9:28 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>There is a Safari debugger but I&#8217;ve never used it.</p>
+<p>Information here: <a href="http://webkit.org/blog/61/introducing-drosera/" rel="nofollow">http://webkit.org/blog/61/introducing-drosera/</a></p>
+<p>As far as I know, Opera has no JS debugger, but I&#8217;ve never met a script that works in IE, Firefox, Safari and not Opera.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-425" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-425" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/004e6802fe4f3253adb2c84a5e42b8ad?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/004e6802fe4f3253adb2c84a5e42b8ad?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://mp3death.us/k9d/' rel='external nofollow' class='url'>starpause</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-425">
+							<time datetime="2008-04-02T22:36:11+00:00">
+								2nd April 2008 at 10:36 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>has anyone used VWDE with Multiple IE from Trendosoft?</p>
+<p>I tried following the above instructions and followed James Wiltshire&#8217;s advice to tell VWDE to browse with the IE6 executable installed via Multiple IE. However, when I start debugging and browse to a page with a javascript error, I get an error message popping up in IE but no debugging action in VWDE.</p>
+<p>The IE6 dialog says &#8220;Problems with this Web page might prevent it from being displayed properly or functioning properly. In the future, you candisplay this message by double-clicking the warning icon displayed in the status bar.&#8221;</p>
+<p>Any ideas on debugging with Multiple IE?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-426" class="comment even thread-even depth-1">
+			<article id="div-comment-426" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-426">
+							<time datetime="2008-04-03T10:32:41+00:00">
+								3rd April 2008 at 10:32 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;m not sure why that doesn&#8217;t work. I see two options:</p>
+<p>1. download a demo of the full Visual Studio tool. If debugging works in it, at least you have the option of paying for debugging support (here&#8217;s hoping you have an employer with deep pockets)</p>
+<p>2. Install a virtual machine hierarchy with various versions of Windows and IE, with the IE installed as the main IE for that machine. This is superior to debugging with standalone IE anyway. A full tutorial from Mr Dojo Toolkit is here: <a href="http://alex.dojotoolkit.org/?p=588" rel="nofollow">http://alex.dojotoolkit.org/?p=588</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-427" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-427" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/c2ce14247e269d04b464ccc67f7eccdc?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/c2ce14247e269d04b464ccc67f7eccdc?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Magesh</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-427">
+							<time datetime="2008-05-07T19:04:48+00:00">
+								7th May 2008 at 7:04 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This is nice. I have been looking for a better debugger than Microsoft Script Debugger. I found the answer. Thanks to you.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-428" class="comment even thread-even depth-1">
+			<article id="div-comment-428" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/381e838738f58a9f0113bb1c8893a810?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/381e838738f58a9f0113bb1c8893a810?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Keith</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-428">
+							<time datetime="2008-05-29T16:15:29+00:00">
+								29th May 2008 at 4:15 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Opera does have a great JS debugger &#8211; check out Dragonfly &#8211; it&#8217;s still in alpha at the moment but it works well for me and the roadmap looks great.</p>
+<p><a href="http://www.opera.com/products/dragonfly/" rel="nofollow">http://www.opera.com/products/dragonfly/</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-429" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-429" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/381e838738f58a9f0113bb1c8893a810?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/381e838738f58a9f0113bb1c8893a810?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Keith</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-429">
+							<time datetime="2008-05-29T16:17:53+00:00">
+								29th May 2008 at 4:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Oh and you should be able to use VWDE or VS to debug in *any* browser, you&#8217;d just have to configure your preferred browser within VWDE. I use VS, but I&#8217;m sure the option is still there in VWDE.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-430" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://philnelson.name/2008/06/05/how-to-debug-javascript-with-visual-web-developer-express/' rel='external nofollow' class='url'>How to debug JavaScript with Visual Web Developer Express | Phil Nelson</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-431" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.isocra.com/2005/10/javascript-debug-utility/' rel='external nofollow' class='url'>Javascript Debug Utility | Isocra</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-432" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.sitepoint.com/blogs/2008/06/17/in-browser-development-tools-firebug-still-king/' rel='external nofollow' class='url'>SitePoint Blogs &raquo; In-browser Development Tools: Firebug Still King</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-433" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://ravikiran.name/wp/?p=10' rel='external nofollow' class='url'>My Favorite Feeds &raquo; Blog Archive &raquo; In-browser Development Tools: Firebug Still King</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-434" class="comment even thread-even depth-1">
+			<article id="div-comment-434" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8d5fb6737d1b98db15b8f63cc3e3633f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/8d5fb6737d1b98db15b8f63cc3e3633f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.msa.mmu.ac.uk/~fraser/' rel='external nofollow' class='url'>Fraser</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-434">
+							<time datetime="2008-06-18T13:01:48+00:00">
+								18th June 2008 at 1:01 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey,</p>
+<p>Great blog! Great tip! I have been using this a lot (along with Firebug) whilst building a site with the new Google Earth javacript plug-in API: <a href="http://code.google.com/apis/earth/" rel="nofollow">http://code.google.com/apis/earth/</a></p>
+<p>My little add-on is an index redirect so that VSWD opens IE directly on the page/site you want.</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<p>1) same</p>
+<p>2) same</p>
+<p>3) Create a new empty website.</p>
+<p>4) Create a html document in the website and enter &lt;meta http-equiv=”refresh” content=”0;url=http://yoursite.com”&gt; in the head section.</p>
+<p>5) Click the “Start Debugging” button.</p>
+<p>6) Any script errors will cause IE to pause execution&#8230;</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<p>Regards,</p>
+<p>Fraser &#8211; <a href="http://fraserchapman.blogspot.com/" rel="nofollow">http://fraserchapman.blogspot.com/</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-435" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-435" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/982d4e9aeb41d86d36ed5c490b9a8fee?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/982d4e9aeb41d86d36ed5c490b9a8fee?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://blogger.forgottenskies.com/' rel='external nofollow' class='url'>Steve</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-435">
+							<time datetime="2008-07-25T12:53:08+00:00">
+								25th July 2008 at 12:53 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Please oh please make Firebug for IE&#8230;  I hate IE, but I have to test with it&#8230;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-436" class="comment even thread-even depth-1">
+			<article id="div-comment-436" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/53be47ac6da66ee6d6b00d34441a6172?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/53be47ac6da66ee6d6b00d34441a6172?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Pieter</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-436">
+							<time datetime="2008-07-30T09:16:26+00:00">
+								30th July 2008 at 9:16 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello all,</p>
+<p>Thanks for the great tutorial!</p>
+<p>I have read James Wiltshire’s comment about debugging in FF, however&#8230;</p>
+<p>when I do the following in visual web developer:</p>
+<p>&#8211; file -&gt; browse with -&gt; Firefox</p>
+<p>&#8211; put a breakpoint</p>
+<p>&#8211; run it in debugging mode</p>
+<p>&#8230;no breakpoint is cached.</p>
+<p>when I put my default browser to IE, everything works fine.</p>
+<p>Did somebody manage to get it working in FF? I would really appreciate any help. Maybe my FF debugging is disabled?</p>
+<p>best regards,</p>
+<p>Pieter</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-437" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-437" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-437">
+							<time datetime="2008-07-30T09:20:35+00:00">
+								30th July 2008 at 9:20 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Debugging with Visual Studio relies on proprietary hooks built in to Internet Explorer &#8211; as far as I know there is no way to debug Firefox JavaScript in Visual Studio, nor can I see Microsoft being keen to add one.</p>
+<p>Fortunately firebug is catching up fast in JS debugging terms (it is only missing a couple of features), and far exceeds IE in CSS debugging.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-438" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://tomnewt.wordpress.com/2008/08/11/ie7-compatibility-for-directive-processing/' rel='external nofollow' class='url'>IE7 compatibility for directive processing &laquo;</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-439" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://mahmoud.abdel-fattah.net/2008/08/23/how-to-debug-javascript-with-visual-web-developer-express-2008-express/' rel='external nofollow' class='url'>How to debug Javascript with Visual Web Developer Express 2008 Express ? | Mahmoud M. Abdel-Fattah</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-440" class="comment even thread-even depth-1">
+			<article id="div-comment-440" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/404b5e47017290646aa36ef3108ec22e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/404b5e47017290646aa36ef3108ec22e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://deleted/' rel='external nofollow' class='url'>kanenas</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-440">
+							<time datetime="2008-09-03T22:51:09+00:00">
+								3rd September 2008 at 10:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@starpause</p>
+<p>Scratch that. It sounds like you&#8217;re getting the debug prompt, but the debug session isn&#8217;t starting. Sadly, I don&#8217;t know enough about VWDE to have any ideas.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-441" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-441" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/28eb970bbf6f450c40e1258de91167f0?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/28eb970bbf6f450c40e1258de91167f0?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.storylord.com/' rel='external nofollow' class='url'>Brad</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-441">
+							<time datetime="2008-09-10T05:57:49+00:00">
+								10th September 2008 at 5:57 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you ever so much, I had specific JS errors in IE6/IE7 that wouldnt show up in FF, so FireBug wasnt able to discover the issues.  This solution worked perfectly and my script no longer shoots up errors!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-442" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://simeons.wordpress.com/2008/09/16/debugging-ria-ajax-flex-services/' rel='external nofollow' class='url'>Debugging RIA Services &laquo; HighContrast</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-443" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-443" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e1c3d14dd8cb5eb74df8a4a0eed54918?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e1c3d14dd8cb5eb74df8a4a0eed54918?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jacob</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-443">
+							<time datetime="2008-09-22T21:32:02+00:00">
+								22nd September 2008 at 9:32 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Wanted to give you a BIG thanks for this article! JavaScript+AJAX debugging in Internet Explorer is guesswork without some sort of debugger.</p>
+<p>You basically just saved my life. ;)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-444" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.hackerdude.com/2008/09/25/berniecode-how-to-debug-javascript-with-visual-web-developer-express/' rel='external nofollow' class='url'>Hackerdude &raquo; Blog Archive &raquo; BernieCode &#187; How to debug JavaScript with Visual Web Developer Express</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-445" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-445" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/7a62d9753a7fca1a5635392029ce6a49?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/7a62d9753a7fca1a5635392029ce6a49?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://none/' rel='external nofollow' class='url'>Hope</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-445">
+							<time datetime="2008-09-26T15:09:35+00:00">
+								26th September 2008 at 3:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I just started as of this week with trying to script in VWD. I am new to all of this and don&#8217;t have any direction as far as how to use this program. I am also trying to use JavaScript and learning as I go. If you have any helpful things to tell me on how to navigate through this, I will very thankful to you.  But in regards to the topic at hand, THANK YOU. I will run home and try this tonight.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-446" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.pixeline.be/blog/2008/my-new-javascript-editor-_-visual-web-studio-express-2008/' rel='external nofollow' class='url'>pix.l|ne &#8217;s Journal &raquo; Blog Archive &raquo; my new Javascript editor _ Visual Web Studio Express 2008</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-447" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-447" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a92f2e5f2bc4b87742e730c9dcf2bd8d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/a92f2e5f2bc4b87742e730c9dcf2bd8d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">werutzb</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-447">
+							<time datetime="2008-10-08T04:15:01+00:00">
+								8th October 2008 at 4:15 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi!</p>
+<p>I want to extend my SQL experience.</p>
+<p> I red really many SQL resources and want to</p>
+<p>get more about SQL for my work as db2 database manager.</p>
+<p> What would you recommend?</p>
+<p>Thanks,</p>
+<p>Werutz</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-448" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://zuper.lt/2008/10/js-debugger-for-ie7/' rel='external nofollow' class='url'>sK blogas &raquo; Blog Archive &raquo; JS debugger for IE7</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-449" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-449" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/4fa2c4ef889144d2986b38bbd3f7fdc5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/4fa2c4ef889144d2986b38bbd3f7fdc5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">plast</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-449">
+							<time datetime="2008-10-16T10:05:15+00:00">
+								16th October 2008 at 10:05 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I was just about to kill the IE team when i found this :).. it helped me alot!! thanks thanks thaaanks ^^,</p>
+<p>plast</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-450" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://forum.jswelt.de/javascript/44676-select-option-abw-hlen-per-js-selected-false.html#post283189' rel='external nofollow' class='url'>Select-Option abwählen per JS --&gt; .selected = false - jswelt - Forum (Javascript, PHP, MySQL, AJAX, Webdesign)</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-451" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-451" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/75d01fb5c6076afda2dd9266ed3a971f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/75d01fb5c6076afda2dd9266ed3a971f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">anon</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-451">
+							<time datetime="2008-10-27T04:45:20+00:00">
+								27th October 2008 at 4:45 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>thank u thank u very very much! =P</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-452" class="comment even thread-even depth-1">
+			<article id="div-comment-452" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/475e6a9259d8e451d2ef013a1e257522?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/475e6a9259d8e451d2ef013a1e257522?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.abpages.com/' rel='external nofollow' class='url'>Deepak</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-452">
+							<time datetime="2008-12-08T13:21:10+00:00">
+								8th December 2008 at 1:21 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ya, this work and thank you very much</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-453" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-453" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/6cbccc0b8d0013ae41681436e14ab876?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/6cbccc0b8d0013ae41681436e14ab876?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.thexvid.com/video/45887/--why-not' rel='external nofollow' class='url'>arrexinioca</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-453">
+							<time datetime="2008-12-16T22:57:24+00:00">
+								16th December 2008 at 10:57 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Very usefull post, i think i will use it.</p>
+<p>Thanks.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-454" class="comment even thread-even depth-1">
+			<article id="div-comment-454" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dddb1a395d87835451ae3150fb45c153?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dddb1a395d87835451ae3150fb45c153?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jetpeaxynelay</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-454">
+							<time datetime="2008-12-19T01:47:39+00:00">
+								19th December 2008 at 1:47 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello</p>
+<p>As a fresh <a href="http://www.berniecode.com/" rel="nofollow">http://www.berniecode.com</a> user i only want to say hello to everyone else who uses this site &lt;:-)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-455" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.prodevtips.com/2008/12/20/debugging-javascript-in-ie/' rel='external nofollow' class='url'>Debugging Javascript in IE | ProDevTips - dev notes and tutorials</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-456" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://arablibrarians.wordpress.com/2009/01/01/أفضل-20-إضافة-للمتصفحات-لتطوير-%d' rel='external nofollow' class='url'>أفضل 20 إضافة للمتصفحات لتطوير الويب &laquo; ARAB LIBRARIANS</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-457" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-457" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1c4176b7447e83921a485aed333f8262?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1c4176b7447e83921a485aed333f8262?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://sadara.be/' rel='external nofollow' class='url'>sadara</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-457">
+							<time datetime="2009-01-06T13:40:21+00:00">
+								6th January 2009 at 1:40 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>brill. lifesaver.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-458" class="comment even thread-even depth-1">
+			<article id="div-comment-458" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bef6501f852bea7f8bbe38f455aed34c?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bef6501f852bea7f8bbe38f455aed34c?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Yaroukh</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-458">
+							<time datetime="2009-01-09T10:44:10+00:00">
+								9th January 2009 at 10:44 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>“though Firebug is catching up fast”</p>
+<p>this one made me laugh too, even though it is not perfect Fb is way ahead of JS-debuggers from MS</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-459" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-459" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-459">
+							<time datetime="2009-01-09T10:55:53+00:00">
+								9th January 2009 at 10:55 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Yaroukh: well, this article was written almost a year ago, and my comment that firebug was &#8220;catching up fast&#8221; has played out &#8211; it is now superior in many ways to the VS debugger.</p>
+<p>That said, the VS debugger has the edge in at least two major features. Firstly, the MS debugger has a better rollover for variables that presents deep structure and allows you to edit the value of a variable by hovering over the variable name in the code. Secondly, it lets you pick up and drag the instruction pointer, to re-execute a line of code after changing values, instead of having to repeat the action that triggers the function.</p>
+<p>In all I&#8217;d say that Firebug&#8217;s HTML, console and CSS inspectors make it the better general purpose web development tool, but VS still has the edge for debugging JavaScript code.</p>
+<p>Give it another year and I expect it&#8217;ll be better at that too &#8211; MS has a way of sitting on their laurels.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-460" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://padub.com/?p=2410' rel='external nofollow' class='url'>Debugging Javascript in IE | Padub</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-461" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-461" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ffe9e061b24fd7e8ba84d7279814611f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ffe9e061b24fd7e8ba84d7279814611f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jayman</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-461">
+							<time datetime="2009-01-19T17:34:39+00:00">
+								19th January 2009 at 5:34 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks a million! That enabled me to find my typo. Running on Vista, this is clearly the way to debug IE!</p>
+<p>-Jay</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-462" class="comment even thread-even depth-1">
+			<article id="div-comment-462" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d05d115cb97bc2d158648c2fd4913d3c?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d05d115cb97bc2d158648c2fd4913d3c?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.homedatasheet.com/click.php' rel='external nofollow' class='url'>Jeff</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-462">
+							<time datetime="2009-02-04T20:39:12+00:00">
+								4th February 2009 at 8:39 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Bernie,</p>
+<p>As we say here in America&#8230;You the man!</p>
+<p>Thanks a million for this tip.  After installing Visual Web Developer, it took me about 15 minutes to fix a problem that otherwise could have taken me a week to find.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-463" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-463" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dec820eb0660874502b954f0ec6de474?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dec820eb0660874502b954f0ec6de474?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://nevermind/' rel='external nofollow' class='url'>Tom</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-463">
+							<time datetime="2009-02-11T22:21:34+00:00">
+								11th February 2009 at 10:21 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Firebug (lite) in IE:</p>
+<p><a href="http://getfirebug.com/lite.html" rel="nofollow">http://getfirebug.com/lite.html</a></p>
+<p>Cheers!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-464" class="comment even thread-even depth-1">
+			<article id="div-comment-464" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d780727b2a323fa2a92dc2def8e7f4f2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/d780727b2a323fa2a92dc2def8e7f4f2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Chris Seddon</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-464">
+							<time datetime="2009-02-11T23:28:33+00:00">
+								11th February 2009 at 11:28 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ve been using VWD for a while and it seemed great.  Then suddenly it starts to crash and a full install (150GB) is required to fix it.  I&#8217;m now moving back to Firebug and the Opera debugger &#8211; virtually the same debugging features, they don&#8217;t get corrupted and no massive downloads to set them up!</p>
+<p>VWD is very disappointing after an encouraging start.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-465" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-465" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e5500a578458b737d7de9385f63bb890?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/e5500a578458b737d7de9385f63bb890?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Dr.Zoidberg</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-465">
+							<time datetime="2009-02-18T12:18:02+00:00">
+								18th February 2009 at 12:18 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>you made my day :-)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-466" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://numiko.com/labs/?p=218' rel='external nofollow' class='url'>Numiko Labs &raquo; JavaScript Debugging</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-467" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-467" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5f441089d74a885029017f302dba1adf?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5f441089d74a885029017f302dba1adf?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Lukas Herrmann</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-467">
+							<time datetime="2009-02-25T17:26:16+00:00">
+								25th February 2009 at 5:26 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>This tut made my day :)</p>
+<p>I was looking for a decent way to debug in this crappy MSIE and now found this way which certainly gives firebug feeling :D</p>
+<p>Thanks for this post :D</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-468" class="comment even thread-even depth-1">
+			<article id="div-comment-468" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/7b8549d634e645b3aba0fb762dc524dd?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/7b8549d634e645b3aba0fb762dc524dd?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www./' rel='external nofollow' class='url'>excachill</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-468">
+							<time datetime="2009-03-05T06:18:36+00:00">
+								5th March 2009 at 6:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>x</p>
+<p>x</p>
+<p>madafakerimpresarionte</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-469" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-469" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/55d3382ff4cb5037dea8307170d74c37?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/55d3382ff4cb5037dea8307170d74c37?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.mattromaine.com/' rel='external nofollow' class='url'>matt</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-469">
+							<time datetime="2009-03-08T17:17:05+00:00">
+								8th March 2009 at 5:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>as other posters have said, you&#8217;ve definitely made my day.  thank you for taking the time to share!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-470" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://forums.x10hosting.com/graphics-webdesign/95710-how-achieve-cross-browser-compatible-webdesign-2.html#post533508' rel='external nofollow' class='url'>how to achieve a cross browser compatible webdesign ? - Page 2 - x10Hosting Forums</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-471" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://www.weborn.org/collection-of-web-developer-tools-per-browser-466/' rel='external nofollow' class='url'>Web开发工具大集合——每个浏览器都有份的！ | 网生代</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-472" class="comment even thread-even depth-1">
+			<article id="div-comment-472" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5527b96365cfe7add561ac2f0019b556?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5527b96365cfe7add561ac2f0019b556?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">thulani</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-472">
+							<time datetime="2009-05-10T17:45:23+00:00">
+								10th May 2009 at 5:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,</p>
+<p>Following your advise I downloaded VWD and am using it to debug my JScript. However it wants me to register. When I press the Register button it connects to a register web-site, then fails. I tried to talk to our local Microsoft offices and once I got through with much button-pressing met only ignorance and arrogance. I need VWD but can&#8217;t register &#8211; any suggestions would be very very welcome.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-473" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-473" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/7e6506a7c6bd6bd751aabfdfd9937713?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/7e6506a7c6bd6bd751aabfdfd9937713?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://elite-tn.ru/' rel='external nofollow' class='url'>Rentator</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-473">
+							<time datetime="2009-06-01T17:32:15+00:00">
+								1st June 2009 at 5:32 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Привет! Мы предлогаем <a href="http://elite-tn.ru/" rel="nofollow">аренда квартиры</a> в Москве без комиссии!</p>
+<p>Звоните, все расскажут и покажут. Большой выбор квартир на <a href="http://elite-tn.ru/" rel="nofollow">сайте</a> :)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-474" class="comment even thread-even depth-1">
+			<article id="div-comment-474" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b6821dc5e93fe62f5e6f09ecb365f018?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b6821dc5e93fe62f5e6f09ecb365f018?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">svend</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-474">
+							<time datetime="2009-06-03T20:45:54+00:00">
+								3rd June 2009 at 8:45 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the handy write-up! This is a life-saver.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-475" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-475" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/16bce7e332b0c947c036348afdd7caa2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/16bce7e332b0c947c036348afdd7caa2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Allan</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-475">
+							<time datetime="2009-06-10T11:19:09+00:00">
+								10th June 2009 at 11:19 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks, great for fixing those anoying IE only Javascript bugs.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-476" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://techienote.wordpress.com/2009/06/16/visual-web-developer-2008-express-edition/' rel='external nofollow' class='url'>Visual Web Developer 2008 Express Edition &laquo; Techie Note</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-477" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://forums.x10hosting.com/programming-help/99232-need-help-about-javascript.html#post555381' rel='external nofollow' class='url'>Need help about javascript - x10Hosting Forums</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-478" class="comment even thread-even depth-1">
+			<article id="div-comment-478" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/778a455253d719e40c155a8cc41d7314?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/778a455253d719e40c155a8cc41d7314?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ian Sullivan</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-478">
+							<time datetime="2009-08-12T04:49:31+00:00">
+								12th August 2009 at 4:49 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Dude you rock.</p>
+<p>Great tip.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-479" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-479" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/36db150d127a2aa34e4120e8726ffec0?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/36db150d127a2aa34e4120e8726ffec0?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">nyturn</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-479">
+							<time datetime="2009-08-21T14:43:24+00:00">
+								21st August 2009 at 2:43 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks. I&#8217;m happy with <a href="http://www.scriptcode.com/vbscripteditor/" rel="nofollow">ExeScript PRO JavaScript Dedugger</a>.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-480" class="comment even thread-even depth-1">
+			<article id="div-comment-480" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ec2b7cc387aad60d3a533b819090d345?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ec2b7cc387aad60d3a533b819090d345?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Graitanuccimi</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-480">
+							<time datetime="2009-08-22T16:36:17+00:00">
+								22nd August 2009 at 4:36 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Watch One Piece Episode 346 Online!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-481" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-481" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8536651e624eb79e5c836c24984fbb2b?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/8536651e624eb79e5c836c24984fbb2b?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://umeshchand.blogspot.com/' rel='external nofollow' class='url'>umesh chand</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-481">
+							<time datetime="2009-09-04T11:19:57+00:00">
+								4th September 2009 at 11:19 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I tried but it opens IE debugger.</p>
+<p>Howcan i debugg in Web developer 2008</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-482" class="comment even thread-even depth-1">
+			<article id="div-comment-482" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5e4347cd86f3fecff9253fe33d162e62?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5e4347cd86f3fecff9253fe33d162e62?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">visual web developer 2008/email</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-482">
+							<time datetime="2009-10-13T15:00:58+00:00">
+								13th October 2009 at 3:00 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi</p>
+<p>I want to ask how we can put an email or button in visual web developer 2008 for users to send an email for the owner, if they want to ask about any things..</p>
+<p>I think it is a code we put it in the submit/send button !!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-483" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-483" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/612a905fc03fea0ff13875c32f38cd6e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/612a905fc03fea0ff13875c32f38cd6e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://vvv.vidarramdal.com/' rel='external nofollow' class='url'>Vidar S. Ramdal</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-483">
+							<time datetime="2009-10-30T16:46:12+00:00">
+								30th October 2009 at 4:46 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you for posting this. Everything is better than &#8220;Object error&#8221; popups.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-484" class="comment even thread-even depth-1">
+			<article id="div-comment-484" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/216c647d20d12f0949e9adc1d4ef4416?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/216c647d20d12f0949e9adc1d4ef4416?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://davispartyof3.blogspot.com/' rel='external nofollow' class='url'>Carrie Davis</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-484">
+							<time datetime="2009-11-09T22:02:33+00:00">
+								9th November 2009 at 10:02 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you!!! I just spent 4 hours looking through code trying to figure out a JS error that was happening in IE and not in Firefox&#8230;this solved it in 2 seconds!!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-485" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://forums.x10hosting.com/programming-help/104825-firefox-ie-help.html#post598199' rel='external nofollow' class='url'>Firefox to IE Help - x10Hosting Community</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-487" class="comment even thread-even depth-1">
+			<article id="div-comment-487" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/29bca03162a8cc6c4f8796fe9b5e910d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/29bca03162a8cc6c4f8796fe9b5e910d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Zev Spitz</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-487">
+							<time datetime="2009-12-15T11:38:59+00:00">
+								15th December 2009 at 11:38 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I&#8217;ve just come across this excellent article.</p>
+<p>However, I can&#8217;t seem to get the JIT window to pop up.</p>
+<p>I can attach MSE to a process, and it will then respond to a debugger statement.</p>
+<p>Within IE8, View -&gt; External Script Debugger -&gt; Open, hangs IE for a minute, and then IE continues normally.</p>
+<p>MSE is sufficient for my needs, and VWD is a much heavier application, so I don&#8217;t think I&#8217;ll be installing it just for this.</p>
+<p>I am running XP Home, and Office XP.</p>
+<p>I&#8217;ve seen somewhere that certain permissions need to be changed to allow script debugging. Do you know anything about that?</p>
+<p>Any suggestions?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-488" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-488" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-488">
+							<time datetime="2009-12-15T11:50:46+00:00">
+								15th December 2009 at 11:50 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>The problem might be that in order to use VWD Express with IE, you have to start the IE process with VWD &#8211; you can&#8217;t attach VWD to an instance of IE that is already running.</p>
+<p>I recommend that you try this &#8211; it really is a much better debugging experience than MSE.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-489" class="comment even thread-even depth-1">
+			<article id="div-comment-489" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0642c0aff1b49a9f2ab028f6caf7ba68?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0642c0aff1b49a9f2ab028f6caf7ba68?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ken Dakin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-489">
+							<time datetime="2009-12-26T11:23:06+00:00">
+								26th December 2009 at 11:23 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>As the author of several commercially successful test/debugging systems (for mainframe computers produced 30-40 years ago) it is astonishing that, even today, some programmers still do not have the use of a good debugging system.</p>
+<p>Here is a quotation of mine I just made up &#8220;Trying to debug a program without a debugger is like trying to find out what&#8217;s wrong with a car engine by guesswork, and not even lifting the bonnet. There may even be a half-dead cat stuck in the inlet manifold but we might never know&#8221;</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-490" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-490" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/773000c8729b4b9873574f1cc0173373?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/773000c8729b4b9873574f1cc0173373?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Peter Peng</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-490">
+							<time datetime="2010-01-06T07:35:54+00:00">
+								6th January 2010 at 7:35 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Nice article.</p>
+<p>The way you mentioned is working very well in my place.</p>
+<p>It&#8217;s a fantastic way to connect VWD with IE.</p>
+<p>As I found,there is another way might be better compared with your way of redirecting page,which is &#8220;&#8221;start option&#8221;, fill the &#8220;start url&#8221; with the page I want to go.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-491" class="comment even thread-even depth-1">
+			<article id="div-comment-491" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/cf0b8d7480cae3726acc972379aace39?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/cf0b8d7480cae3726acc972379aace39?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://watch-family-guy-free.warlordz.co.uk/season/8/episode16.htm' rel='external nofollow' class='url'>addevononvarp</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-491">
+							<time datetime="2010-04-27T23:17:31+00:00">
+								27th April 2010 at 11:17 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hiya im new here. I found this board very useful &amp; its helped me out a lot. i should be able to give something back &amp; help others like it has helped me.</p>
+<p>I do like <a href="http://watch-family-guy-free.warlordz.co.uk/" rel="nofollow">watch family guy</a> this helps burn a lot of time.</p>
+<p>Thx&#8217;s, See ya about.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-492" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-492" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ff26e3d6f2a00a7ab917b675e91910a2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ff26e3d6f2a00a7ab917b675e91910a2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://johan.rylander.cc/' rel='external nofollow' class='url'>Johan Rylander</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-492">
+							<time datetime="2010-06-08T17:14:31+00:00">
+								8th June 2010 at 5:14 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Just wanted to say thanks, it worked nicely and helped me out today. So: Thanks! :)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-493" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://johan.rylander.cc/2010/06/08/debugging-javascript-in-ie7/' rel='external nofollow' class='url'>Debugging javascript in ie7 &laquo; Johan Rylander</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-494" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-494" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/792683e045adef2680fa07a30de0a239?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/792683e045adef2680fa07a30de0a239?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.bimbim.in/' rel='external nofollow' class='url'>bimbim</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-494">
+							<time datetime="2010-08-27T19:51:18+00:00">
+								27th August 2010 at 7:51 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>For debugging javascript please refer</p>
+<p><a href="http://bimbim.in/post/2010/08/19/JavaScript-Vb-Script-debugging-Methods.aspx" rel="nofollow">http://bimbim.in/post/2010/08/19/JavaScript-Vb-Script-debugging-Methods.aspx</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-495" class="comment even thread-even depth-1">
+			<article id="div-comment-495" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/bdc004fa56f9becbd7f9bbb101545ea3?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/bdc004fa56f9becbd7f9bbb101545ea3?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">at</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-495">
+							<time datetime="2010-11-02T09:45:34+00:00">
+								2nd November 2010 at 9:45 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>You saved my day. Thanks a lot!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-496" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-496" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/81f6566a1b904a62ade88f8c1796c279?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/81f6566a1b904a62ade88f8c1796c279?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.disarli.com.br/' rel='external nofollow' class='url'>Leonardo Di Sarli</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-496">
+							<time datetime="2011-05-19T09:11:59+00:00">
+								19th May 2011 at 9:11 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey, i&#8217;m here just to thanks too. Just to colaborate, I try with the newest version 2010 of Visual Web Developer Express and works fine!</p>
+<p>Thanks again. Cheers!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-497" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-497" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">manish</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-497">
+							<time datetime="2011-06-16T04:39:14+00:00">
+								16th June 2011 at 4:39 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi,<br />
+Pros:<br />
+1. Usable with any version of IE. Debugging in IE7 is challenge.<br />
+2. IE 8 debuggers, loaded script navigation is pain, if you have may frames and many JSs.</p>
+<p>Issues:<br />
+1. Hot code replacement is not there.<br />
+2. View  breakpoint list is absent<br />
+3. Intellisence  is not enough.<br />
+4. Heavy. Anyone tried to reduce unwanted &#8216;dll&#8217; loaded by the application. I did commented out some of the assembly definitions.</p>
+<p>If any one has solutions to issues, will be grateful</p>
+<p>Thanks<br />
+Manish</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-498" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2 parent">
+			<article id="div-comment-498" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-498">
+							<time datetime="2011-06-16T16:09:06+00:00">
+								16th June 2011 at 4:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>As far as I know, no browsers implement hot code replacement. In fact, the technique is pretty much only suitable for compiled languages with a first class notion of classes or methods. In JS, the program structure is built up flexibly using side effects. By this I mean that you don&#8217;t define a class &#8211; instead you write code that builds a data structure that behaves a lot like a class. Individual functions have no global name, so it would be really hard to swap them.</p>
+<p>I&#8217;m using GWT now, it has hot code replacement. Eclipse is hardly lightweight though :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-499" class="comment even depth-3">
+			<article id="div-comment-499" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">manish</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-499">
+							<time datetime="2011-06-17T03:00:04+00:00">
+								17th June 2011 at 3:00 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>By hot code replace means during debug session if I want to edit the js code ahead of breakpoint it doesn&#8217;t allow. I have to reload IE to reflect changes.</p>
+<p>I mean if IE is started through  this application then js files in cache could be editable. Once things are ok, I can copy the final one to my original source.</p>
+<p>I don&#8217;t know if I can make them editable somehow.</p>
+<p>thanks<br />
+Manish</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-500" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-500" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3dd53940b3d27ce10b3ab22b55855f1d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">manish</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-500">
+							<time datetime="2011-06-20T02:10:58+00:00">
+								20th June 2011 at 2:10 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Has anyone tried &#8220;edit and continue&#8221; feature while debugging javascript? It seems to be enabled but it doesn&#8217;t let editing. The website path I have given the actual path of the server. It maps breakpoints but it doesn&#8217;t do edit and continue.</p>
+<p>Let me know if anyone finds a way out.</p>
+<p>Thanks<br />
+Manish</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-501" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-501" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ae02412a638e450316cf2e5978f852e5?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/ae02412a638e450316cf2e5978f852e5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">LOVE_MOSS_NOT</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-501">
+							<time datetime="2011-08-17T13:13:28+00:00">
+								17th August 2011 at 1:13 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the article, but IE is a POS!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-502" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-502" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-502">
+							<time datetime="2011-08-17T16:56:39+00:00">
+								17th August 2011 at 4:56 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>IE 9 is actually pretty good, if only people would stop using v6!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-503" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-503" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1617d19a7dedd890e333fbc394a602f9?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1617d19a7dedd890e333fbc394a602f9?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Pablo</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-503">
+							<time datetime="2011-08-26T03:24:22+00:00">
+								26th August 2011 at 3:24 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the article,<br />
+btw. the joke is much older, the original was a thought on mathematicians made by Charles Darwin.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-504" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-504" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/0745da5061e369d20c49396d7d249385?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/0745da5061e369d20c49396d7d249385?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.rathervague.co.uk/' rel='external nofollow' class='url'>rathervague</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-504">
+							<time datetime="2011-11-04T09:07:03+00:00">
+								4th November 2011 at 9:07 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great bit of advice, helped a lot. Though it took 3 hours to download/setup and 5 minutes of bug fixing, job done!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-505" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-505" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b93914137ae67057880798210dc80e20?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b93914137ae67057880798210dc80e20?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jorge</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-505">
+							<time datetime="2011-11-18T12:21:57+00:00">
+								18th November 2011 at 12:21 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Tried this in Visual Web Developer 2010 Express, but couldn&#8217;t get it to attach to any of the Utilu IE Versions. Followed the instructions here, plus added IE 7 and 8 to the &#8220;Browse With&#8230;&#8221; dialog box and set them as default. VWD launches IE 7/8, but it doesn&#8217;t attach. Has anyone been able to attach to IE7 and then IE8 on the same machine?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-506" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-506" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b305034e7f2437b76f68cc5e86cb0dbe?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b305034e7f2437b76f68cc5e86cb0dbe?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://umairaslam.blogspot.com/' rel='external nofollow' class='url'>Umair Aslam Bhatti</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-506">
+							<time datetime="2012-02-06T21:05:50+00:00">
+								6th February 2012 at 9:05 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Yeah that is the way to disable or enable js debugging </p>
+<p><a href="http://umairaslam.blogspot.com/2012/02/enable-javascript-debugging.html" rel="nofollow">http://umairaslam.blogspot.com/2012/02/enable-javascript-debugging.html</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-507" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-507" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/1a2db6ffc8c938ae2d19092728ce8ed4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/1a2db6ffc8c938ae2d19092728ce8ed4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Franky</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-507">
+							<time datetime="2012-03-19T03:32:28+00:00">
+								19th March 2012 at 3:32 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Debugging Javascript in _any_ IE is such a huge pain in the a**! I just want to know what exactly happens at &#8220;line x/y&#8221; &#8211; please &#8211; IE &#8211; just give me a code-snippet, be specific about the javascript error you&#8217;r complaining! Arrrg!</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-508" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-508" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/be1412da6c2da03393da8fcbeb015f1e?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/be1412da6c2da03393da8fcbeb015f1e?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.bungalowsoftware.com/' rel='external nofollow' class='url'>Clay Nichols</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-508">
+							<time datetime="2012-06-04T21:23:35+00:00">
+								4th June 2012 at 9:23 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks!<br />
+Works for me with MS VWD 2010 and IE 8.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-next"><a href="../private-constructors-for-actionscript/index.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Proper private constructors for ActionScript 3.0</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><script type='text/javascript' src='../../wp-content/plugins/jquery-collapse-o-matic/js/collapse7514.js?ver=1.6.6'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-syntax/js/wp-syntax4963.js?ver=1.1'></script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/skip-link-focus-fixd01e.js?ver=20141010'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/functions8337.js?ver=20150330'></script>
+
+</body>
+
+<!-- Mirrored from blog.berniesumption.com/software/how-to-debug-javascript-in-internet-explorer/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:37:22 GMT -->
+</html>
+
+<!-- Dynamic page generated in 2.517 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-10-17 12:33:21 -->
+
+<!-- super cache -->

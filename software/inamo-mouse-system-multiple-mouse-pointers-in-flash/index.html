@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-GB" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#" class="no-js">
+
+<!-- Mirrored from blog.berniesumption.com/software/inamo-mouse-system-multiple-mouse-pointers-in-flash/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:36:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="../../xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>The inamo mouse system: a hacktastic story &#8211; Bernie Sumption&#039;s Blog</title>
+<link rel='dns-prefetch' href='http://vjs.zencdn.net/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; Comments Feed" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Bernie Sumption&#039;s Blog &raquo; The inamo mouse system: a hacktastic story Comments Feed" href="feed/index.html" />
+<link rel='stylesheet' id='collapseomatic-css-css'  href='../../wp-content/plugins/jquery-collapse-o-matic/light_stylef24c.css?ver=1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-plugin-css'  href='../../wp-content/plugins/videojs-html5-video-player-for-wordpress/plugin-styles433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='videojs-css'  href='http://vjs.zencdn.net/4.5/video-js.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='../../wp-content/plugins/wp-syntax/css/wp-syntax4963.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='chld_thm_cfg_parent-css'  href='../../wp-content/themes/twentyfifteen/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='../../wp-content/themes/twentyfifteen/genericons/genericonscf1b.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='../../wp-content/themes/bernie-2015-blog-theme/style433d.css?ver=4.9.11' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='/wp-content/themes/twentyfifteen/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='/wp-content/themes/twentyfifteen/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='../../wp-content/plugins/swfobj/swfobjectdc8c.js?ver=2.2'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='../../wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public6471.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='../../wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../xmlrpc0db0.php?rsd" />
+<link rel='prev' title='eval() considered useful: code generation in JavaScript' href='../eval-considered-useful/index.html' />
+<link rel='next' title='Inheritance is evil, and must be destroyed' href='../inheritance-is-evil-and-must-be-destroyed/index.html' />
+<meta name="generator" content="WordPress 4.9.11" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='../../index970c.html?p=25' />
+<link rel="alternate" type="application/json+oembed" href="../../wp-json/oembed/1.0/embed0ea9.json?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Finamo-mouse-system-multiple-mouse-pointers-in-flash%2F" />
+<link rel="alternate" type="text/xml+oembed" href="../../wp-json/oembed/1.0/embed327f?url=https%3A%2F%2Fblog.berniesumption.com%2Fsoftware%2Finamo-mouse-system-multiple-mouse-pointers-in-flash%2F&amp;format=xml" />
+
+		<script type="text/javascript"> document.createElement("video");document.createElement("audio");document.createElement("track"); </script>
+				<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- BEGIN GADWP v5.1.2.5 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-19810778-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:locale" content="en_GB"/>
+  <meta property="og:site_name" content="Bernie Sumption&#039;s Blog"/>
+  <meta property="og:title" content="The inamo mouse system: a hacktastic story"/>
+  <meta property="og:url" content="https://blog.berniesumption.com/software/inamo-mouse-system-multiple-mouse-pointers-in-flash/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="This is the (long) story of how inamo became arguably the world&#039;s first two-mouse Flash installation. If you enjoy the geeky details of programming projects, this is for you.
+Sometimes a single sentence in a specification can balloon into a task as daunting as most of the other sentences put togeth"/>
+  <meta property="article:published_time" content="2010-09-30T05:14:34+00:00"/>
+  <meta property="article:modified_time" content="2019-10-17T08:06:40+00:00" />
+  <meta property="og:updated_time" content="2019-10-17T08:06:40+00:00" />
+  <meta property="article:section" content="Software"/>
+ <!-- Google+ / Schema.org -->
+  <meta itemprop="name" content="The inamo mouse system: a hacktastic story"/>
+  <meta itemprop="description" content="This is the (long) story of how inamo became arguably the world&#039;s first two-mouse Flash installation. If you enjoy the geeky details of programming projects, this is for you.
+Sometimes a single sentence in a specification can balloon into a task as daunting as most of the other sentences put togeth"/>
+ <!-- Twitter Cards -->
+  <meta name="twitter:title" content="The inamo mouse system: a hacktastic story"/>
+  <meta name="twitter:url" content="https://blog.berniesumption.com/software/inamo-mouse-system-multiple-mouse-pointers-in-flash/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+ <!-- SEO -->
+  <meta name="description" content="This is the (long) story of how inamo became arguably the world&#039;s first two-mouse Flash installation. If you enjoy the geeky details of programming projects, this is for you.
+Sometimes a single sentence in a specification can balloon into a task as daunting as most of the other sentences put togeth"/>
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.1.3 -->
+	
+</head>
+
+<body class="post-template-default single single-post postid-25 single-format-standard">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+										<p class="site-title"><a href="../../index.html" rel="home">Bernie Sumption&#039;s Blog</a></p>
+											<p class="site-description">Various writings on software development and photography</p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+		
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-7"><a href="../../category/photography/index.html" >Photography</a> (12)
+</li>
+	<li class="cat-item cat-item-1"><a href="../../category/software/index.html" >Software</a> (29)
+<ul class='children'>
+	<li class="cat-item cat-item-14"><a href="../../category/software/dnartwork/index.html" >DNArtwork</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="../../category/urandom/index.html" >urandom</a> (1)
+</li>
+		</ul>
+</aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="../building-reliable-user-interfaces/index.html">Strategies for building reliable user interfaces</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-generating-realistic-painted-shapes/index.html">Making DNArtwork #8: Generating realistic painted shapes on-demand</a>
+									</li>
+											<li>
+					<a href="../dnartwork/index.html">Project: DNArtwork</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-how-it-works/index.html">Making DNArtwork #7: how does it work?</a>
+									</li>
+											<li>
+					<a href="../dnartwork/dnartwork-first-art-print/index.html">Making DNArtwork #6: the first art print, hot off the press</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+			<li><a href='../../2017/09/index.html'>September 2017</a></li>
+	<li><a href='../../2016/12/index.html'>December 2016</a></li>
+	<li><a href='../../2016/09/index.html'>September 2016</a></li>
+	<li><a href='../../2016/07/index.html'>July 2016</a></li>
+	<li><a href='../../2016/06/index.html'>June 2016</a></li>
+	<li><a href='../../2015/11/index.html'>November 2015</a></li>
+	<li><a href='../../2015/10/index.html'>October 2015</a></li>
+	<li><a href='../../2015/04/index.html'>April 2015</a></li>
+	<li><a href='../../2015/03/index.html'>March 2015</a></li>
+	<li><a href='../../2015/02/index.html'>February 2015</a></li>
+	<li><a href='../../2015/01/index.html'>January 2015</a></li>
+	<li><a href='../../2011/10/index.html'>October 2011</a></li>
+	<li><a href='../../2011/05/index.html'>May 2011</a></li>
+	<li><a href='../../2011/04/index.html'>April 2011</a></li>
+	<li><a href='../../2010/11/index.html'>November 2010</a></li>
+	<li><a href='../../2010/10/index.html'>October 2010</a></li>
+	<li><a href='../../2010/09/index.html'>September 2010</a></li>
+	<li><a href='../../2008/04/index.html'>April 2008</a></li>
+	<li><a href='../../2007/11/index.html'>November 2007</a></li>
+	<li><a href='../../2007/03/index.html'>March 2007</a></li>
+		</ul>
+		</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24406">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">Nick Battle</span> on <a href="../daphnes-tweeting-catflap/index.html#comment-24404">Daphne&#8217;s tweeting catflap</a></li><li class="recentcomments"><span class="comment-author-link">bernie</span> on <a href="../on-abandoning-gulp/index.html#comment-23795">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link">NotAScriptKiddy</span> on <a href="../on-abandoning-gulp/index.html#comment-23794">On abandoning Gulp</a></li><li class="recentcomments"><span class="comment-author-link"><a href='https://www.flickr.com/photos/judeapollo' rel='external nofollow' class='url'>Rory Melough</a></span> on <a href="../../photography/depth-of-field-for-geeks/index.html#comment-21881">Bernie&#8217;s Better Guide to Depth of Field for Geeks Who Want to be Digital Artists</a></li></ul></aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-25" class="post-25 post type-post status-publish format-standard hentry category-software">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">The inamo mouse system: a hacktastic story</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<h3>This is the (long) story of how inamo became arguably the world&#8217;s first two-mouse Flash installation. If you enjoy the geeky details of programming projects, this is for you.</h3>
+<p>Sometimes a single sentence in a specification can balloon into a task as daunting as most of the other sentences put together. This is the story of one such sentence.</p>
+<p><span id="more-25"></span></p>
+<p>18 months ago I started building the software and hardware system for an interactive restaurant called <a href="http://www.inamo-restaurant.com/">inamo</a>. Inamo is not the first restaurant to let customers order food and drink through a computer interface at the table, but in our esteemed and unbiased opinion it is the first restaurant to do so in an elegant manner that adds to the dining experience rather than plonking an ugly great touch screen between you and your date.</p>
+<p><a href="../../wp-content/uploads/2010/09/inamo-photo.jpg"><img class="alignnone wp-image-30 size-full" title="inamo-photo" src="../../wp-content/uploads/2010/09/inamo-photo.jpg" alt="" width="600" height="400" srcset="/wp-content/uploads/2010/09/inamo-photo.jpg 600w, /wp-content/uploads/2010/09/inamo-photo-300x200.jpg 300w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p>Buried in the requirements document that the finances had produced was an innocuous little sentence that hardly gave me pause on the first reading:</p>
+<p><em>&#8220;Each table seats two people, who can interact with the system simultaneously&#8221;</em></p>
+<p>You see, computers only have one mouse pointer. Even if you plug two mice into a PC, Windows will prevent them showing up as two devices and instead merge their input streams so that they both appear to applications as a single virtual device.</p>
+<p>Bugger.</p>
+<p>Writing mouse applications for modern operating systems is easy because the mouse stack takes care of all the heavy lifting for you. The mouse stack has two main components: device drivers read the arcane binary data format from the mouse hardware and convert it into a useful stream of coordinates for your application, then standard libraries take care of collision detection, i.e. deciding when the mouse has moved over a link or clicked a button. Since the Windows/Flash mouse stack assumes a single pointer, the only option was a ground-up reimplementation of a mouse stack that takes data from our Bluetooth trackpads, converts it into a coordinate stream, feeds it into Flash and performs collision detection.</p>
+<h1>Part 1: re-implementing the Flash MouseEvent system</h1>
+<p>The trick to getting a two pointer system working is to draw the pointers as part of the flash animation, which has the added benefit that that you can control their appearance. In fact, hiding the system pointer and replacing it with a Flash object is an old Flash designer&#8217;s trick for making fancy mouse pointers.</p>
+<p>Ideally, an application for multiple mice should look exactly like programming for a single mouse. Firstly, framework developers shouldn&#8217;t pass unnecessary complexity onto the application developers – the framework should handle as much heavy lifting as possible. Secondly, the inamo system accepts plugins from 3rd party developers; these plugins are plain old SWF files, and we didn&#8217;t want them to have to be written with our system in mind.</p>
+<p>If you&#8217;ve programmed interactive applications in ActionScript 3.0 before, you&#8217;ll know that interacting with the mouse looks something like this:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// sample 1: make shizzle clickable</span>
+<span style="color: #000066; font-weight: bold;">var</span> shizzle<span style="color: #339933;">:</span>Shizzle <span style="color: #339933;">=</span> <span style="color: #000066; font-weight: bold;">new</span> Shizzle<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+shizzle.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span>MouseEvent.<span style="color: #660066;">CLICK</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>e<span style="color: #339933;">:</span>MouseEvent<span style="color: #009900;">&#41;</span><span style="color: #339933;">:</span><span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">&#123;</span>
+    trace<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;Ooh, that tickles!&quot;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre></td></tr></table><p class="theCode" style="display:none;">// sample 1: make shizzle clickable
+var shizzle:Shizzle = new Shizzle();
+shizzle.addEventListener(MouseEvent.CLICK, function(e:MouseEvent):void {
+    trace(&quot;Ooh, that tickles!&quot;);
+});</p></div>
+
+<p>Individual display objects are registered to receive mouse events. The Flash player tracks the position of the mouse pointer, and dispatches MOUSE_OVER and MOUSE_OUT events to registered objects as the mouse passes over them, and CLICK events if they are clicked. This simple demo uses over and out events to emphasise a box when the mouse is over it, as well as the technique of dawing a custom pointer in Flash.</p>
+<div class="white-content-box">
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="swfobj_0" width="620" height="180">
+      <param name="movie" value="../../wp-content/uploads/2010/09/broken-over-sequence.swf" />
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="../../wp-content/uploads/2010/09/broken-over-sequence.swf" width="620" height="180">
+      <!--<![endif]-->
+        
+      <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+
+</div>
+<div class="sidenote">
+<p>* finding the highest display object is quite fun. It&#8217;s simple in the case of two display objects with the same parent: the higher object is the one with the greater childIndex property. However, if two objects don&#8217;t share the same parent, you have to trace up the display object tree to find the common ancestor. In computer science terms, this means finding which node comes second in a depth-first traversal of a n-way tree.</p>
+</div>
+<p>A naïve implementation of this was quite easy. I built a MouseManager that tracks all display objects currently in the system. Each frame, the MouseManager locates the &#8220;over object&#8221;, which is the display object under the mouse pointer, or the highest one* if there are multiple such objects. If this object is different from the previous frame&#8217;s over object, you dispatch a MOUSE_OUT event on the previous one and a MOUSE_OVER event on the new one.</p>
+<p>Unfortunately, the naïve implementation didn&#8217;t work properly when two mouse pointers are used. Programs are typically written to rely on the fact that once you receive a MOUSE_OVER event, you will get a MOUSE_OUT before the next MOUSE_OVER. Here is the code for the above demo, which makes precisely that assumption:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// sample 2: emphasise the box that the mouse is over</span>
+<span style="color: #000066; font-weight: bold;">var</span> buttons<span style="color: #339933;">:</span><span style="">Array</span> <span style="color: #339933;">=</span> <span style="color: #009900;">&#91;</span>button1<span style="color: #339933;">,</span> button2<span style="color: #339933;">,</span> button3<span style="color: #339933;">,</span> button4<span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
+<span style="color: #006600; font-style: italic;">// this variable is set to the box that the pointer is over, i.e. there</span>
+<span style="color: #006600; font-style: italic;">// is the implicit assumption that there is only one mouse pointer</span>
+<span style="color: #000066; font-weight: bold;">var</span> currentOver<span style="color: #339933;">:</span>Button<span style="color: #339933;">;</span>
+<span style="color: #000066; font-weight: bold;">for</span> each <span style="color: #009900;">&#40;</span><span style="color: #000066; font-weight: bold;">var</span> button<span style="color: #339933;">:</span>Button <span style="color: #000066; font-weight: bold;">in</span> buttons<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    button.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span>MouseEvent.<span style="color: #660066;">MOUSE_OVER</span><span style="color: #339933;">,</span> handleMouseOver<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    button.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span>MouseEvent.<span style="color: #660066;">MOUSE_OUT</span><span style="color: #339933;">,</span> handleMouseOut<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+    button.<span style="color: #660066;">alpha</span> <span style="color: #339933;">=</span> <span style="color: #CC0000;">0.5</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #000066; font-weight: bold;">function</span> handleMouseOver<span style="color: #009900;">&#40;</span>e<span style="color: #339933;">:</span>MouseEvent<span style="color: #009900;">&#41;</span><span style="color: #339933;">:</span><span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">&#123;</span>
+    currentOver <span style="color: #339933;">=</span> e.<span style="color: #660066;">target</span> as Button<span style="color: #339933;">;</span>
+    currentOver.<span style="color: #660066;">alpha</span> <span style="color: #339933;">=</span> <span style="color: #CC0000;">1</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span>
+<span style="color: #000066; font-weight: bold;">function</span> handleMouseOut<span style="color: #009900;">&#40;</span>e<span style="color: #339933;">:</span>MouseEvent<span style="color: #009900;">&#41;</span><span style="color: #339933;">:</span><span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">&#123;</span>
+    currentOver.<span style="color: #660066;">alpha</span> <span style="color: #339933;">=</span> <span style="color: #CC0000;">0.5</span><span style="color: #339933;">;</span>
+    currentOver <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre></td></tr></table><p class="theCode" style="display:none;">// sample 2: emphasise the box that the mouse is over
+var buttons:Array = [button1, button2, button3, button4];
+// this variable is set to the box that the pointer is over, i.e. there
+// is the implicit assumption that there is only one mouse pointer
+var currentOver:Button;
+for each (var button:Button in buttons) {
+    button.addEventListener(MouseEvent.MOUSE_OVER, handleMouseOver);
+    button.addEventListener(MouseEvent.MOUSE_OUT, handleMouseOut);
+    button.alpha = 0.5;
+}
+function handleMouseOver(e:MouseEvent):void {
+    currentOver = e.target as Button;
+    currentOver.alpha = 1;
+}
+function handleMouseOut(e:MouseEvent):void {
+    currentOver.alpha = 0.5;
+    currentOver = null;
+}</p></div>
+
+<p>This code is not broken &#8211; it always works as long as there is only one mouse, and plugins loaded into our system were not necessarily written for multiple mice. The problem comes when you have two mice, and the second mouse could move over a button while the first mouse is still over another. In this demo, since your computer only has one mouse, I&#8217;ve set up draggable arrows to represent the two mice:</p>
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="swfobj_1" width="620" height="180">
+      <param name="movie" value="../../wp-content/uploads/2010/09/broken-over-sequence-2.swf" />
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="../../wp-content/uploads/2010/09/broken-over-sequence-2.swf" width="620" height="180">
+      <!--<![endif]-->
+        
+      <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+
+<p>(fun puzzle: try and make all the boxes dark by dragging the two mouse pointers)</p>
+<p>It would be trivial to rewrite the above code in a way that doesn&#8217;t break with two mice, but we wanted to be able to run any SWF without modification.</p>
+<p>To solve this problem each pointer gets its own MouseManager that is tied to a specific display object container, so that they only keep track of objects inside that container. This way, each loaded plugin only has one mouse that can interact with it, and code written for one mouse can&#8217;t get confused:</p>
+
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="swfobj_2" width="620" height="392">
+      <param name="movie" value="../../wp-content/uploads/2010/09/broken-over-sequence-3.swf" />
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="../../wp-content/uploads/2010/09/broken-over-sequence-3.swf" width="620" height="392">
+      <!--<![endif]-->
+        
+      <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+
+<p>I distinctly remember the first time I saw the above proof-of-concept: I thought the hard part was over, and sent a triumphant e-mail claiming that the two-mouse system was &#8220;all over bar the integration&#8221;. Ha! How wrong I was.</p>
+<h1>Part 2: ActionScript is not the best language for a device driver</h1>
+<p>Inamo uses trackpads built into the tabletop:</p>
+<figure id="attachment_59" style="width: 600px" class="wp-caption alignnone"><img class="size-full wp-image-59" title="trackpad-photo" src="../../wp-content/uploads/2010/09/trackpad-photo.jpg" alt="Photo of inamo trackpad" width="600" height="400" /><figcaption class="wp-caption-text">PR photos don&#8217;t lie: inamo is a beautiful restaurant for beautiful people</figcaption></figure>
+<p>Each trackpad communicates with the client PC via Bluetooth. To prevent Windows merging both trackpads into a single virtual device, we reprogrammed the trackpads to present themselves to Windows as generic COM ports, issuing forth a stream of <a href="http://www.kryslix.com/nsfaq/Q.12.html">standard 3-byte movement packets</a>.</p>
+<p>At the start of the project, my plan for getting these packets of data into Flash read a bit like this:</p>
+<ol start="1" type="1">
+<li>3-byte data packet arrives over Bluetooth into COM port</li>
+<li>erm, something… I&#8217;ll figure it out later</li>
+<li>ActionScript MouseManager interprets 3-byte packet</li>
+</ol>
+<p>Imagine my surprise when step 2 turned out to be problematic. Flash is designed from the ground up to run on the Internet. It can&#8217;t access any of the client PC&#8217;s hardware such as serial ports, and it can&#8217;t run programs on the client PC.</p>
+<h3>Attempt 1: in through the front door</h3>
+<p>Since the only way you can get data into Flash is over a network, the obvious solution was to build a server that sends mouse data over a network connection. Since on the one hand it needed to be written in a language that supports Windows serial ports, and on the other hand I hate C++ with a passion that most people reserve for child molesters, the best choice for this was C#.</p>
+<p><i>Edited in 2011 to add: I take it all back, C++ is awesome</i></p>
+<p>I built a small C# / Windows Forms app that opened a COM port to the trackpad, interpreted the binary data, converted it to coordinates, encoded it as XML and broadcasted to any clients listening on a TCP socket. Meanwhile in Flash, the MouseManager used ActionScript&#8217;s XMLSocket class to connect to the C# app and receive mouse movement data.</p>
+<p>Throwing this all together I saw that it worked, and sent out a second triumphant e-mail claiming to have solved the mouse issue.</p>
+<p>A brief aside: when my wife and I are watching an episode of House MD on the laptop, there will be several moments where Greg House says something like &#8220;Of course! The ampicillin caused the reverse toxinecrosis in the frontal cortex because of the beta-blockers we prescribed for the rabies, but if we replace them with doxycyclin then the bacteria will all die and the patient will be home for lunch!&#8221; Is House right, one wonders? At this point we wiggle the mouse so that the DVD player application displays a progress bar. If the progress bar isn&#8217;t almost all the way to the right, then an unforeseen (by House, not by us) complication will emerge and the patient will be back in a coma faster then you can say &#8220;formulaic&#8221;.</p>
+<p>Well look at the scroll bar to the right of this page and tell me: did the C# server solve the problem? Did it bollocks.</p>
+<p>On my hefty development workstation there was never more than a one frame delay between a data packet arriving at the C# server and it being processed by Flash – moving your finger on the trackpad caused a near-instantaneous movement of the mouse pointer drawn by Flash. When I loaded the software onto the cheap PCs we were using for all the clients in the restaurant, this rose to four frames, causing a painfully obvious lag.</p>
+<p>Testing revealed that this delay happened between the C# server sending a TCP packet and the Flash client receiving it, so it was out of our control – the network stack on the cheap PCs just didn&#8217;t shuttle data around fast enough.</p>
+<p>Goodbye plan A.</p>
+<h3>Attempt 2: in through the back door, or &#8220;have you tried doing it in C++?&#8221;</h3>
+<p>Like I said earlier, Flash only accepts data over the network, but there are products that change this. SWF to EXE compilers such as MDM Zinc take an SWF file and compile it into an Windows program. In doing so they make available a range of enhanced ActionScript classes for dealing with things like printers and, (joy!), COM ports.</p>
+<p>A brief reading of the documentation quickly extinguished that joy: rather than allowing multiple instances, the COMPort class of MDM Zinc uses static properties and methods, like so:</p>
+
+<div class="wp_syntax" style="position:relative;"><table><tr><td class="code"><pre class="javascript" style="font-family:monospace;"><span style="color: #006600; font-style: italic;">// sample 3: &quot;Object-oriented&quot; does not mean &quot;procedural with dots in&quot;</span>
+COMPort.<span style="color: #660066;">open</span><span style="color: #009900;">&#40;</span><span style="color: #CC0000;">3</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+COMPort.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;onCOMPortData&quot;</span><span style="color: #339933;">,</span> <span style="color: #000066; font-weight: bold;">function</span><span style="color: #009900;">&#40;</span>result<span style="color: #339933;">:*</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">:</span><span style="color: #000066; font-weight: bold;">void</span> <span style="color: #009900;">&#123;</span>
+    trace<span style="color: #009900;">&#40;</span><span style="color: #3366CC;">&quot;data on COM3 port: &quot;</span> <span style="color: #339933;">+</span> result.<span style="color: #660066;">data</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span></pre></td></tr></table><p class="theCode" style="display:none;">// sample 3: &quot;Object-oriented&quot; does not mean &quot;procedural with dots in&quot;
+COMPort.open(3);
+COMPort.addEventListener(&quot;onCOMPortData&quot;, function(result:*):void {
+    trace(&quot;data on COM3 port: &quot; + result.data);
+});</p></div>
+
+<p>In other words, to make it very slightly easier to access COM ports, they&#8217;ve made it impossible to access more than one at a time. Thanks.</p>
+<p><img class="alignleft wp-image-57 size-full" title="Danger Mouse" src="../../wp-content/uploads/2010/09/dangermouse.jpg" alt="Danger Mouse" width="240" height="372" />Fortunately, there is also a DLL class that allows you to instantiate arbitrary DLLs, call functions and return data. Huzzah! I wrote a DLL in C++ that replaced the network connection of the C# server with a Windows named pipe. Named pipes are regions of shared memory that allow two programs to communicate with each other almost instantaneously. Given the amount of time it took debugging the pointer operations in the C++ DLL, and its tendency to make the whole application crash for no apparent reason, I called the DLL DangerMouse and the client ActionScript code Penfold.</p>
+<p>I compiled and ran the new system, and noted with delight that the latency had dropped to one frame, as any data packets arriving at the COM port were picked up immediately by the DLL / ActionScript combination. It was surprising therefore that the mouse pointer just as sluggish as before.</p>
+<p>The problem was that while the latency had been reduced to one frame, the frame rate had dropped from twenty frames per second to a mere five; the whole system was running at a quarter speed, and was completely unusable. It seems that MDM Zinc has a computational overhead on each frame that was barely noticeable on my workstation, but caused a massive degradation on the cheap client PC.</p>
+<p>Not to worry, I am Options Boy, and there are always more options. I tested a competitor to MDM Zinc called Northcode SWF Studio. This works the same way, but has far less overhead on each frame, giving us a more healthy fifteen frames per second. That&#8217;s a start, but smooth animation requires twenty.</p>
+<p>I turned to profiling and optimising the UI, looking for any redundant computation to remove. After a week of swimming in the last year&#8217;s worth of code and unearthing many performance bottlenecks (including, most embarrassingly, the discovery that the slowest bit of code in the application was the performance monitoring subsystem) I emerged successful: twenty frames per second on the client PC, just like it had been on my workstation.</p>
+<p>The fact that I had so obviously succeeded made it all the more depressing when I discovered once again that the pointer was still not usable.</p>
+<p>The problem this time was then when I ran the UI on the development workstation I had been using a standard mouse for testing. When using a mouse you know how much you need to move the mouse by in order to move the pointer to a target, and if the pointer lags behind a bit it doesn&#8217;t matter: you move the mouse by the right amount, and the pointer catches up a fraction of a second later. A trackpad is different because you&#8217;re always looking for visual feedback from the pointer, and even the slightest latency causes you to overshoot the target. 20 frames per second was fast enough for a mouse, but not for a trackpad, and there was no way the UI would run any faster. Options Boy was bang out of options.</p>
+<p>There is a nonzero probability that calling a badly debugged device driver DangerMouse was the funniest thing I will ever do. Therefore when I discovered that this whole approach had to be abandoned, I think the biggest disappointment was that I had to abandon those lovely component names.</p>
+<h3>Attempt 3: What Would Windows Do?</h3>
+<p>By this point I was mildly upset, since the only route out of this predicament that I could see was to recommend buying faster hardware, and when you start multiplying any extra cost by 31 tables, things start getting unpleasant really fast. While I was browsing the web for computers that are fast, small and cheap (it seems you can pick any two) and wondering how best to sell a five-figure increase in the project cost, I asked myself why more applications don&#8217;t suffer from this problem.</p>
+<p>GUI applications do occasionally lock up for a few tenths of a second as they perform some calculation or wait for an IO operation to complete, but you hardly notice. If you click on a button of an application that is unresponsive, the click event is queued until the application finishes it&#8217;s calculation, after which it will respond. You may notice the delay but it&#8217;s unlikely to irritate you, because you didn&#8217;t have to wait in order to click the button, you only had to wait for the click to be processed. In other words, as long as the pointer doesn&#8217;t stop moving, the user feels in control.</p>
+<p>Suddenly it made sense why the mouse pointer is always drawn by the operating system and not by GUI applications themselves. The operating system can dedicate a high-priority process just to drawing the pointer, so that even if every application slows down to a crawl, the user can still interact at a normal speed. By drawing the mouse pointer in Flash, I had made sure that any slight dip in frame rate had a direct effect on the responsiveness of the mouse pointer.</p>
+<p>What we needed was an application running beside the main UI that could draw the mouse pointers on top of it, and we already had one: the C# mouse server. There is a function in the Windows API called <a href="http://msdn.microsoft.com/en-us/library/ms633556(VS.85).aspx">UpdateLayeredWindow</a> that programs like WinAmp use to draw non-rectangular interfaces. I used this (via C#&#8217;s p/invoke interface that lets you call functions in native DLLs) to overlay a transparent PNG of the mouse pointer that was, to the user, indistinguishable from the one drawn by Flash. Better still, by setting the process priority of the C# server to above normal, Windows will ensure that no matter how slow the Flash animation runs or how much CPU it is taking up, the C# server will always be able to update the pointer position as soon as a new mouse data packet arrives.</p>
+<p>Thoroughly expecting it to not work for some reason, I compiled the project and installed it on the cheap client PC. It worked. I had finished.</p>
+<h1>Conclusion</h1>
+<p>So what did I learn from this project? I started my programming career making web animations, and so I approached this problem as an animation issue, when really it was an operating system issue. If I had initially phrased the problem as &#8220;what is the fastest way to draw a mouse pointer?&#8221; rather than &#8220;how do I increase the frame rate of my animation?&#8221; then I might have finished the project a month earlier.</p>
+<p>But then again, if I&#8217;d finished the project a month earlier I wouldn&#8217;t have found out what the Windows API means by a null named blocking byte type pipe, so it wasn&#8217;t all bad.</p>
+<p>Inamo is open now in Soho, London. If working on a system like this sounds fun, they&#8217;re always looking for smart ActionScript and Java developers. If you are interested, or know anyone who might be, contact me.</p>
+	</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="index.html" rel="bookmark"><time class="entry-date published" datetime="2010-09-30T05:14:34+00:00">30th September 2010</time><time class="updated" datetime="2019-10-17T08:06:40+00:00">17th October 2019</time></a></span><span class="byline"><span class="author vcard"><span class="screen-reader-text">Author </span><a class="url fn n" href="../../author/bernie/index.html">bernie</a></span></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="../../category/software/index.html" rel="category tag">Software</a></span>			</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			23 thoughts on &ldquo;The inamo mouse system: a hacktastic story&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-199" class="comment even thread-even depth-1">
+			<article id="div-comment-199" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/3fa7680203e68a6dae0ff160d9dd96d2?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/3fa7680203e68a6dae0ff160d9dd96d2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">jonathan</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-199">
+							<time datetime="2008-10-20T17:12:14+00:00">
+								20th October 2008 at 5:12 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good article.</p>
+<p>Just wondering why you went through all of that trouble instead of implementing the app using an xmlsocket server to collect and broadcast the multiple inputs.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-200" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-200" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-200">
+							<time datetime="2008-10-20T17:22:01+00:00">
+								20th October 2008 at 5:22 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That&#8217;s exactly what I ended up doing.</p>
+<p>The first version of that approach, the latency was too high because sending data over TCP on a thin client computer takes to long. The mouse pointer movement trailed quite a way behind your finger movement.</p>
+<p>The current version still uses XMLSocket, but now the pointer is drawn to the screen by the socket server application, so it doesn&#8217;t suffer the TCP delay.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-201" class="comment even thread-even depth-1">
+			<article id="div-comment-201" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/72dce9961b8ae3cc675f02625747378f?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/72dce9961b8ae3cc675f02625747378f?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">geoff</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-201">
+							<time datetime="2008-10-20T23:59:57+00:00">
+								20th October 2008 at 11:59 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Fantastic work, and lovely story.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-202" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-202" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/afc6b8cba2f67994168d219d2aafb903?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/afc6b8cba2f67994168d219d2aafb903?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Serena Chan</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-202">
+							<time datetime="2008-12-12T13:35:27+00:00">
+								12th December 2008 at 1:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Dear Bernie,</p>
+<p>What a great program! I would like to know if you would please get in touch with me as my brother is interested in your services. We have a established Pan Asian restaurant in Harrogate.</p>
+<p>Thank you and I hope to hear from you soon.</p>
+<p>Serena</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-203" class="comment even thread-even depth-1">
+			<article id="div-comment-203" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/24ae0b3e7deacbebce4200a3406ae1e7?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/24ae0b3e7deacbebce4200a3406ae1e7?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Martony</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-203">
+							<time datetime="2009-03-13T04:28:46+00:00">
+								13th March 2009 at 4:28 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I am very interested in your program. I own a japanese restaurant myself in Indonesia and would like to know if we can acquire your services here. Thank you.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-204" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-204" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b3eb5af8d7931f02c0508b57deb940cb?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b3eb5af8d7931f02c0508b57deb940cb?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.peopletoucher.com/' rel='external nofollow' class='url'>Chris Pomeroy</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-204">
+							<time datetime="2009-07-29T23:04:08+00:00">
+								29th July 2009 at 11:04 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Why didn&#8217;t you just set up separate instances of the application running on separate machines, that were tied together, rather than create one application for every two people?</p>
+<p>How do you handle parties of 3 or more, one application and multiple cursors?</p>
+<p>Do you have one PC per table?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-205" class="comment even thread-even depth-1">
+			<article id="div-comment-205" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniecode.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-205">
+							<time datetime="2009-07-30T08:57:06+00:00">
+								30th July 2009 at 8:57 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good question: why not run one instance of the system for each person?</p>
+<p>We currently have one PC per table. Running two instances of the OS with one mouse each would have required either twice the number of computers, or a more powerful computer to virtualise two instances of the OS on one computer. Our solution can scale to any number of users without significant extra processing costs.</p>
+<p>Also, the two on one table sharing the same UI can interact qute a bit. They control the &#8220;tablecloth&#8221; background image for the whole table for example, and play two-player games. Both of these would have been significantly harder if the interaction happened over a network.</p>
+<p>Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-206" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-206" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/284483afe2751a16deed4d69168d8cf4?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/284483afe2751a16deed4d69168d8cf4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Cesar Uriarte</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-206">
+							<time datetime="2009-07-31T05:18:16+00:00">
+								31st July 2009 at 5:18 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Dear Bernie</p>
+<p>I was looking for this kind of software for one project that I&#8217;m working.</p>
+<p>Please contact me to talk more about it, I am very interested in your product</p>
+<p>Thank you</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-207" class="comment even thread-even depth-1">
+			<article id="div-comment-207" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/52ed51ab10ab285a7d0aab2a10838541?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/52ed51ab10ab285a7d0aab2a10838541?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">rodrigo</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-207">
+							<time datetime="2010-03-17T01:36:45+00:00">
+								17th March 2010 at 1:36 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I am very interested in your program, I´have a restaurant in brazil, and a need too much your help, if possible contact-me by email please</p>
+<p><a href="mailto:rodrigomfr@hotmail.com">rodrigomfr@hotmail.com</a></p>
+<p>thank´s very alot</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-208" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-208" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/179d2e6dccb432fdb9d447142a4b55bd?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/179d2e6dccb432fdb9d447142a4b55bd?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Mark</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-208">
+							<time datetime="2010-11-07T13:00:05+00:00">
+								7th November 2010 at 1:00 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi Bernie,<br />
+Enjoyed your article. It made me laugh out loud (LOL?)</p>
+<p>What about Silverlight/WCF? Would they work with USB hardware? Thinking about MS Surface table they must have similar requirements.</p>
+<p>Mark</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-209" class="comment byuser comment-author-bernie bypostauthor even thread-even depth-1">
+			<article id="div-comment-209" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">bernie</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-209">
+							<time datetime="2010-11-07T14:38:54+00:00">
+								7th November 2010 at 2:38 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good question. The MS surface expects programs to be written specifically for it, so they require that programs use their multitouch SDK. Our requirements were that applications that were not written with our hardware in mind would run without modification.</p>
+<p>As for the use of SilverLight, that would have made our job much easier since it&#8217;s very easy to get a SilverLight application to access serial ports. This would have removed the need for the separate C# server, since the serial port access code could be baked directly into the client. However we preferred Flash for developing the UI for various reasons, not least of which the ease of hiring skilled Flash designers.<br />
+Bernie     :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-210" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-210" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9d48145949d43c68fc3c757f68d59ca9?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/9d48145949d43c68fc3c757f68d59ca9?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.vogueinteractive.com/' rel='external nofollow' class='url'>Jay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-210">
+							<time datetime="2011-07-05T16:16:31+00:00">
+								5th July 2011 at 4:16 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>First of all let me congratulate you on the amazing work you have done. I&#8217;m a Graphic Designer &amp; Animator, and I also create small Flash games from time to time.</p>
+<p>I went to London in March 2011, and I saw the Inamo restaurant while I was running with my friends to catch the underground train. I didn&#8217;t have time to enter the restaurant, but I really adored the whole idea&#8230; and here I am now, coincidentally found my way into your blog!</p>
+<p>After reading your whole article twice, I had a question in mind: All you had to do is use the &#8220;C# mouse server&#8221; in order to have 2 mouses functioning at the same on the .SWF file? No more ActionScripting was needed inside the Flash file?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-211" class="comment byuser comment-author-bernie bypostauthor even depth-2 parent">
+			<article id="div-comment-211" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-211">
+							<time datetime="2011-07-05T16:19:56+00:00">
+								5th July 2011 at 4:19 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks Jay.</p>
+<p>Yes, there was scripting inside the Flash file. But by the time I got to that step, I&#8217;d already written the scripting. Functionally the system worked perfectly; I just needed to get the performance working too.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-212" class="comment odd alt depth-3">
+			<article id="div-comment-212" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9d48145949d43c68fc3c757f68d59ca9?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/9d48145949d43c68fc3c757f68d59ca9?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.vogueinteractive.com/' rel='external nofollow' class='url'>Jay</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-212">
+							<time datetime="2011-07-05T16:35:44+00:00">
+								5th July 2011 at 4:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you Bernie for your prompt reply. I know people who uses 2 mouses on the same computer for many purposes. Can&#8217;t they as well open an .SWF file and use the 2 mouses at the same time without having to add additional ActionScripts?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-213" class="pingback even thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://entertainmentdesigner.com/news/restaurant-design-news/interactive-tables-at-inamo-restaurant-london/' rel='external nofollow' class='url'>Interactive Tables at Inamo Restaurant, London | Entertainment Designer</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-214" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='http://instant-thinking.de/2011/10/13/inamo/' rel='external nofollow' class='url'>Inamo &#8212; instant-thinking.de</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-215" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-215" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/abbc97fe6b80bee5b5d6b130249c9764?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/abbc97fe6b80bee5b5d6b130249c9764?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.fohboh.com/' rel='external nofollow' class='url'>michael atkinson</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-215">
+							<time datetime="2011-12-29T10:51:50+00:00">
+								29th December 2011 at 10:51 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Very interesting use of restaurant Tech. Curious about the guest reaction and user experience. Also, has this translated into any ROI for the restaurant? Has a sales increase followed the &#8220;buzz&#8221;? Is there a way for the guest to opt-out and use a paper menu instead? How has self ordering affected guest satisfaction and the inevitable &#8220;I didn&#8217;t order this&#8221; question?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-216" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-216" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-216">
+							<time datetime="2011-12-30T19:35:04+00:00">
+								30th December 2011 at 7:35 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>It actually works very well. Obviously there&#8217;s a massive amount of custom coming from first-time visitors wanting to try the hot new thing, but there are a good number of regulars too, so it&#8217;s obviously not just a novelty.</p>
+<p>It&#8217;s been a couple of years since I last went actually (the only downside of moving to Sydney)</p>
+<p>On ROI I think there is something in the order of 10% greater profitability (don&#8217;t quote me on that, the official figures are available somewhere on <a href="http://www.e-table-interactive.com/" rel="nofollow">http://www.e-table-interactive.com</a>). This comes from a combination of more efficient table usage (customers aren&#8217;t hanging around waiting for service as much) and reduced staff expenses. However the big benefit is in the profile of the restaurant. Last time I checked, inamo is packed, 7 days a week, and won Time Out&#8217;s &#8220;Best Restaurant in London&#8221; reader award. And that was the first restaurant opened up by the two founders who were twenty-something when they started the project. What are the odds of two restaurant newbies getting that result on their first attempt in one of the world&#8217;s most competitive foodie cities?</p>
+<p>And yes, there&#8217;s a paper menu, just in case you want to take grandma :o)</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-217" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-217" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b6c618c7bdbc8363ab46616e154e6130?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/b6c618c7bdbc8363ab46616e154e6130?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://no/' rel='external nofollow' class='url'>tea</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-217">
+							<time datetime="2012-02-26T04:09:55+00:00">
+								26th February 2012 at 4:09 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>HALLO BERNIE.<br />
+I am very interested in your program. I own a  restaurant myself in GEORGIA and would like to know if we can acquire your services here. Thank you.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-218" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-218" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-218">
+							<time datetime="2012-02-29T21:09:28+00:00">
+								29th February 2012 at 9:09 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Sure! The software is called E-Table, and is available here: <a href="http://www.e-table-interactive.com/" rel="nofollow">http://www.e-table-interactive.com/</a></p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-219" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-219" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/5957499afdbb59a58358dc987a7dca20?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/5957499afdbb59a58358dc987a7dca20?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">levani</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-219">
+							<time datetime="2012-05-23T00:30:38+00:00">
+								23rd May 2012 at 12:30 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>what kaind of touch are you using??</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-220" class="comment byuser comment-author-bernie bypostauthor odd alt depth-2">
+			<article id="div-comment-220" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/dc4bea5d8218ffd142a685fc9a948804?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://berniesumption.com/' rel='external nofollow' class='url'>bernie</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-220">
+							<time datetime="2012-05-25T20:38:42+00:00">
+								25th May 2012 at 8:38 pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>We made our own hardware, so we use an off the shelf trackpad component wired to a microcontroller on a custom circuit board.</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-221" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-221" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/28a782aeab6ed7b2eae141789c43f45a?s=56&amp;d=mm&amp;r=g' srcset='https://secure.gravatar.com/avatar/28a782aeab6ed7b2eae141789c43f45a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">mariaolga</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index.html#comment-221">
+							<time datetime="2012-07-10T06:25:37+00:00">
+								10th July 2012 at 6:25 am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>wow! great work! still, i don´t understando how the trackpad works. does it uses a software or camera?</p>
+				</div><!-- .comment-content -->
+
+							</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+			<p class="no-comments">Comments are closed.</p>
+	
+	
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="../eval-considered-useful/index.html" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">eval() considered useful: code generation in JavaScript</span></a></div><div class="nav-next"><a href="../inheritance-is-evil-and-must-be-destroyed/index.html" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Inheritance is evil, and must be destroyed</span></a></div></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/">Proudly powered by WordPress</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<script type='text/javascript'>
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><script type='text/javascript' src='../../wp-content/plugins/jquery-collapse-o-matic/js/collapse7514.js?ver=1.6.6'></script>
+<script type='text/javascript' src='../../wp-content/plugins/wp-syntax/js/wp-syntax4963.js?ver=1.1'></script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/skip-link-focus-fixd01e.js?ver=20141010'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='../../wp-content/themes/twentyfifteen/js/functions8337.js?ver=20150330'></script>
+
+			<!-- SwfObj: Register SWFs on this page. -->
+			<script type="text/javascript">
+					swfobject.registerObject("swfobj_0", "8.0.0", "../../wp-content/plugins/swfobj/expressInstall.swf");
+					swfobject.registerObject("swfobj_1", "8.0.0", "../../wp-content/plugins/swfobj/expressInstall.swf");
+					swfobject.registerObject("swfobj_2", "8.0.0", "../../wp-content/plugins/swfobj/expressInstall.swf");
+			</script>
+
+</body>
+
+<!-- Mirrored from blog.berniesumption.com/software/inamo-mouse-system-multiple-mouse-pointers-in-flash/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Oct 2019 12:37:04 GMT -->
+</html>
+
+<!-- Dynamic page generated in 0.899 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-10-17 12:33:15 -->
+
+<!-- super cache -->

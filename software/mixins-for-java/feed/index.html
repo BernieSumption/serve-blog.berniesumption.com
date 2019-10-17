@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: Mixins for Java</title>
+	<atom:link href="https://blog.berniesumption.com/software/mixins-for-java/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.berniesumption.com/software/mixins-for-java/</link>
+	<description>Various writings on software development and photography</description>
+	<lastBuildDate>Fri, 10 Aug 2018 08:19:11 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.11</generator>
+	<item>
+		<title>By: Olli Plough</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-360</link>
+		<dc:creator><![CDATA[Olli Plough]]></dc:creator>
+		<pubDate>Mon, 02 Jan 2012 20:48:01 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-360</guid>
+		<description><![CDATA[Can this be done in Java? No. Then you don&#039;t need it ...]]></description>
+		<content:encoded><![CDATA[<p>Can this be done in Java? No. Then you don&#8217;t need it &#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-359</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Mon, 05 Sep 2011 12:24:31 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-359</guid>
+		<description><![CDATA[OK OK, I get you now. 3rd time lucky.
+
+That should do it: http://hg.berniecode.com/java-mixins/changeset/669d0a9f8873
+
+Bernie     :o)]]></description>
+		<content:encoded><![CDATA[<p>OK OK, I get you now. 3rd time lucky.</p>
+<p>That should do it: <a href="http://hg.berniecode.com/java-mixins/changeset/669d0a9f8873" rel="nofollow">http://hg.berniecode.com/java-mixins/changeset/669d0a9f8873</a></p>
+<p>Bernie     :o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bno</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-358</link>
+		<dc:creator><![CDATA[bno]]></dc:creator>
+		<pubDate>Mon, 05 Sep 2011 11:58:02 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-358</guid>
+		<description><![CDATA[Hi Bernie,
+
+still not what I meant but another good point :)
+I tried it and it works, @MixinBase can be omitted in extending classes.
+
+What I meant though was I don&#039;t want to repeat &quot;implements Logging&quot; in each derived class. So I tried something else and it works like a charm:
+
+Implemented getInterfaces() in MixinFactory.
+&lt;pre lang=&quot;JavaScript&quot;&gt;
+	public static List&lt;Class&gt; getInterfaces(final Class clazz) {
+	    Class c = clazz;
+	    List&lt;Class&gt; result = new ArrayList&lt;Class&gt;(Arrays.asList(c.getInterfaces()));
+	    while (true) {
+	        c = c.getSuperclass();
+	        if (c == null) {
+	            break;
+	        }
+	        result.addAll(Arrays.asList(c.getInterfaces()));
+	    }
+	    
+	    return result;
+	}
+&lt;/pre&gt;
+
+called it in line 90:
+&lt;pre lang=&quot;JavaScript&quot;&gt;
+    for (Class mixinType: getInterfaces(mixinBase)) {
+        ....
+    }
+&lt;/pre&gt;
+
+This does the trick, the &quot;Logging&quot; interface need not be declared again in AnotherLoggingClass.
+
+Cheers,
+bno]]></description>
+		<content:encoded><![CDATA[<p>Hi Bernie,</p>
+<p>still not what I meant but another good point :)<br />
+I tried it and it works, @MixinBase can be omitted in extending classes.</p>
+<p>What I meant though was I don&#8217;t want to repeat &#8220;implements Logging&#8221; in each derived class. So I tried something else and it works like a charm:</p>
+<p>Implemented getInterfaces() in MixinFactory.</p>
+<pre lang="JavaScript">
+	public static List<class> getInterfaces(final Class clazz) {
+	    Class c = clazz;
+	    List</class><class> result = new ArrayList</class><class>(Arrays.asList(c.getInterfaces()));
+	    while (true) {
+	        c = c.getSuperclass();
+	        if (c == null) {
+	            break;
+	        }
+	        result.addAll(Arrays.asList(c.getInterfaces()));
+	    }
+	    
+	    return result;
+	}
+</class></pre>
+<p>called it in line 90:</p>
+<pre lang="JavaScript">
+    for (Class mixinType: getInterfaces(mixinBase)) {
+        ....
+    }
+</pre>
+<p>This does the trick, the &#8220;Logging&#8221; interface need not be declared again in AnotherLoggingClass.</p>
+<p>Cheers,<br />
+bno</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-357</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Mon, 05 Sep 2011 11:21:02 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-357</guid>
+		<description><![CDATA[Aah, I see.
+
+Casting my mind back to the implementation, I see no reason why this issue couldn&#039;t be solved by putting an @Inherited annotation in MixinBase.java. It&#039;s just that annotations aren&#039;t inherited by default, and I never thought about this use case.
+
+That said, since I never tested with inheritance, I can&#039;t guarantee that there&#039;s no part of the system that would break if you just added the @Inherited annotation.
+
+If you try it, let me know!
+
+Bernie     :o)]]></description>
+		<content:encoded><![CDATA[<p>Aah, I see.</p>
+<p>Casting my mind back to the implementation, I see no reason why this issue couldn&#8217;t be solved by putting an @Inherited annotation in MixinBase.java. It&#8217;s just that annotations aren&#8217;t inherited by default, and I never thought about this use case.</p>
+<p>That said, since I never tested with inheritance, I can&#8217;t guarantee that there&#8217;s no part of the system that would break if you just added the @Inherited annotation.</p>
+<p>If you try it, let me know!</p>
+<p>Bernie     :o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bno</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-356</link>
+		<dc:creator><![CDATA[bno]]></dc:creator>
+		<pubDate>Mon, 05 Sep 2011 10:55:18 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-356</guid>
+		<description><![CDATA[Hi Bernie,
+thanks for your comments.
+Sorry, misunderstanding.
+
+I was talking about a class extending a class implementing a mixin.
+
+Like so:
+
+&lt;pre lang=&quot;JavaScript&quot;&gt;
+@MixinType(implementation=LoggerMixIn.class)
+public interface Logging {
+    Logger getLogger();
+}
+
+@MixinBase
+public abstract class LoggingClass implements Logging {
+    public void doSomething() {
+        getLogger().debug(&quot;Hello World!&quot;);
+    }
+}
+
+@MixinBase
+public abstract class AnotherLoggingClass extends LoggingClass {
+
+    @Override
+    public void doSomething() {
+        getLogger().debug(&quot;Hello World from another one!&quot;);
+    } 
+}
+&lt;/pre&gt;
+
+Code generation will fail unless AnotherLoggingClass also implements the Logging interface.
+
+Is there another way to solve this?
+
+Chers,
+Bno]]></description>
+		<content:encoded><![CDATA[<p>Hi Bernie,<br />
+thanks for your comments.<br />
+Sorry, misunderstanding.</p>
+<p>I was talking about a class extending a class implementing a mixin.</p>
+<p>Like so:</p>
+<pre lang="JavaScript">
+@MixinType(implementation=LoggerMixIn.class)
+public interface Logging {
+    Logger getLogger();
+}
+
+@MixinBase
+public abstract class LoggingClass implements Logging {
+    public void doSomething() {
+        getLogger().debug("Hello World!");
+    }
+}
+
+@MixinBase
+public abstract class AnotherLoggingClass extends LoggingClass {
+
+    @Override
+    public void doSomething() {
+        getLogger().debug("Hello World from another one!");
+    } 
+}
+</pre>
+<p>Code generation will fail unless AnotherLoggingClass also implements the Logging interface.</p>
+<p>Is there another way to solve this?</p>
+<p>Chers,<br />
+Bno</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-355</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Sat, 03 Sep 2011 06:39:37 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-355</guid>
+		<description><![CDATA[&gt; Inheritance only works when the class derived from a MixinBase again declares the MixinType interface.
+
+Not true - I think you&#039;re confusing annotations and interfaces. In any case, the two classes don&#039;t extend each other, they are composed together.
+
+&gt; And why is MixinSupport a singleton vs. utility class with static methods?
+
+Good question. The reason was that MixinSupport declares an interface (MixinEngine if I recall correctly), so by making it an object, client code can accept any object of type MixinEngine and avoid tying themselves to a specific implementation of the mixin concept. That&#039;s a pretty unlikely use case, but it seemed like a good idea at the time :o)]]></description>
+		<content:encoded><![CDATA[<p>> Inheritance only works when the class derived from a MixinBase again declares the MixinType interface.</p>
+<p>Not true &#8211; I think you&#8217;re confusing annotations and interfaces. In any case, the two classes don&#8217;t extend each other, they are composed together.</p>
+<p>> And why is MixinSupport a singleton vs. utility class with static methods?</p>
+<p>Good question. The reason was that MixinSupport declares an interface (MixinEngine if I recall correctly), so by making it an object, client code can accept any object of type MixinEngine and avoid tying themselves to a specific implementation of the mixin concept. That&#8217;s a pretty unlikely use case, but it seemed like a good idea at the time :o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bno</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-354</link>
+		<dc:creator><![CDATA[bno]]></dc:creator>
+		<pubDate>Fri, 02 Sep 2011 08:26:49 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-354</guid>
+		<description><![CDATA[Hi bernie,
+
+I like. :)
+Very easy to use, no config hassle, nicely done.
+
+One thing though: Inheritance only works when the class derived from a MixinBase again declares the MixinType interface. Which is commonly accepted as bad practice.
+It should be possible to detect MixinType interfaces in the type hierarchy... ?
+
+And why is MixinSupport a singleton vs. utility class with static methods?
+
+cheers,
+Bno.]]></description>
+		<content:encoded><![CDATA[<p>Hi bernie,</p>
+<p>I like. :)<br />
+Very easy to use, no config hassle, nicely done.</p>
+<p>One thing though: Inheritance only works when the class derived from a MixinBase again declares the MixinType interface. Which is commonly accepted as bad practice.<br />
+It should be possible to detect MixinType interfaces in the type hierarchy&#8230; ?</p>
+<p>And why is MixinSupport a singleton vs. utility class with static methods?</p>
+<p>cheers,<br />
+Bno.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Anders Bagnegaard Kristensen</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-353</link>
+		<dc:creator><![CDATA[Anders Bagnegaard Kristensen]]></dc:creator>
+		<pubDate>Sat, 17 Apr 2010 19:55:12 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-353</guid>
+		<description><![CDATA[I have never need anything more that java? Why would I?]]></description>
+		<content:encoded><![CDATA[<p>I have never need anything more that java? Why would I?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-352</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Mon, 22 Mar 2010 21:38:26 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-352</guid>
+		<description><![CDATA[Hi Michael, thanks for the comment.
+
+
+
+I was able to step into the generated code in eclipse because I had set mixins4j to output code to a local folder, then set that folder as a source attachment when eclipse couldn&#039;t find the code the firs time I tried to step in. By default, all code is generated in memory, If I recall correctly there&#039;s a system property that sets a local folder to write files to. Search the source for uses of System.getProperty and you should find the property I used.
+
+
+
+You&#039;re right, the @MixinBase could be optional. I made it required because I thought that if I didn&#039;t have a predictable marker on mixin base classes, then the only way of finding the mixins in your project would be to search for uses of MixinSupport (doesn&#039;t work if you instantiate the mixins through reflection, or if you haven&#039;t used a mixin class yet) or searching for classes that implement at least one interface that is annotated @MixinType (doesn&#039;t work if you use a different ImplementationSource that gets implementations from somewhere other than Java interfaces). It&#039;s a matter of taste really, rather than anything scientific.
+
+
+
+Bernie     :o)]]></description>
+		<content:encoded><![CDATA[<p>Hi Michael, thanks for the comment.</p>
+<p>I was able to step into the generated code in eclipse because I had set mixins4j to output code to a local folder, then set that folder as a source attachment when eclipse couldn&#8217;t find the code the firs time I tried to step in. By default, all code is generated in memory, If I recall correctly there&#8217;s a system property that sets a local folder to write files to. Search the source for uses of System.getProperty and you should find the property I used.</p>
+<p>You&#8217;re right, the @MixinBase could be optional. I made it required because I thought that if I didn&#8217;t have a predictable marker on mixin base classes, then the only way of finding the mixins in your project would be to search for uses of MixinSupport (doesn&#8217;t work if you instantiate the mixins through reflection, or if you haven&#8217;t used a mixin class yet) or searching for classes that implement at least one interface that is annotated @MixinType (doesn&#8217;t work if you use a different ImplementationSource that gets implementations from somewhere other than Java interfaces). It&#8217;s a matter of taste really, rather than anything scientific.</p>
+<p>Bernie     :o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Michael</title>
+		<link>https://blog.berniesumption.com/software/mixins-for-java/#comment-351</link>
+		<dc:creator><![CDATA[Michael]]></dc:creator>
+		<pubDate>Mon, 22 Mar 2010 03:47:03 +0000</pubDate>
+		<guid isPermaLink="false">http://berniesumption.com/software/#comment-351</guid>
+		<description><![CDATA[Hi Bernie,
+
+
+
+I&#039;ve been looking at all the alternatives for mixins, and I like yours the best. It&#039;s friggin&#039; awesome!
+
+
+
+A question and a suggestion follow.
+
+
+
+Question: How did were you able to step into the generated code? I wasn&#039;t able to in eclipse.
+
+
+
+Suggestion: I don&#039;t think you really need to have the MixinBase annotation _required_. You use it to get the mixer, but you can use a default for that.
+
+
+
+Thanks for the awesome library,
+
+Michael]]></description>
+		<content:encoded><![CDATA[<p>Hi Bernie,</p>
+<p>I&#8217;ve been looking at all the alternatives for mixins, and I like yours the best. It&#8217;s friggin&#8217; awesome!</p>
+<p>A question and a suggestion follow.</p>
+<p>Question: How did were you able to step into the generated code? I wasn&#8217;t able to in eclipse.</p>
+<p>Suggestion: I don&#8217;t think you really need to have the MixinBase annotation _required_. You use it to get the mixer, but you can use a default for that.</p>
+<p>Thanks for the awesome library,</p>
+<p>Michael</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

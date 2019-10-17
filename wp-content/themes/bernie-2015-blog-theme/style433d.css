@@ -1,0 +1,76 @@
+/*
+Theme Name: Bernie Sumption's Blog Theme
+Template: twentyfifteen
+Author: Bernie Sumption
+Version: 1.0
+Updated: 2015-01-28 12:07:46
+*/
+
+@charset "UTF-8";
+
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.sidebar h1, .sidebar h2, .sidebar h3, .sidebar .site-title {
+	text-shadow: 0 0 25px deeppink;
+	color: black;
+}
+
+.entry-title {
+	text-shadow: 0 0 15px deeppink;
+	border-bottom: solid 5px deeppink;
+	color: black;
+}
+
+span.sticky-post {
+	display: none;
+}
+
+.collapseomatic:before {
+	content: "Show ";
+}
+.colomat-close:before {
+	content: "Stop showing ";
+}
+
+.sidenote {
+	background: #EEE;
+	padding: 5%;
+	margin-left: 5%;
+	border-radius: 10px;
+	margin-bottom: 1.6em;
+}
+.sidenote :first-child {
+	margin-top: 0;
+}
+.sidenote :last-child {
+	margin-bottom: 0;
+}
+
+.padded {
+	padding: 5%;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    text-transform: none;
+}
+
+.wp_syntax td.code{
+	background-color: #FAFAFA;
+}
+
+.entry-content, .entry-summary, .page-content, .comment-content {
+	-webkit-hyphens: none!important;
+	-moz-hyphens: none!important;
+	-ms-hyphens: none!important;
+	hyphens: none!important;
+}

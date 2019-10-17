@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: On abandoning Gulp</title>
+	<atom:link href="https://blog.berniesumption.com/software/on-abandoning-gulp/feed/" rel="self" type="application/rss+xml" />
+	<link>https://blog.berniesumption.com/software/on-abandoning-gulp/</link>
+	<description>Various writings on software development and photography</description>
+	<lastBuildDate>Fri, 10 Aug 2018 08:19:11 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.11</generator>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-23795</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Thu, 30 Nov 2017 12:34:36 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-23795</guid>
+		<description><![CDATA[To be clear, I didn&#039;t post the Gulp file that the package.json replaced, but trust me it was hideous! If anything, syntax highlighting in Gulp files just serves to highlight all that unnecessary noise and implementation details, calls to .pipe(), functions etc. And this is just talking about readability - writability of Gulp files is even worse, for example getting calls to .pipe() in the wrong order will totally break things, so you need to understand what&#039;s going on under the hood. Command line interfaces are more of a black box, and generally you can mix arguments around and not break things.
+
+So yes I&#039;d argue that the package.json was a big improvement, but you&#039;re right that it could be further improved. Embedding shell scripts in JSON isn&#039;t exactly pretty.]]></description>
+		<content:encoded><![CDATA[<p>To be clear, I didn&#8217;t post the Gulp file that the package.json replaced, but trust me it was hideous! If anything, syntax highlighting in Gulp files just serves to highlight all that unnecessary noise and implementation details, calls to .pipe(), functions etc. And this is just talking about readability &#8211; writability of Gulp files is even worse, for example getting calls to .pipe() in the wrong order will totally break things, so you need to understand what&#8217;s going on under the hood. Command line interfaces are more of a black box, and generally you can mix arguments around and not break things.</p>
+<p>So yes I&#8217;d argue that the package.json was a big improvement, but you&#8217;re right that it could be further improved. Embedding shell scripts in JSON isn&#8217;t exactly pretty.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: NotAScriptKiddy</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-23794</link>
+		<dc:creator><![CDATA[NotAScriptKiddy]]></dc:creator>
+		<pubDate>Thu, 30 Nov 2017 11:21:57 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-23794</guid>
+		<description><![CDATA[You may continue to love you shell scripts. But to state that the posted package.json is more readable than a Gulp script or in any kind readable at all is just pure nonsense (just look at the highlighting...).]]></description>
+		<content:encoded><![CDATA[<p>You may continue to love you shell scripts. But to state that the posted package.json is more readable than a Gulp script or in any kind readable at all is just pure nonsense (just look at the highlighting&#8230;).</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-20272</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Thu, 15 Sep 2016 09:18:45 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-20272</guid>
+		<description><![CDATA[a) Yes. The example in the post doesn&#039;t use it, but 6 months later I&#039;m still using package scripts, and I&#039;m doing watch mode perfectly happily. I use the watch mode built into many npm packages, e.g. with the --watch flag on the typescript compiler. If there&#039;s no built in watch mode I use &lt;a href=&quot;https://www.npmjs.com/package/wr&quot; rel=&quot;nofollow&quot;&gt;wr&lt;/a&gt;. I serve from &lt;a href=&quot;http://npmjs.com/package/live-server&quot; rel=&quot;nofollow&quot;&gt;live-server&lt;/a&gt; to get browser refresh.
+
+b) I don&#039;t notice my live builds being slow. One second from changing a file to seeing  the changes reflect in the browser.
+
+c) Yup, glorious, simple shell scripts. Love &#039;em.]]></description>
+		<content:encoded><![CDATA[<p>a) Yes. The example in the post doesn&#8217;t use it, but 6 months later I&#8217;m still using package scripts, and I&#8217;m doing watch mode perfectly happily. I use the watch mode built into many npm packages, e.g. with the &#8211;watch flag on the typescript compiler. If there&#8217;s no built in watch mode I use <a href="https://www.npmjs.com/package/wr" rel="nofollow">wr</a>. I serve from <a href="http://npmjs.com/package/live-server" rel="nofollow">live-server</a> to get browser refresh.</p>
+<p>b) I don&#8217;t notice my live builds being slow. One second from changing a file to seeing  the changes reflect in the browser.</p>
+<p>c) Yup, glorious, simple shell scripts. Love &#8217;em.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Richard Rivers</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-20239</link>
+		<dc:creator><![CDATA[Richard Rivers]]></dc:creator>
+		<pubDate>Sun, 11 Sep 2016 17:19:32 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-20239</guid>
+		<description><![CDATA[It does makes certain sense in simplifying things, however its rather limiting in flexibility and speed.
+a) Can your npm example do watch on files or folders and process only those files that had changed? 
+Moreover, in watch mode, Gulp code/tasks are already compiled and ready to run, fast. Npm scripts however runs a new npm each time and is slow.
+b) Gulp pipes uses in-memory node stream which is much faster than disk io.
+c) Gulp is basically javascript code, which gives it unlimited flexibility, including logical operations and running of shell scripts. Npm script is basically just console shell scripts alone.]]></description>
+		<content:encoded><![CDATA[<p>It does makes certain sense in simplifying things, however its rather limiting in flexibility and speed.<br />
+a) Can your npm example do watch on files or folders and process only those files that had changed?<br />
+Moreover, in watch mode, Gulp code/tasks are already compiled and ready to run, fast. Npm scripts however runs a new npm each time and is slow.<br />
+b) Gulp pipes uses in-memory node stream which is much faster than disk io.<br />
+c) Gulp is basically javascript code, which gives it unlimited flexibility, including logical operations and running of shell scripts. Npm script is basically just console shell scripts alone.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Christopher</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-16740</link>
+		<dc:creator><![CDATA[Christopher]]></dc:creator>
+		<pubDate>Tue, 26 Jan 2016 17:57:54 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-16740</guid>
+		<description><![CDATA[You may have discovered this by now but in package.json you can omit the `./node_modules/.bin/` when starting executables that were installed locally with npm.
+
+I still use gulp, but I don&#039;t want to force others to install gulp globally, so I do this:
+&quot;dependencies&quot;: {
+  &quot;gulp&quot;: &quot;latest&quot;
+},
+&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;gulp build&quot;
+}
+
+This will also let me switch to the next shinier gulp replacement without changing my build instructions at all. npm scripts are great, but it doesn&#039;t have to be all or nothing.]]></description>
+		<content:encoded><![CDATA[<p>You may have discovered this by now but in package.json you can omit the `./node_modules/.bin/` when starting executables that were installed locally with npm.</p>
+<p>I still use gulp, but I don&#8217;t want to force others to install gulp globally, so I do this:<br />
+&#8220;dependencies&#8221;: {<br />
+  &#8220;gulp&#8221;: &#8220;latest&#8221;<br />
+},<br />
+&#8220;scripts&#8221;: {<br />
+  &#8220;start&#8221;: &#8220;gulp build&#8221;<br />
+}</p>
+<p>This will also let me switch to the next shinier gulp replacement without changing my build instructions at all. npm scripts are great, but it doesn&#8217;t have to be all or nothing.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bernie</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-8438</link>
+		<dc:creator><![CDATA[bernie]]></dc:creator>
+		<pubDate>Tue, 08 Sep 2015 10:21:33 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-8438</guid>
+		<description><![CDATA[ES6 modules (and the JSPM/system.js projects that will smooth their adoption) are going to be a great boon to the JS community and solve lots of problems with the current state of affairs.
+
+Still, in a post-ES6 we&#039;ll still need build systems. Your JS in a complex app will still need to be minified and concatenated, and the build handles other tasks like compiling LESS to CSS and generating regular versions of retina images.
+
+Cheers,
+
+Bernie     :o)]]></description>
+		<content:encoded><![CDATA[<p>ES6 modules (and the JSPM/system.js projects that will smooth their adoption) are going to be a great boon to the JS community and solve lots of problems with the current state of affairs.</p>
+<p>Still, in a post-ES6 we&#8217;ll still need build systems. Your JS in a complex app will still need to be minified and concatenated, and the build handles other tasks like compiling LESS to CSS and generating regular versions of retina images.</p>
+<p>Cheers,</p>
+<p>Bernie     :o)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Chad</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-8390</link>
+		<dc:creator><![CDATA[Chad]]></dc:creator>
+		<pubDate>Sun, 06 Sep 2015 21:31:14 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-8390</guid>
+		<description><![CDATA[Double win, use JSPM/system.js?]]></description>
+		<content:encoded><![CDATA[<p>Double win, use JSPM/system.js?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: mp</title>
+		<link>https://blog.berniesumption.com/software/on-abandoning-gulp/#comment-6194</link>
+		<dc:creator><![CDATA[mp]]></dc:creator>
+		<pubDate>Tue, 23 Jun 2015 10:51:37 +0000</pubDate>
+		<guid isPermaLink="false">http://blog.berniesumption.com/?p=795#comment-6194</guid>
+		<description><![CDATA[BTW, you don&#039;t need ./node_modules/.bin/ prefix for executables, npm handles that for you.]]></description>
+		<content:encoded><![CDATA[<p>BTW, you don&#8217;t need ./node_modules/.bin/ prefix for executables, npm handles that for you.</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>
