@@ -1,0 +1,70 @@
+.collapseomatic {
+	background-image: url('/web/20150730211959im_/http://blog.berniesumption.com/wp-content/plugins/jquery-collapse-o-matic/images/arrow-down.png');
+	background-repeat: no-repeat;
+	padding: 0 0 10px 16px;
+	cursor: pointer;
+}
+.arrowright {
+	background-position: top right;
+	padding: 0 16px 10px 0;
+}
+.noarrow {
+	background-image: none !important;
+	padding: 0 0 10px 0;
+}
+.colomat-hover {
+	text-decoration: underline;
+}
+.colomat-close {
+	background-image: url('/web/20150730211959im_/http://blog.berniesumption.com/wp-content/plugins/jquery-collapse-o-matic/images/arrow-up.png');
+}
+.colomat-swap {
+	display: none;
+}
+.collapseomatic_excerpt, .collapseomatic_content {
+	margin-top: 0px;
+	margin-left: 16px;
+	padding: 0px;
+}
+.content_collapse_wrapper {
+	position: absolute; left: -999em;
+}
+.collapseall, .expandall {
+	cursor: pointer;
+}
+.collapseall:hover, .expandall:hover, .collapseall:focus, .expandall:focus {
+	text-decoration: underline;
+}
+.maptastic {
+	position: absolute !important;
+	left: -10000px !important;
+	display:block !important;
+	max-width: 9999px;
+}
+.span_fix {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.span_fix:before, .span_fix:after {
+	content: none;
+}
+/*
+     FILE ARCHIVED ON 21:19:59 Jul 30, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:33:27 Jan 07, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.485
+  exclusion.robots: 0.018
+  exclusion.robots.policy: 0.009
+  esindex: 0.009
+  cdx.remote: 117.529
+  LoadShardBlock: 186.446 (3)
+  PetaboxLoader3.datanode: 110.294 (4)
+  PetaboxLoader3.resolve: 192.392 (2)
+  load_resource: 132.348
+*/
